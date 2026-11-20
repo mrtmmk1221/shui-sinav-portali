@@ -13,6 +13,12 @@
     } catch (e) { document.documentElement.dataset.theme = 'light'; }
   </script>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#2459d6">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="SHUİ Sınav">
 </head>
 <body>
   <header class="topbar">
@@ -27,6 +33,7 @@
       <nav class="nav" aria-label="Ana menü">
         <button class="nav__btn" data-action="home">Ana Sayfa</button>
         <button class="nav__btn" data-action="mistakes">Yanlışlarım <span class="badge" id="mistake-count">0</span></button>
+        <button class="nav__btn nav__install hidden" data-action="install" id="btn-install">⬇ Uygulamayı yükle</button>
         <button class="icon-btn" data-action="theme" aria-label="Temayı değiştir" title="Temayı değiştir">☾</button>
       </nav>
     </div>

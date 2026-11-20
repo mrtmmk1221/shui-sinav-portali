@@ -122,6 +122,8 @@
         soru: String(raw.soru),
         secenekler, dogru,
         aciklama: String(raw.aciklama || ''),
+        kaynak: raw.kaynak ? String(raw.kaynak) : '',
+        sinavSayisi: Number(raw.sinavSayisi) || 0,
       };
     },
     categories() { return [...new Set(this.questions.map(q => q.kategori))]; },
@@ -364,7 +366,7 @@
 
       Util.$('#q-count').textContent = `${s.idx + 1} / ${s.items.length}`;
       Util.$('#q-progress').style.width = Util.pct(s.idx + 1, s.items.length) + '%';
-      Util.$('#q-meta').textContent = `${q.kategori} · ${q.konu}${Store.data.yanlislar.includes(q.id) ? ' · daha önce yanlış' : ''}`;
+      Util.$('#q-meta').textContent = [q.kategori, q.konu, q.kaynak, q.sinavSayisi > 1 ? `sınavlarda ${q.sinavSayisi} kez çıktı` : '', Store.data.yanlislar.includes(q.id) ? 'daha önce yanlış' : ''].filter(Boolean).join(' · ');
       Util.$('#q-text').textContent = q.soru;
 
       Util.$('#q-options').replaceChildren(...item.sira.map((real, i) => {
@@ -429,7 +431,7 @@
       return Util.el('details', { open },
         Util.el('summary', {},
           Util.el('span', { class: 'review__dot ' + state, text: state === 'ok' ? '✓' : state === 'bad' ? '✗' : '–' }),
-          Util.el('span', {}, Util.el('small', { class: 'muted', text: `${no ? no + '. soru · ' : ''}${q.kategori} · ${q.konu}` }), Util.el('div', { text: q.soru }))),
+          Util.el('span', {}, Util.el('small', { class: 'muted', text: `${no ? no + '. soru · ' : ''}${q.kategori} · ${q.konu}${q.kaynak ? ' · ' + q.kaynak : ''}` }), Util.el('div', { text: q.soru }))),
         body);
     },
 
@@ -456,6 +458,19 @@
      Events — tek noktadan tıklama ve klavye yönetimi
      --------------------------------------------------------- */
   let quitArmed = null;
+  let installPrompt = null;
+
+  /* ---------------------------------------------------------
+     Kurulabilir uygulama (PWA) ve çevrimdışı çalışma
+     --------------------------------------------------------- */
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault(); installPrompt = e;
+    const b = Util.$('#btn-install'); if (b) b.classList.remove('hidden');
+  });
+  window.addEventListener('appinstalled', () => { const b = Util.$('#btn-install'); if (b) b.classList.add('hidden'); });
   const actions = {
     home: () => Views.home(),
     mistakes: () => Views.mistakes(),
@@ -479,6 +494,12 @@
       quitArmed = null; Views.home();
     },
     'retry-wrong': () => Session.retryWrong(),
+    install: async () => {
+      if (!installPrompt) return;
+      installPrompt.prompt();
+      try { await installPrompt.userChoice; } catch (e) { /* yok say */ }
+      installPrompt = null; Util.$('#btn-install').classList.add('hidden');
+    },
     'mistake-test': () => Views.startMistakeTest(),
     'clear-mistakes': btn => {
       if (btn.dataset.armed) { Store.data.yanlislar = []; Store.save(); Views.mistakes(); return; }

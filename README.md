@@ -10,8 +10,18 @@ soru-bankasi/
 ├── style.css     → tasarım (koyu/açık tema)
 ├── app.js        → uygulama mantığı (Vanilla JS)
 ├── sorular.json  → soru veritabanı
+├── manifest.webmanifest, sw.js, icons/ → telefona kurulum ve internetsiz çalışma
 └── README.md     → bu kılavuz
 ```
+
+**Canlı adres:** https://mrtmmk1221.github.io/shui-sinav-portali/
+
+## Telefona uygulama olarak kurma
+
+- **Android (Chrome):** siteyi aç → üstteki **⬇ Uygulamayı yükle** butonuna bas (görünmüyorsa Chrome menüsü → *Ana ekrana ekle* / *Uygulamayı yükle*).
+- **iPhone (Safari):** siteyi aç → Paylaş simgesi → **Ana Ekrana Ekle**.
+
+Kurduktan sonra uygulama bir kez açıldığında tüm dosyalar telefona kaydedilir; internet olmadan da çalışır. İnternet varken açıldığında yeni eklenen sorular otomatik olarak gelir.
 
 ## GitHub Pages'te yayınlama
 
@@ -50,6 +60,8 @@ soru-bankasi/
 | `secenekler` | **Evet** | 2 ile 6 arası şık. Sırası A, B, C… olarak gösterilir. |
 | `dogru` | **Evet** | Doğru şıkkın **harfi**: `"A"`, `"B"`, `"C"`, `"D"` veya `"E"`. |
 | `aciklama` | Hayır | Çalışma modunda ve karnede gösterilen çözüm. |
+| `kaynak` | Hayır | Sorunun nereden geldiği (ör. "Ders kitabı (ünite sonu)", "Geçmiş sınav"). Soru ekranında gösterilir. |
+| `sinavSayisi` | Hayır | Sorunun geçmiş sınavlarda kaç kez çıktığı. 2 ve üzeriyse soru ekranında gösterilir. |
 | `id` | Hayır | Yazmazsan soru metninden otomatik üretilir. |
 
 Kurallar:
@@ -66,6 +78,10 @@ Kurallar:
 - `baslik`: üst menüde görünen ad
 - `aciklama`: başlığın altındaki kısa yazı
 - `soruBasinaSaniye`: sınav modunda soru başına süre (varsayılan 75 sn; 20 soru = 25 dakika)
+
+## Uygulama dosyalarını değiştirirsen
+
+`app.js`, `style.css` veya `index.html` üzerinde değişiklik yaptıysan `sw.js` dosyasının başındaki `SURUM` değerini artır (ör. `shui-v3`). Böylece telefona kurulu uygulama yeni sürümü alır. Sadece `sorular.json` değiştiyse buna gerek yok.
 
 ## Veriler nerede saklanıyor?
 

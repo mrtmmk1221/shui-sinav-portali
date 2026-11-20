@@ -78,6 +78,8 @@ button { cursor: pointer; }
   border: 0; background: transparent; padding: 8px 12px; border-radius: 10px; font-weight: 600; font-size: 14px;
 }
 .nav__btn:hover, .icon-btn:hover { background: var(--surface-2); }
+.nav__install { background: var(--primary); color: var(--primary-ink); }
+.nav__install:hover { background: var(--primary); filter: brightness(1.07); }
 .nav__btn.is-active { background: var(--primary-soft); color: var(--primary); }
 .icon-btn { font-size: 18px; width: 40px; height: 40px; padding: 0; border: 1px solid var(--border); }
 .badge {
@@ -232,6 +234,7 @@ select {
   .card { padding: 16px; }
   .brand small { display: none; }
   .nav__btn { padding: 8px 8px; font-size: 13px; }
+  .nav { flex-wrap: wrap; }
   .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .stat b { font-size: 20px; }
   .result__grid { grid-template-columns: repeat(2, 1fr); }
