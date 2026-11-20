@@ -10,6 +10,7 @@ soru-bankasi/
 ├── style.css     → tasarım (koyu/açık tema)
 ├── app.js        → uygulama mantığı (Vanilla JS)
 ├── sorular.json  → soru veritabanı
+├── gorseller/    → şekilli/tablolu soruların görselleri
 ├── manifest.webmanifest, sw.js, icons/ → telefona kurulum ve internetsiz çalışma
 └── README.md     → bu kılavuz
 ```
@@ -62,6 +63,7 @@ Kurduktan sonra uygulama bir kez açıldığında tüm dosyalar telefona kaydedi
 | `aciklama` | Hayır | Çalışma modunda ve karnede gösterilen çözüm. |
 | `kaynak` | Hayır | Sorunun nereden geldiği (ör. "Ders kitabı (ünite sonu)", "Geçmiş sınav"). Soru ekranında gösterilir. |
 | `sinavSayisi` | Hayır | Sorunun geçmiş sınavlarda kaç kez çıktığı. 2 ve üzeriyse soru ekranında gösterilir. |
+| `gorsel` | Hayır | Şekil veya tablo içeren sorular için resim yolu, ör. `"gorseller/depo.webp"`. Resmi `gorseller` klasörüne yükle. |
 | `id` | Hayır | Yazmazsan soru metninden otomatik üretilir. |
 
 Kurallar:
@@ -81,7 +83,7 @@ Kurallar:
 
 ## Uygulama dosyalarını değiştirirsen
 
-`app.js`, `style.css` veya `index.html` üzerinde değişiklik yaptıysan `sw.js` dosyasının başındaki `SURUM` değerini artır (ör. `shui-v3`). Böylece telefona kurulu uygulama yeni sürümü alır. Sadece `sorular.json` değiştiyse buna gerek yok.
+`app.js`, `style.css` veya `index.html` üzerinde değişiklik yaptıysan ya da `gorseller` klasörüne resim eklediysen `sw.js` dosyasının başındaki `SURUM` değerini artır (ör. `shui-v4`). Yeni resmi `sw.js` içindeki `DOSYALAR` listesine de ekle. Böylece telefona kurulu uygulama yeni sürümü alır. Sadece `sorular.json` değiştiyse buna gerek yok.
 
 ## Veriler nerede saklanıyor?
 

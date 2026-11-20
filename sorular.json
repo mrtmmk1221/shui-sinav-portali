@@ -244,22 +244,6 @@
       "sinavSayisi": 0
     },
     {
-      "kategori": "Müşteri İlişkileri Yönetimi",
-      "konu": "Müşteri değeri, CLV, karlılık, portföy",
-      "soru": "Hangisi veri madenciliği işlevlerinden değildir?",
-      "secenekler": [
-        "Sınıflandırma",
-        "Değer biçme",
-        "Tahmin etme",
-        "Uzaklık kuralları",
-        "Kümeleme"
-      ],
-      "dogru": "B",
-      "aciklama": "Veri madenciliğinin temel işlevleri sınıflandırma, kümeleme, tahmin etme ve birliktelik/sıralı örüntü (uzaklık) kurallarıdır. \"Değer biçme\" bir veri madenciliği işlevi olarak sayılmaz.",
-      "kaynak": "Ders kitabı",
-      "sinavSayisi": 0
-    },
-    {
       "kategori": "Lojistik Yönetimi",
       "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
       "soru": "İzleme Sinyali (TS, Tracking Signal) aşağıdakilerden hangisine eşittir?",
@@ -273,6 +257,140 @@
       "dogru": "A",
       "aciklama": "İzleme sinyali (TS) = RSFE / MAD. RSFE tahmin hatalarının işaretli toplamıdır, MAD ortalama mutlak sapmadır. TS, belirlenen kontrol sınırlarının (ör. ±4 MAD) dışına çıkarsa tahmin modelinin sistematik olarak fazla ya da eksik tahmin yaptığı anlaşılır ve model gözden geçirilir.",
       "kaynak": "Ders kitabı",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Trafik hakları, ikili anlaşmalar, açık semalar",
+      "soru": "Görseli verilen ikili hava anlaşması (İstanbul → Batum) aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Altıncı Trafik Hakkı",
+        "Beşinci Trafik Hakkı",
+        "Dördüncü Trafik Hakkı",
+        "Üçüncü Trafik Hakkı",
+        "İkinci Trafik Hakkı"
+      ],
+      "dogru": "D",
+      "aciklama": "Kendi ülkesinden (Türkiye) yabancı bir ülkeye (Gürcistan) yolcu/yük taşıma hakkı üçüncü hava trafik hakkıdır.",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/hh-trafik-3.webp"
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Trafik hakları, ikili anlaşmalar, açık semalar",
+      "soru": "Görseli verilen ikili hava anlaşması (Sofya → İstanbul → Tiflis) aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Altıncı Trafik Hakkı",
+        "Beşinci Trafik Hakkı",
+        "Dördüncü Trafik Hakkı",
+        "Üçüncü Trafik Hakkı",
+        "İkinci Trafik Hakkı"
+      ],
+      "dogru": "A",
+      "aciklama": "Yabancı bir ülkeden (Bulgaristan) alınan yolcunun kendi ülkesi (Türkiye) üzerinden başka bir yabancı ülkeye (Gürcistan) taşınması altıncı hava trafik hakkıdır.",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/hh-trafik-6.webp"
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Trafik hakları, ikili anlaşmalar, açık semalar",
+      "soru": "“THY uçağı İstanbul'dan aldığı yolcu ve yükleri Gürcistan'ın Batum şehrinde indirmektedir. Sonrasında, verilen yetki sayesinde Batum'dan aldığı yolcu ve yükleri Azerbaycan'ın Bakü şehrine ulaştıran bir sefer gerçekleştirmektedir.” Bu olayda söz konusu olan hava trafik hakkı hangisidir?",
+      "secenekler": [
+        "Altıncı Trafik Hakkı",
+        "Beşinci Trafik Hakkı",
+        "Dördüncü Trafik Hakkı",
+        "Üçüncü Trafik Hakkı",
+        "İkinci Trafik Hakkı"
+      ],
+      "dogru": "B",
+      "aciklama": "Kendi ülkesinden başlayan seferde, ikinci ülkeden (Gürcistan) aldığı yolcuyu üçüncü bir ülkeye (Azerbaycan) taşıma beşinci hava trafik hakkıdır.",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/hh-trafik-3.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Tabloda, büyük üretim miktarlarının söz konusu olduğu bir ortamda A tahmin yöntemiyle yapılan tahminlerin hataları ve izleme sinyalleri görülmektedir.\nBuna göre hangi aylardaki tahmin güvenilir değildir?",
+      "secenekler": [
+        "1, 2, 3 ve 4",
+        "4",
+        "7, 8, 9 ve 10",
+        "8, 9 ve 10",
+        "7 ve 10"
+      ],
+      "dogru": "D",
+      "aciklama": "İzleme sinyalinin kabul edilen sınırları (±4 MAD) aştığı aylar 8 (5,09), 9 (5,89) ve 10 (4,03)'dur.",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-ts-tablo.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Tabloda, büyük üretim miktarlarının söz konusu olduğu bir ortamda A tahmin yöntemiyle yapılan tahminlerin hataları ve izleme sinyalleri görülmektedir.\nTabloya göre ikinci ayın RSFE değeri nedir?",
+      "secenekler": [
+        "724",
+        "180",
+        "362",
+        "-724",
+        "-362"
+      ],
+      "dogru": "D",
+      "aciklama": "RSFE = hataların işaretli toplamı = −450 + (−274) = −724.",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-ts-tablo.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Tabloda, büyük üretim miktarlarının söz konusu olduğu bir ortamda A tahmin yöntemiyle yapılan tahminlerin hataları ve izleme sinyalleri görülmektedir.\nTabloya göre üçüncü ayın MAD değeri nedir?",
+      "secenekler": [
+        "764",
+        "-764",
+        "255",
+        "-255",
+        "-40"
+      ],
+      "dogru": "C",
+      "aciklama": "MAD = (|−450| + |−274| + |−40|) / 3 = 764 / 3 ≈ 255.",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-ts-tablo.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Aşağıdakilerden hangisi diğerlerinden farklıdır?",
+      "secenekler": [
+        "Σ Et / n",
+        "RSFE / n",
+        "ME (Ortalama Hata)",
+        "MFE (Ortalama Tahmin Hatası)",
+        "MAD (Ortalama Mutlak Sapma)"
+      ],
+      "dogru": "E",
+      "aciklama": "ME, MFE, Σ Et / n ve RSFE / n aynı şeyi (ortalama tahmin hatasını) ifade eder. MAD ise hataların mutlak değerlerinin ortalamasıdır.",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir ürünün aylık satışları şöyledir: Kasım 39, Aralık 36, Ocak 40, Şubat 38, Mart 48, Nisan 46. 4 aylık hareketli ortalama kullanılarak Mayıs ayı için hangi değer tahmin edilir?",
+      "secenekler": [
+        "38",
+        "41",
+        "42",
+        "43",
+        "46"
+      ],
+      "dogru": "D",
+      "aciklama": "Son 4 ay: (40 + 38 + 48 + 46) / 4 = 172 / 4 = 43.",
+      "kaynak": "Ders kitabı (ünite sonu)",
       "sinavSayisi": 0
     },
     {
@@ -6814,6 +6932,3454 @@
       "dogru": "E",
       "aciklama": "",
       "kaynak": "Çözümlü deneme",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "…….., bir işletmenin müşteri ilişkilerinin kalitesinin bir ölçüsü olarak kullanılan; memnun müşterilerin deneyimleri hakkında iyi haberler yayarak başkalarının davranışlarını etkilediği ve işletmenin büyümesini sağladığı, memnun olmayan müşterilerin ise tam tersi bir etkiyle kötü haberler yaydığı inancına dayanır. Boşluğu en doğru şekilde tamamlayan seçenek hangisidir?",
+      "secenekler": [
+        "RFM analizi",
+        "Cüzdan payı",
+        "Müşteri yaşam boyu değer analizi",
+        "Cüzdan büyüklüğü",
+        "Net tavsiye skoru"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Oransal olarak tanımlanan bir MİY metriği olan ……., bir işletmenin hedeflediği müşterinin belirli bir kategoriye ayırdığı harcama tutarının ne kadarını işletmeden karşıladığını gösterir. Boşluğu en doğru şekilde tamamlayan seçenek hangisidir?",
+      "secenekler": [
+        "Müşteri kazanma oranı",
+        "Müşteri kazanma maliyeti",
+        "Cüzdan büyüklüğü",
+        "Elde tutma ve kayıp (ayrılma) oranı",
+        "Cüzdan payı"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "MİY kavramı, gelişimi, temel felsefe",
+      "soru": "Hangisi MİY (müşteri ilişkileri yönetimi) için gerekli bilgi teknolojilerinden değildir?",
+      "secenekler": [
+        "Satış noktası otomasyonu",
+        "Çağrı merkezi",
+        "Self servis",
+        "Satış temsilcisi",
+        "Şube uygulamaları"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "Hangisi müşteri sadakatinin oluşturulmasında etkili olan değişkenlerden değildir?",
+      "secenekler": [
+        "Uyma eğilimi",
+        "İmaj",
+        "Pazar ve rekabet koşulları",
+        "Karar verme kolaylığı",
+        "Üretici beklentileri"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "Aşağıdakilerden hangisi müşteri sadakatinin oluşturulmasında etkili olan temel değişkenlerden biri değildir?",
+      "secenekler": [
+        "Müşterilerin risk almaktan kaçınma isteği",
+        "Müşteri içgörüsü",
+        "Müşteri alışkanlığı",
+        "Müşteri tatmini",
+        "İmaj"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Operasyonel/analitik/işbirlikçi MİY, SFA, ön büro",
+      "soru": "Hangisi satış gücü otomasyonunun kapsamında değildir?",
+      "secenekler": [
+        "İletişim yönetimi",
+        "Satış tahminleri",
+        "Satış yöneticisi",
+        "Performans yönetimi",
+        "Kota yönetimi"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Genel",
+      "soru": "Hangisi pazarlama faaliyetlerinden değildir?",
+      "secenekler": [
+        "Fiyatlandırma",
+        "Dağıtım",
+        "Satış pazarlama",
+        "Ürün geliştirme",
+        "Personeli eğitme"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "MİY kavramı, gelişimi, temel felsefe",
+      "soru": "Analitik MİY (müşteri ilişkileri yönetimi) hangisine odaklanmaz?",
+      "secenekler": [
+        "Örgütsel değişiklikler",
+        "Stratejik planlama",
+        "Kültürel değişiklikler",
+        "Ölçümsel değişiklikler",
+        "Olgusal değişiklikler"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri kazanma, tutma, kayıp (churn)",
+      "soru": "Hangisi ilişkisel pazarlamanın ana amaçlarından değildir?",
+      "secenekler": [
+        "Müşteri kaybını önlemek",
+        "Yeni ürünler geliştirmek",
+        "Yeni müşteriler kazanmak",
+        "Mevcut müşterileri elde tutmak",
+        "Satışları arttırmak"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Veri, veri madenciliği, segmentasyon",
+      "soru": "Tarafların taahhüdünün göstergesi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "İlişkiye yapılan yatırımın büyüklüğüdür",
+        "Verilen emektir",
+        "Yapılan anlaşmadır",
+        "Ödeme esnekliğidir",
+        "Harcanan zamandır"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Örgüt yapısı, değişim, çalışanlar",
+      "soru": "Hangisi bir MİY yazılımından beklenmez?",
+      "secenekler": [
+        "Maliyet takibine olanak sağlanması",
+        "Çalışanlara görev ataması",
+        "Aktivitelerin planlanması",
+        "Satış ekiplerini otomatik bilgilendirmesi",
+        "Yeni işleyiş biçimleri üretmesi"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "Bir işletme MİY stratejisi çerçevesinde bir pazar bölümünü hedefleme kararı aldığında performans göstergesi olarak hangisini ölçmek için özellikle çaba sarf edilmelidir?",
+      "secenekler": [
+        "Müşteri taleplerini",
+        "Rakip pazar payını",
+        "Müşteri memnuniyetini",
+        "Müşteri ilişkilerini",
+        "Müşteri harcamalarının payındaki artışı"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "“Bir girdiyle başlayan (iç veya dış müşteriden gelen bir talep, bilgi veya hammadde) ve bu girdiye katma değer katılarak amaçlanan bir çıktı (ürün veya hizmet) üreten, birbiriyle bağlantılı adımlar ve işlemler dizisidir.” Tanımı verilen kavram hangisidir?",
+      "secenekler": [
+        "Süreç",
+        "Strateji",
+        "Politika",
+        "Prosedür",
+        "Proje"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "Hangisi şikâyetlerin işletmelere sunduğu fırsatlardan değildir?",
+      "secenekler": [
+        "Tatmin olmamış müşterileri kazanma",
+        "Marka tercihinin değişmesine engel olma",
+        "İstenmeyen (negatif) ağızdan ağıza iletişimi engelleme",
+        "Müşteri kaybını engelleme",
+        "Rakipleri zayıflatma"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Hangisi veri madenciliği işlevlerinden biri değildir?",
+      "secenekler": [
+        "Sınıflandırma",
+        "Değer biçme",
+        "Kümeleme",
+        "Tanımlama ve görselleştirme",
+        "Konumlandırma"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Genel",
+      "soru": "Hangisi geleneksel pazarlama karması öğelerinden biri değildir?",
+      "secenekler": [
+        "Ürün",
+        "Kalite",
+        "Fiyat",
+        "Tutundurma",
+        "Dağıtım"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Genel",
+      "soru": "Müşterileri tanılamak için yapılması gereken faaliyetlerden biri değildir?",
+      "secenekler": [
+        "Tanımlama",
+        "Bütünleştirme",
+        "İlişkilendirme",
+        "Güncelleme",
+        "Eleme"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Aşağıdakilerden hangisi müşteri değeri temelli örgütte çalışanlarda bulunması gereken niteliklerden biri değildir?",
+      "secenekler": [
+        "İletişim becerisi",
+        "Analitik nitelikler",
+        "Teknik nitelikler",
+        "Sentezleyici nitelikler",
+        "Ayırıcı nitelikler"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "• Hizmetten yararlandıktan ya da satın almanın gerçekleştiği andan sonra müşterinin ne kadar hoşlandığını veya hoşlanmadığını yansıtan satın alma sonrası olaydır.\n• Müşterinin tüketimle ilgili tatmin olma tepkisidir.\n• Müşterilerin bir mal veya hizmeti kendi ihtiyaç ve beklentilerini karşılayıp karşılamamasına göre değerlendirmesidir.\nAynı kavrama ilişkin farklı yaklaşımları yansıtan yukarıdaki tanımlar hangi kavramı açıklamaktadır?",
+      "secenekler": [
+        "Müşteri sadakati",
+        "Müşteri algısı",
+        "Müşteri memnuniyeti",
+        "Müşteri değeri",
+        "Müşteri satın alma niyeti"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Genel",
+      "soru": "Hangisi işletme açısından müşteriler arası farklılık oluşturan olgulardan değildir?",
+      "secenekler": [
+        "Dış görünüşleri",
+        "Demografik özellikler",
+        "Psikolojik özellikler",
+        "İşlem geçmişleri",
+        "Tutumları"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Genel",
+      "soru": "Hangisi müşteri ihtiyaçlarının özelliklerinden değildir?",
+      "secenekler": [
+        "Durumsal olabilir",
+        "Dinamiktir, zaman içinde değişebilir",
+        "Farklı ihtiyaç profilleri vardır",
+        "En temel insan ihtiyaçları psikolojiktir",
+        "İhtiyaçların önem derecesi farklılaşmaz"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Veri, veri madenciliği, segmentasyon",
+      "soru": "Hangisi analitik MİY başlığı altına girmez?",
+      "secenekler": [
+        "Analiz çalışmaları",
+        "Verilerin alınması",
+        "Verilerin saklanması",
+        "Veri toplama kanalları",
+        "Verilerin silinmesi"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Örgüt yapısı, değişim, çalışanlar",
+      "soru": "Hangisi aday müşterilerin niteliklerini belirlemeye çalışan sorulardan değildir?",
+      "secenekler": [
+        "Aday müşterinin işletmenin sunduğu ürünlere ihtiyacı var mıdır?",
+        "Aday müşterinin satın almasını destekleyenler var mı?",
+        "Aday müşterinin işletmenin ürünlerine sahip olmak için ödeme gücü var mıdır?",
+        "Aday müşterinin satın alma yetkisi var mıdır?",
+        "Aday müşterinin satın alacak parası var mı?"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "İlişki pazarlaması, ilişki kalitesi, güven/bağlılık",
+      "soru": "“Bir müşteriye kaynak ayrıldığı anda o kaynaklar başka bir müşteri için harcanamaz. İşletme A müşterisi ile ilişkileri için yatırım yapma taahhüdünde bulunmuşsa, B müşterisi ile ilişki daha avantajlı olsa bile B müşterisi ile ilişki kurma ve iş yapma ihtimalinden vazgeçmiş olur.” Bu ifade işletmenin ilişkiden kaçma nedenlerinden hangisini açıklar?",
+      "secenekler": [
+        "Kontrolü kaybetme endişesi",
+        "İlişkinin kaynak taahhüdü gerektirmesi",
+        "Fırsat maliyetleri",
+        "İlişkiyi sonlandırmanın maliyetleri",
+        "Bağımlılık korkusu"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "“Evlilik, bebek sahibi olma, emeklilik vb. durumlar genellikle insanların ihtiyaçlarında değişikliklere yol açar.” Bu ifade müşteri ihtiyaçlarının özelliklerinden hangisi ile ilgilidir?",
+      "secenekler": [
+        "En temel insan ihtiyaçları psikolojiktir",
+        "Müşteri ihtiyaçları sıklıkla müşteri değeriyle bağlantılıdır",
+        "Müşterilerin farklı yoğunluklarda ihtiyaçları ve farklı ihtiyaç profilleri vardır",
+        "Müşteri ihtiyaçları dinamiktir ve zaman içinde değişebilir",
+        "Müşteri ihtiyaçları doğası gereği durumsal olabilir"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "“Çevre korumaya önem veren iki müşteriden biri bunu hayatının tüm alanına yayma ihtiyacı duyarken diğeri sadece belli durumlarda, örneğin satın aldığı ürünlerin ambalajında geri dönüşüm özelliği olmasına dikkat etme gibi bir özellik gösterebilir.” Bu ifade müşteri ihtiyaçlarının özelliklerinden hangisi ile ilgilidir?",
+      "secenekler": [
+        "En temel insan ihtiyaçları psikolojiktir",
+        "Müşteri ihtiyaçları sıklıkla müşteri değeriyle bağlantılıdır",
+        "Müşterilerin farklı yoğunluklarda ihtiyaçları ve farklı ihtiyaç profilleri vardır",
+        "Müşteri ihtiyaçları dinamiktir ve zaman içinde değişebilir",
+        "Müşteri ihtiyaçları doğası gereği durumsal olabilir"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "……. işletme için kazançtan daha fazla maliyete mal olan müşterilerdir. Diğer bir ifadeyle bu müşterilerin hem gerçek hem de potansiyel değeri düşük ya da negatiftir. Boşluğa hangisi gelmelidir?",
+      "secenekler": [
+        "Düşük bakım gerektiren müşteriler",
+        "Süper büyüme müşterileri",
+        "Sıfırın altındaki müşteriler",
+        "En fazla büyüme potansiyeli olan müşteriler",
+        "En değerli müşteriler"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Hangisi müşteri portföyü yönetiminde yararlanılabilecek araçlardan biridir?",
+      "secenekler": [
+        "Konumlandırma",
+        "Veri madenciliği",
+        "Hedef pazar seçimi",
+        "Çevre analizi",
+        "Ambalajlama"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Veri, veri madenciliği, segmentasyon",
+      "soru": "Bilgi üretimi, temini ve paylaşımı alanlarında etkin olan ve kurumsal davranışlarını yeni bilgi ve öngörüler çerçevesinde dönüştüren organizasyonlara ne ad verilir?",
+      "secenekler": [
+        "Öğrenen organizasyon",
+        "Matris organizasyon",
+        "Fonksiyonel organizasyon",
+        "Sanal organizasyon",
+        "Ağ organizasyon"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri kazanma, tutma, kayıp (churn)",
+      "soru": "Tatmin olmuş ve sadık müşteriye yeni seçenekler sunarak onların yeni ürün ve hizmetleri satın almalarını sağlamak, diğer bir ifadeyle çapraz satış ve üst satış, müşteri yaşam döngüsünün hangi aşamasının öne çıkan uygulamalarındandır?",
+      "secenekler": [
+        "Müşteri kazanma",
+        "Müşteri seçimi",
+        "Müşterileri büyütme (derinleştirme)",
+        "Müşteri elde tutma",
+        "Müşteri tanılama"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "İlişki pazarlaması, ilişki kalitesi, güven/bağlılık",
+      "soru": "Hangisi ücretsiz telefon hatlarının yararlarından değildir?",
+      "secenekler": [
+        "Verilerin kolay dosyalanması",
+        "Müşterilerin güveninin artması",
+        "Müşteriden anında geribildirim alınabilmesi",
+        "Pazar ve ürün hakkında bilgi toplanması",
+        "Ek ürünler satma fırsatı sunması"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Veri, veri madenciliği, segmentasyon",
+      "soru": "“Müşteri tedarikçisini değiştirmeye karşı dirençlidir ve işletmeye veya işletmenin ürün ve hizmetlerine karşı pozitif tutum içindedir.” Bu tanım “müşteri yolculuğu” aşamalarındaki müşteri türlerinden hangisinin açıklamasıdır?",
+      "secenekler": [
+        "Taraftar/Avukat müşteri",
+        "Tekrarlayan alışverişler yapan müşteri",
+        "İlk kez alışveriş yapan müşteri",
+        "Alışverişinin çoğunluğunu aynı işletmeden yapan müşteri",
+        "Sadık müşteri"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "“Müşteriler ile işletme arasında tam anlamıyla bir etkileşim ve koordinasyon ağının oluşmasına imkân veren ……. MİY, web, telefon, e-posta, çağrı merkezi, mağaza gibi farklı iletişim kanallarından gelen bilgilerin değere dönüştürülmesini sağlar.” Boşluğa hangisi getirilmelidir?",
+      "secenekler": [
+        "İşbirlikçi",
+        "Etkileşimli",
+        "Organizasyonel",
+        "Operasyonel",
+        "Analitik"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Pazarlama anlayışlarının gelişimi",
+      "soru": "• İşletmeler tüketicilerin ihtiyaçları olmasa da ürünleri satma çabası içindedirler.\n• Tüketici talebi yetersiz olduğu için işletmeler ürünlerini satabilmek için reklam, satış ve tutundurma faaliyetlerine başvururlar.\n• En önemli işletme fonksiyonu üretmek değil, satmaktır.\n• Baskılı ve agresif satış yöntemleri uygulanır.\nYukarıdaki özellikler hangi pazarlama anlayışı döneminin özellikleridir?",
+      "secenekler": [
+        "Toplumsal pazarlama anlayışı",
+        "Üretim anlayışı",
+        "Satış anlayışı",
+        "Ürün anlayışı",
+        "Modern pazarlama anlayışı"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Örgüt yapısı, değişim, çalışanlar",
+      "soru": "Müşteri ilişkileri hakkındaki aşağıdaki bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Müşteri ilişkilerine ve müşteri tatminine odaklanmış bir işletmenin örgüt kültürünün de bu yönde olması zorunludur.",
+        "Bir işletmenin müşteri odaklı olmayı başarmasındaki belirleyici etkenlerden en önemlisi işletme kültürüdür.",
+        "İşletme yönetimi örgütsel kültürün değişmesini desteklemeli, çalışanların müşteri odaklı olmaları sağlanmalıdır.",
+        "Müşteri odaklı bir kültüre geçiş için insan kaynakları departmanının çabaları yeterli olur.",
+        "Müşteri odaklı olabilmek için gereken kültürel değişim ancak “öğrenen örgüt” yapısıyla söz konusu olabilir."
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri kazanma, tutma, kayıp (churn)",
+      "soru": "“Rakiplerden çalınan müşteriler” hangi tip yeni müşteri kategorisine örnektir?",
+      "secenekler": [
+        "Kayıp müşteriler",
+        "İç müşteriler",
+        "Mevcut müşteriler",
+        "Bir ürün kategorisi için yeni olan müşteriler",
+        "İşletme için yeni olan müşteriler"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "“……., müşterinin tercihlerinde herhangi bir değişikliğe sebep olabilecek durumlara ve pazarlama çabalarına rağmen sürekli olarak tercihte bulunduğu mal ve hizmetleri tekrar satın alması, tekrar tekrar o işletmenin müşterisi olma konusunda kendisini adamasıdır.” Boşluğa hangisi getirilmelidir?",
+      "secenekler": [
+        "Satın alma niyeti",
+        "Müşteri sadakati",
+        "Müşteri değeri",
+        "Müşteri kârlılığı",
+        "Müşteri memnuniyeti"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Genel",
+      "soru": "Çapraz satış ve üst satış gibi öne çıkan uygulamaları olan müşteri yaşam döngüsü süreci aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Müşteri bulma",
+        "Müşterileri büyütme",
+        "Müşteri değiştirme",
+        "Müşteri kaybı",
+        "Müşteri küçültme"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "Aşağıdaki modellerden hangisi müşteri memnuniyetinin, işletme performansını artıran müşteri çıktıları olduğunu savunmaktadır?",
+      "secenekler": [
+        "Ürün yaşam modeli",
+        "Memnuniyet-kâr zinciri modeli",
+        "Ağaç modeli",
+        "Şikâyet-kâr modeli",
+        "Arz-talep modeli"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "“Şirketler ya da kurumlar yerine müşteri olarak insanlarla ilgilenildiğinde insanlar arasındaki psikolojik farklılıkların anlaşılması mümkün olur. Bu durumda farklı müşterilere farklı şekilde muamele etmek daha mümkün hâle gelir.” Bu ifade müşteri ihtiyaçlarının özelliklerinden hangisi ile ilgilidir?",
+      "secenekler": [
+        "En temel insan ihtiyaçları psikolojiktir",
+        "Müşteri ihtiyaçları sıklıkla müşteri değeriyle bağlantılıdır",
+        "Müşterilerin farklı yoğunluklarda ihtiyaçları ve farklı ihtiyaç profilleri vardır",
+        "Müşteri ihtiyaçları dinamiktir ve zaman içinde değişebilir",
+        "Müşteri ihtiyaçları doğası gereği durumsal olabilir"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "“Yaşam tarzı ve değerler” bölümlendirmede dikkate alınabilecek değişken gruplarının hangisinde yer alır?",
+      "secenekler": [
+        "Psikografik bölümlendirme",
+        "Demografik bölümlendirme",
+        "Davranışsal bölümlendirme",
+        "Coğrafi bölümlendirme",
+        "İhtiyaç-fayda bölümlendirmesi"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Operasyonel/analitik/işbirlikçi MİY, SFA, ön büro",
+      "soru": "Aşağıdakilerden hangisi bir müşteri deneyimi örneği değildir?",
+      "secenekler": [
+        "Müşterinin işletmenin sosyal medya profilinde doğrudan mesajlaşma yoluyla etkileşim kurması",
+        "Müşterinin işletmenin çağrı merkeziyle telefonla etkileşimi",
+        "Müşterinin bir işletmenin rakipleriyle kurduğu etkileşim",
+        "Müşteriye gönderilen kişiselleştirilmiş bir kısa mesaj",
+        "Müşterinin işletmenin çalışanlarıyla yüz yüze teması"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "İlişki pazarlaması, ilişki kalitesi, güven/bağlılık",
+      "soru": "Aşağıdakilerden hangisi “müşteri-işletme” ilişkilerinin evrilebileceği tanımlanmış aşamalar arasında yer almaz?",
+      "secenekler": [
+        "Genişleme",
+        "Farkındalık",
+        "Bekletme",
+        "Keşif",
+        "Bağlılık"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Genel",
+      "soru": "Satın alma sürecinde müşterinin belirsizliklerinin ve algıladığı bilişsel çabanın yüksek olması, toplam müşteri maliyeti boyutlarından hangisi ile ilgilidir?",
+      "secenekler": [
+        "Psikolojik maliyet",
+        "Enerji (çaba) maliyeti",
+        "Zaman maliyeti",
+        "Dağıtım maliyeti",
+        "Parasal maliyet"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Aşağıdakilerden hangisi “müşteri yaşam boyu değerini arttırma stratejileri” arasında gösterilemez?",
+      "secenekler": [
+        "Ayrılma oranını azaltmak",
+        "Uzun ömürlülüğü artırmak",
+        "Cüzdan payını azaltmak",
+        "Müşteri başına kazanılan kârı artırmak",
+        "Düşük kârlı müşterilerin davranışlarını değiştirmeye çalışmak"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "Müşteri ilişkileri geliştirme sürecinin kritik aşamalarından hangisi, müşteri sadakatinin oluşturulması ve güçlendirilmesini sağlayarak müşteri yaşam süresinin uzatılmasına yönelik işletme-müşteri etkileşimini güçlendirici süreçleri içerir?",
+      "secenekler": [
+        "Müşteri maliyetleme",
+        "Müşteri geliştirme",
+        "Müşteri kazanma",
+        "Müşteri tanılama",
+        "Müşteri elde tutma"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri deneyimi, yolculuğu, kampanyalar",
+      "soru": "I. Müşteri yolculuğu\nII. Gerçeklik anları\nIII. Temas noktaları\nIV. Müşteri geliştirme\nYukarıdakilerden hangisi ya da hangileri müşteri deneyimi ile ilişkili kavramlar arasında yer almaz?",
+      "secenekler": [
+        "I ve II",
+        "Yalnız I",
+        "Yalnız IV",
+        "II ve III",
+        "I ve IV"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Veri, veri madenciliği, segmentasyon",
+      "soru": "MİY mimarisi boyutlarından hangisi, arka ofiste işlenen veriler yardımıyla teklif sunma, kampanya yönetimi, etkileşim oluşturma, çağrı merkezi iletişimleri gibi satış ve müşteri hizmetleri kapsamlı müşteriye dönük süreçlerin entegrasyonuna ve otomasyonuna odaklanır?",
+      "secenekler": [
+        "İşbirlikçi MİY",
+        "Stratejik MİY",
+        "Kurumsal MİY",
+        "Analitik MİY",
+        "Operasyonel MİY"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "“……., bir müşterinin bir ürün veya hizmetin algılanan performansını (veya sonucunu) beklentileriyle karşılaştırmasından kaynaklanan hoşnutluk veya hayal kırıklığı duygularıdır.” Boşluğa uygun olan seçenek hangisidir?",
+      "secenekler": [
+        "Müşteri değeri",
+        "Müşteri sadakati",
+        "Müşteri deneyimi",
+        "Müşteri payı",
+        "Müşteri memnuniyeti"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Genel",
+      "soru": "Toplam müşteri faydası kavramına dair aşağıdaki ifadelerden hangisi yanlıştır?",
+      "secenekler": [
+        "Hizmet faydası, ürünün niteliklerinin sağladığı ve çoğunlukla doğrudan erişilebilir faydaları içerir.",
+        "Personel faydası, personelin bilgisi, empatisi, uzmanlığı gibi hususlardan kaynaklanan yararlardır.",
+        "İmaj faydası, markalı ürünün imajı kaynaklı tüketicinin bu ürünü tüketirken elde edeceği yararları ifade edebilir.",
+        "İmaj faydası, markanın genel olarak algılanma biçimi, imajı, kişiliği, itibarından kaynaklanan yararlardır.",
+        "Hizmet faydası, ürüne eşlik eden hizmetlerden (garanti, ücretsiz servis vb.) elde edilen yararlardır."
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Veri, veri madenciliği, segmentasyon",
+      "soru": "Aşağıdaki veri madenciliği yöntemlerinden hangisi veri kümesinde gerçekleşen olayların zaman boyutunda öncelik sıralarını belirleyerek nitelikler arasındaki ilişkileri tanımlar?",
+      "secenekler": [
+        "Sıralı dizileri bulma",
+        "Regresyon",
+        "Özetleme",
+        "Sınıflandırma",
+        "Birliktelik kuralı"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Aşağıdaki örnek kampanya metriklerinden hangisi müşteri elde tutma metrikleri arasında yer almaz?",
+      "secenekler": [
+        "Kazanılan müşteri sayısı",
+        "Yatırım getirisi",
+        "Elde tutma oranı",
+        "Yaşam boyu değere katkı",
+        "Dönüşüm oranı"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "Aşağıdakilerden hangisi işletmeler tarafından gerçekleştirilen sosyal MİY uygulamaları kapsamında sosyal medya kanallarının kullanımına örnek gösterilemez?",
+      "secenekler": [
+        "Televizyon, radyo gibi kitle iletişim araçlarından işletme hakkında haberleri duyurmak",
+        "Müşterileri, kriz zamanlarında işletmenin markasını savunmaları için teşvik etmek",
+        "İşletmenin hevesli destekçilerini sosyal medyada olumlu söylemlerde bulunmaları için harekete geçirmek",
+        "İşletmeyi ilgilendiren müşteri sosyal medya paylaşımlarını takip etmek",
+        "İşletmenin kendi müşterilerinin diğer müşterilere yardım etmesini sağlamak"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Aşağıdaki müşteri değer aşamalarından hangisi, müşteri yolculuğu boyunca müşterinin işletmeyle etkileşime girdiği her koşulda değer algılayabileceğini ifade etmektedir?",
+      "secenekler": [
+        "Kullanım değeri",
+        "Satış değeri",
+        "Değişim değeri",
+        "Tutundurma değeri",
+        "Deneyim değeri"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "MİY kapsamında veri madenciliği kullanımı hakkında aşağıdakilerden hangisi söylenemez?",
+      "secenekler": [
+        "Veri madenciliğinin bilgi keşfi süreci sınırlı veri yapısında her zaman verimlidir.",
+        "Veri madenciliği ile veri tabanındaki veri yığınından bireyler, eğilimler ve segmentler hakkında faydalı bilgiler çıkarılabilir.",
+        "Büyük hacimli verilerde kalıplar veya ilişkiler bulmaya çalışıldığında veri madenciliği katma değerli sonuç sağlar.",
+        "Veri madenciliği yöntemleri verileri işleyerek veriler içine gizlenmiş olan kalıpları ve ilişkileri keşfeder.",
+        "Veri madenciliği özellikle işlemsel veri toplayan B2C işletmeler için yararlı çıktılar üretir."
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Operasyonel MİY tarafından oluşturulan müşteri ile ilgili verilerin elde edilmesi, veri tabanlarında depolanması, düzenlenerek analizi ve daha sonraki faaliyetlerde kullanılmak üzere değerli bilgiler hâline dönüştürülmesi süreçleriyle uğraşan MİY mimarisi boyutu hangisidir?",
+      "secenekler": [
+        "Stratejik MİY",
+        "Kurumsal MİY",
+        "Analitik MİY",
+        "İş birlikçi MİY",
+        "Operasyonel MİY"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Bir müşterinin fiziksel mağaza ziyaretleri ve alışverişleri ya da web sitesi ziyaret verileri ve cüzdan payı gibi veriler, müşteriden doğrudan sağlanan verilerin hangisine örnektir?",
+      "secenekler": [
+        "Tutumsal veriler",
+        "Psikografik veriler",
+        "Davranışsal veriler",
+        "Demografik veriler",
+        "Tanımsal veriler"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri kazanma, tutma, kayıp (churn)",
+      "soru": "I. Müşteri elde tutma\nII. Müşteri tanılama\nIII. Müşteri kazanma\nIV. Müşteri geliştirme\nMüşteri ilişkileri geliştirme sürecinin temel aşamaları aşağıdakilerin hangisinde doğru sıralanmıştır?",
+      "secenekler": [
+        "IV, III, I, II",
+        "II, I, III, IV",
+        "II, III, I, IV",
+        "III, II, IV, I",
+        "I, II, III, IV"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "İlişki pazarlaması, ilişki kalitesi, güven/bağlılık",
+      "soru": "Bir işletme ile müşteri arasındaki ilişkinin gerçek bir ilişki olarak tanımlanabilmesi için sahip olması gerekenlere dair aşağıdaki ifadelerden hangisi yanlıştır?",
+      "secenekler": [
+        "İlişkiler doğası gereği yinelemelidir.",
+        "İlişkiler her iki tarafa da sürekli fayda sağlamalıdır.",
+        "İlişkilerin doğası gereği tek yönlü, yani karşılıksız olması gerekir.",
+        "Başarılı bir ilişkinin nihai gerekliliği güvendir.",
+        "Her etkileşim, ilişkide mümkün olan toplam bilgi içeriğine katkıda bulunur."
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Bir müşteri giyim alışverişlerinde her ay ortalama 5.000 TL harcayabilir. Bu durumda giyim alışverişleri açısından bu müşterinin ……. 5.000 TL'dir. Boşluğa hangisi getirilmelidir?",
+      "secenekler": [
+        "ortalama yaşam değeri",
+        "cüzdan büyüklüğü",
+        "kazanma maliyeti",
+        "elde tutma maliyeti",
+        "yaşam boyu değeri"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Veri, veri madenciliği, segmentasyon",
+      "soru": "Grup üyeliği bilinmeyen örneklerin daha önceden tanımlanmış bir gruba atanmasını ve her bir örneğin ait olduğu grubu tanımlayan özellik modelini öğrenmek için verilerin kullanılmasını içeren; karar ağaçları, genetik algoritma, lojistik regresyon, diskriminant analizi gibi teknikleri kapsayan veri madenciliği yöntemi hangisidir?",
+      "secenekler": [
+        "Regresyon",
+        "Özetleme",
+        "Sınıflandırma",
+        "Sıralı dizileri bulma",
+        "Birliktelik kuralı"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Bir müşterinin artan sadakatinin faydasını ölçmek için kullanılacak en doğrudan ve net ölçüt aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Net tavsiye skoru",
+        "Profil analizi",
+        "Temel performans göstergesi",
+        "RFM analizi",
+        "Müşteri yaşam boyu değeri"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "MİY kavramı, gelişimi, temel felsefe",
+      "soru": "Müşteri ilişkileri yönetiminin temel bileşenlerine dair aşağıdaki ifadelerden hangisi yanlıştır?",
+      "secenekler": [
+        "İnsanlar, bilgi teknolojileri tarafından desteklenen süreçleri geliştirerek uygular.",
+        "MİY; politikalar, süreçler ve teknoloji bileşenlerinin bir kombinasyonudur.",
+        "Bilgi teknolojileri, kolaylaştırıcı destekleriyle bu süreçlerin çok daha verimli gerçekleşmesini mümkün kılar.",
+        "Teknoloji sayesinde pek çok süreç otomatize edilebilir.",
+        "Teknoloji, işletmenin analitik ve operasyonel işlem kapasitesini artırır."
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri deneyimi, yolculuğu, kampanyalar",
+      "soru": "Aşağıdakilerden hangisi MİY uygulamaları literatüründe tanımlanmış kampanya türleri arasında yer almaz?",
+      "secenekler": [
+        "Plansız kampanyalar",
+        "Yeniden etkileşim kampanyaları",
+        "Hoş geldin kampanyaları",
+        "Yeniden satın alma kampanyaları",
+        "Sürekli devam eden kampanyalar"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Müşteri analitiği uygulamalarının faydaları ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?",
+      "secenekler": [
+        "Müşterilere daha hedefli çapraz satış ve yukarı satış fırsatları sunarak satışları artırır.",
+        "Müşteri yaşam boyu değerini ve kârlılığı artırmaya yardımcı olabilir.",
+        "En iyi müşteriler için iyileştirilmiş hizmet seviyelerini mümkün kılar.",
+        "Gerçek müşteriden potansiyel müşteriye dönüşüm oranlarının artmasına yardımcı olur.",
+        "Müşteri bilgi alışverişini daha kolay, daha hızlı ve dolayısıyla daha olası hâle getirir."
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri kazanma, tutma, kayıp (churn)",
+      "soru": "Müşteri ilişkileri geliştirme sürecinin temel aşamalarından hangisi, hedef müşterinin kim olduğunun ve diğer müşterilerden farklılıklarının tanımlanmasına yönelik süreçleri içerir?",
+      "secenekler": [
+        "Müşteri elde tutma",
+        "Müşteri elden çıkarma",
+        "Müşteri tanılama",
+        "Müşteri geliştirme",
+        "Müşteri kazanma"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri deneyimi, yolculuğu, kampanyalar",
+      "soru": "I. Duygusal\nII. Davranışsal\nIII. Tepkisel\nIV. Öğrenme\nYukarıdakilerden hangisi ya da hangileri kampanyaların müşterilere yönelik çıktı hedefleri arasında yer almaz?",
+      "secenekler": [
+        "I ve II",
+        "Yalnız III",
+        "II ve III",
+        "Yalnız IV",
+        "III ve IV"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "I. SHGM\nII. DHMİ\nIII. Ulaştırma ve Altyapı Bakanlığı\nYukarıdaki kurumlardan hangisi veya hangileri yalnızca Türk Sivil Havacılığı ile ilgili işleyişi düzenlemek amacıyla kurulmuş ulusal kurumlardır?",
+      "secenekler": [
+        "I ve III",
+        "Yalnız I",
+        "I ve II",
+        "Yalnız II",
+        "Yalnız III"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "2920 sayılı Türk Sivil Havacılık Kanunu (1983) yapısında aşağıdaki kısım ve kısım başlıklarından hangisi uyuşmamaktadır?",
+      "secenekler": [
+        "1. Kısım: Hava yük senedi",
+        "5. Kısım: Ceza Hükümleri",
+        "4. Kısım: Taşıma Sözleşmesinden Doğan Sorumluluk",
+        "3. Kısım: Havayolu ile Taşımalar",
+        "2. Kısım: Hava Seyrüseferinin Genel Hükümleri"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava aracı tescil/sicil, lisanslar",
+      "soru": "Hususi Pilot Lisansı sahibi olabilmek için en az kaç yaşında olmak gereklidir?",
+      "secenekler": [
+        "21",
+        "16",
+        "18",
+        "17",
+        "20"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava aracı tescil/sicil, lisanslar",
+      "soru": "Dispeçer olarak lisanslandırılacak bir kişinin en az kaç yaşında olması gerekmektedir?",
+      "secenekler": [
+        "17",
+        "23",
+        "21",
+        "18",
+        "25"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hukukun temel kavramları (özel/kamu hukuku dalları)",
+      "soru": "Devletlerin başka devletlerle, uluslararası kurum ve kuruluşlarla ve uluslararası anlaşmalar kapsamındaki karşılıklı ilişkilerinin düzenlenmesinde rol oynayan hukuk dalı aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Devletler Genel Hukuku",
+        "Devletler Özel Hukuku",
+        "Anayasa Hukuku",
+        "Medeni Hukuk",
+        "Borçlar Hukuku"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava aracı tescil/sicil, lisanslar",
+      "soru": "Uçuşun herhangi bir safhasında Mesul Pilotun talebi veya eline ulaşan bilgiler ışığında uçuşun güvenli ve etkin bir şekilde devamını sağlamak için uçuş ekibini bilgilendiren, uçuş hakkındaki bilgilerin gerekli birimlere aktarılması için uçuşu izleyen kişi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Dispeçer",
+        "Kabin memuru",
+        "Öğrenci pilot",
+        "Sorumlu müdür",
+        "Hava trafik kontrolörü"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava sahası, egemenlik, Paris/Chicago, ICAO",
+      "soru": "I. İlgili kuruluşların görüşlerini almak suretiyle, Türk hava sahasını kullanan sivil hava araçlarının uyması gereken hava trafik yönetim hizmetleriyle ilgili düzenlemeler yapmak\nII. Bakanlık tarafından verilecek benzeri görevleri yapmak\nIII. Sivil havacılık sektörünün gelişimini sağlayacak tedbirleri almak ve gerekli düzenlemelerin yapılması hususunda ilgili kuruluşlara önerilerde bulunmak\nYukarıda verilen bilgilerden hangileri SHGM'nin 2920 sayılı TSHK kapsamında belirlenen görev ve faaliyetleri arasında yer alır?",
+      "secenekler": [
+        "Yalnız III",
+        "I ve II",
+        "Yalnız I",
+        "I, II ve III",
+        "II ve III"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hukukun temel kavramları (özel/kamu hukuku dalları)",
+      "soru": "Türk sivil hava araçları ile faaliyette bulunan ve gerekli izinleri almak için Bakanlığa başvuran tüm kamu kurum ve kuruluşları ile gerçek ve özel hukuk tüzel kişileri, SHGM'nin hava seyrüsefer güvenliğini sağlamak amacıyla yapacağı veya yaptıracağı teknik denetime tabidir. Buna göre aşağıdakilerden hangisi zorunlu değildir?",
+      "secenekler": [
+        "Genel Müdürlük yetkililerince talep edilen her türlü bilgi ve belgeyi vermek",
+        "Genel Müdürlüğün verdiği talimatlara uymak",
+        "İstendiği takdirde işletmenin hiyerarşik yapısında değişiklikler yapmak",
+        "SHGM tarafından yürürlüğe konulan düzenlemeleri takip etmek",
+        "İstenen ekipmana her zaman erişilebilmesini sağlamak"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava aracı tescil/sicil, lisanslar",
+      "soru": "Yolcu taşımacılığı yapan hava araçlarında gerekli emniyet ve güvenlik önlemlerinin uygulanmasından ve yolcu konforundan sorumlu görevli aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Tarayıcı personel",
+        "Ticari pilot",
+        "Onaylı yönetici personel",
+        "Kabin memuru",
+        "Yetkili uçuş tabibi"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "Aşağıdakilerden hangisi DHMİ'nin görevleri arasında yer almaz?",
+      "secenekler": [
+        "Sivil hava ulaştırması konusunda ülke politikalarını belirlemek; ikili ve çok taraflı anlaşmaların çalışmalarına katılmak ve bunları sonuçlandırmak",
+        "Sivil havacılık faaliyetlerinin gereği olan havalimanlarının işletilmesi",
+        "Hava trafik kontrol hizmetlerinin ifasını gerçekleştirmek",
+        "Meydan yer hizmetlerinin yapılması",
+        "Havacılık faaliyetlerinin sürdürülmesi için gerekli meydan ve tesislerin kurulması"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "Türk sivil havacılığına yön veren ulusal kurum ve kuruluşların temelleri, 1925 yılında günümüzde Türk Hava Kurumu olarak adlandırılan ……… kurulması ile atılmıştır. Boşluğa hangisi gelmelidir?",
+      "secenekler": [
+        "Türk Tayyare Cemiyeti",
+        "Devlet Hava Yolları",
+        "Türk Hava Yolları",
+        "Sivil Havacılık Genel Müdürlüğü",
+        "Devlet Hava Meydanları İşletmesi"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava aracı tescil/sicil, lisanslar",
+      "soru": "Hava Trafik Emniyeti Elektronik Personelinin sağlık ve lisanslandırma ölçütleri aşağıdaki yönetmeliklerden hangisi ile belirlenmiştir?",
+      "secenekler": [
+        "SHY-GA",
+        "SHY-ATSEP",
+        "SHY-M",
+        "SHY-22",
+        "SHY-1"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "Havayolu işletmelerinin hisselerinin en az yüzde kaçının nama yazılı olması gerekir?",
+      "secenekler": [
+        "%25",
+        "%33",
+        "%49",
+        "%51",
+        "%75"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava aracı tescil/sicil, lisanslar",
+      "soru": "Hava taksi işletmelerinde görev alacak pilotların sivil havacılık sektöründe en az kaç yıl pilot olarak çalışma tecrübesine ve kaptan pilotluk yetkisine sahip olması gerekir?",
+      "secenekler": [
+        "1 yıl",
+        "2 yıl",
+        "3 yıl",
+        "5 yıl",
+        "10 yıl"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Taşıma belgeleri: bilet, bagaj, hava yük senedi, ihbar süreleri",
+      "soru": "Bagaj kuponu kaç nüsha olarak düzenlenir?",
+      "secenekler": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "DHMİ, çeşitli tesis yatırımlarının yüksek maliyetleri sebebiyle söz konusu tesislerin inşasını ihale ile özel sektöre devredebilir. Buna göre DHMİ, inşaatı için özel sektöre devrettiği projeleri genellikle hangi finansman modeliyle yapmaktadır?",
+      "secenekler": [
+        "Yap – Sahiplen – Devret",
+        "Yap – İşlet – Sahiplen",
+        "Yap – Kirala – İşlet",
+        "Yap – İşlet – Devret",
+        "Yap – Sahiplen – İşlet"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava sahası, egemenlik, Paris/Chicago, ICAO",
+      "soru": "Aşağıdakilerden hangisi Şikago Konvansiyonu ile ilgili değildir?",
+      "secenekler": [
+        "Konvansiyonun yapılmasının nedeni Varşova Konvansiyonuna rakip olmaktır.",
+        "ICAO, Şikago Konvansiyonunun sonucu olarak 43. maddesi uyarınca, uluslararası çerçevede düzenleyici ve belirleyici nitelikte bir kuruma ihtiyaç duyulması sonucunda kurulmuştur.",
+        "Şikago Konvansiyonu, 1944 yılında ABD'nin Şikago şehrinde gerçekleştirilen uluslararası bir konferans sonucunda imzalanmıştır.",
+        "Havacılıkta Seyrüsefer, Uluslararası Sivil Havacılık Organizasyonu ve Uluslararası Hava Taşımacılığı olmak üzere üç temel başlıktan oluşur.",
+        "Bürokratik işlemler sebebiyle 1944 yılında imzalanmış olsa da 4 Nisan 1947 tarihine kadar yürürlüğe girememiştir."
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "2920 sayılı Türk Sivil Havacılık Kanunu'nun 2. kısmında hangi husus düzenlenmemiştir?",
+      "secenekler": [
+        "Sivil Hava Aracı Kazaları",
+        "Türk Hava Egemenliği Hükümleri",
+        "Ticari Hava İşletmeleri",
+        "Havaalanları ve Tesisleri",
+        "Hava taşıma sözleşmeleri"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "Varşova Konvansiyonu ile ilgili aşağıdakilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Türkiye konvansiyona 25.06.1978 tarihinde taraf olmuştur.",
+        "Varşova Konvansiyonu temelde uluslararası nitelikte havayolu ile gerçekleştirilen yük ve yolcu taşımalarını kapsamaktadır.",
+        "Sadece yolcu taşımacılığı için hazırlanmış bir havacılık konvansiyonudur.",
+        "I. Dünya Savaşı sonrasında mevcut hukuki altyapının havacılıktaki sorun ve anlaşmazlıklara karşı yetersizliği nedeniyle yapılandırılmıştır.",
+        "Havacılık sektörüne yönelik olarak ortaya atılan ilk uluslararası nitelikteki hukuk sistemidir."
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hukukun temel kavramları (özel/kamu hukuku dalları)",
+      "soru": "Ülkemizde havayolu taşımacılığının temel kaynağını hangi kanun oluşturmaktadır?",
+      "secenekler": [
+        "Türk Ticaret Kanunu",
+        "Türk Medeni Kanunu",
+        "Türk Sivil Havacılık Kanunu",
+        "Montreal Konvansiyonu",
+        "Şikago Anlaşması"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "TSHK hükümlerine göre aksi belirtilmedikçe bilet, seyahatin başlamasından ya da biletin herhangi bir parçası kullanılmamışsa düzenleme tarihinden itibaren ne kadar süreyle geçerlidir?",
+      "secenekler": [
+        "3 ay",
+        "21 gün",
+        "Uçuş sonuna kadar",
+        "1 yıl",
+        "Uçuştan sonra 7 gün"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "1929 Varşova Konvansiyonu hükümlerine (ilk metin) göre hasar halinde, teslim almaya yetkili kişinin hasarın fark edilmesinden sonra derhal taşıyıcıya şikâyette bulunması ve bu şikâyetin bagaj için alınıştan itibaren en geç kaç gün içinde yapılması gereklidir?",
+      "secenekler": [
+        "14 gün",
+        "21 gün",
+        "3 gün",
+        "7 gün",
+        "30 gün"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "Havayolu taşımacılığında sorumluluk sınırlarının belirlenmesinde SDR kavramı ilk kez hangi konvansiyon veya protokolde kullanılmıştır?",
+      "secenekler": [
+        "4 Numaralı Montreal Protokolü",
+        "1999 Montreal Konvansiyonu",
+        "1929 Varşova Konvansiyonu",
+        "1955 Lahey Protokolü",
+        "1971 Guatemala Protokolü"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava sahası, egemenlik, Paris/Chicago, ICAO",
+      "soru": "İkili Havacılık Anlaşmalarıyla ilgili aşağıda verilen bilgilerden hangisi doğru değildir?",
+      "secenekler": [
+        "İkili havacılık anlaşmaları, uluslararası havayolu taşımacılığının gelişimine destek olmak, sağladığı faydaların geniş alanlara yayılmasını sağlamak ve taraf ülkelerin çıkarlarını teminat altına almak amacıyla yapılan anlaşmalardır.",
+        "İkili havacılık anlaşmaları, 1919 Paris Konferansında her ülkenin karasuları üzerinde kalan hava sahası için egemenlik tanınmasıyla gündeme gelmiştir.",
+        "İkili havacılık anlaşmaları, ticari havayolu işletmelerinin istedikleri gibi rota belirlemesini, farklı pazarlara girmesini ve farklı ülkelerin hava sahalarından geçmesini engelleyen bir yapıdadır.",
+        "Asıl amacı, eşyanın hasara uğraması, teslimin gecikmesi ya da kayıp olduğu durumlarda tarafların sorumluluk sınırlarının belirlenmesidir.",
+        "İkili havacılık anlaşmaları devletler arasında imzalanır."
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Taşıma belgeleri: bilet, bagaj, hava yük senedi, ihbar süreleri",
+      "soru": "Aşağıdakilerden hangisi yolcu biletinde bulunmaz?",
+      "secenekler": [
+        "Şirketin unvanı ve adresi",
+        "Yolcunun adı ve soyadı",
+        "Kaptanın adı ve soyadı",
+        "Kalkış ve varış noktası",
+        "Biletin numarası ve düzenlendiği yer"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "• Taşımanın gerçekleştirilmesinde hareket ülkesi ile varış ülkesinin konvansiyonu imzalayan, dolayısıyla konvansiyona taraf ülkeler olması,\n• Hareket ve varış ülkelerinin konvansiyona taraf olması koşuluyla, bu iki ülke arasındaki uçuşta taraf olan veya olmayan üçüncü bir ülkeye ara iniş yapılması durumunda taşımanın uluslararası nitelik taşıyacağı belirtilmiştir.\nVerilen bilgiler, bir taşımanın Varşova Konvansiyonu kapsamında değerlendirilmesi için hangi koşulla ilgilidir?",
+      "secenekler": [
+        "Yolcu/bagaj ya da eşya taşımasının söz konusu olması",
+        "Ücret",
+        "Bir taşıma sözleşmesinin mevcudiyeti",
+        "Taşımanın uluslararası olması",
+        "Taşımanın hava aracı ile yapılması"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "Türk sivil hava araçlarının tescili için ……. bir sicil kaydı tutar. Boşluğa gelmesi gereken kurum hangisidir?",
+      "secenekler": [
+        "T.C. Cumhurbaşkanlığı",
+        "Sivil Havacılık Genel Müdürlüğü",
+        "T.C. Ticaret Bakanlığı",
+        "Devlet Hava Meydanları İşletmesi",
+        "T.C. Ulaştırma ve Altyapı Bakanlığı"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "Aşağıdakilerden hangisi Şikago Konvansiyonu'nda ele alınan temel konular arasında yer almaz?",
+      "secenekler": [
+        "Hava Araçlarının Menşei (Milliyeti)",
+        "Hava Seyrüseferini Kolaylaştırıcı Ölçümler",
+        "Hava Araçlarının Üretimi",
+        "Uluslararası Standartlar ve Önerilen Pratikler",
+        "Konvansiyonun Genel Prensipleri ve Uygulama Yöntemleri"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hukukun temel kavramları (özel/kamu hukuku dalları)",
+      "soru": "Havacılık hukuku, özel hukukun hangi alt alanları ile ilişkilendirilebilir?",
+      "secenekler": [
+        "Ticaret Hukuku – Devletler Özel Hukuku",
+        "Anayasa Hukuku – Ticaret Hukuku",
+        "Devletler Özel Hukuku – Vergi Hukuku",
+        "Ticaret Hukuku – Kamu Hukuku",
+        "Medeni Hukuk – Ceza Hukuku"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava sahası, egemenlik, Paris/Chicago, ICAO",
+      "soru": "……. çalışma amacı; sivil havacılık sektörünün güvenliği, emniyeti ve sürdürülebilirliğinin geliştirilebilmesi için üye ülkeler ile birlikte çalışmaktır. Boşluğa en uygun kurum hangisidir?",
+      "secenekler": [
+        "Montreal Konvansiyonu",
+        "ICAO",
+        "ICAN",
+        "IATA",
+        "PICAO"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "Aşağıdakilerden hangisi IATA'nın yürüttüğü faaliyetler veya sağladığı faydalar arasında yer almaz?",
+      "secenekler": [
+        "Maliyetleri düşürme",
+        "Eğitim",
+        "Lobicilik faaliyeti",
+        "Uluslararası tanınırlığı arttırma",
+        "Havayolu işletmelerine düşük fiyatlı hava aracı satışı"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "“Azami kalkış ağırlığı ……. (dahil) üzerindeki insansız hava araçları ile ilgili bilgilere ilişkin kayıt sistemi oluşturmak” SHGM'nin görevleri arasındadır. Boşluğa hangisi gelmelidir?",
+      "secenekler": [
+        "500 gram",
+        "1000 gram",
+        "2000 gram",
+        "1500 gram",
+        "2500 gram"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "Aşağıdakilerden hangisi Montreal Konvansiyonu (MK) uyarınca hava sevk fişinde yazması gereken detaylar arasında yer almaz?",
+      "secenekler": [
+        "Varış yeri",
+        "Yükün cinsi",
+        "Kalkış yeri",
+        "Yükün ağırlığı",
+        "Yükün maliyeti"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Trafik hakları, ikili anlaşmalar, açık semalar",
+      "soru": "“İlgili trafik hakkında temel koşul, kalkış ülkesinden sonra yolcu ve yük indirmemek koşuluyla (kısaca ticari bir amaç taşımamak koşulu ile) herhangi bir acil durumun söz konusu olmasıdır.” Bilgisi verilen hava trafik hakkı hangisidir?",
+      "secenekler": [
+        "Birinci Hava Trafik Hakkı",
+        "Üçüncü Hava Trafik Hakkı",
+        "Beşinci Hava Trafik Hakkı",
+        "İkinci Hava Trafik Hakkı",
+        "Dördüncü Hava Trafik Hakkı"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "I. Hava seyrüsefer hizmetleri sunmak\nII. Hava aracının seyrüsefer güvenliğini sağlamak\nIII. Havalimanı/havaalanı işletmeciliği yapmak\nIV. Havalimanı/havaalanı etrafında uçuş emniyetini tehlikeye atacak bina, yapı vb. tesisleri kaldırmak\nYukarıdaki ifadelerden hangileri DHMİ'nin temel faaliyetlerini ifade etmektedir?",
+      "secenekler": [
+        "I ve III",
+        "I ve II",
+        "III ve IV",
+        "Yalnız III",
+        "I, III ve IV"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "“Sadece yük taşımacılığı veya koltuk kapasitesi ……. ve daha fazla olan hava araçları ile yolcu taşımacılığı faaliyetinde bulunacak işletmecilerin şirket sözleşmesinin amaç ve konu başlığı altında havacılık ve havacılıkla bağlantılı işler dışında bir çalışma alanına yer verilemez.” Boşluğa hangisi gelmelidir?",
+      "secenekler": [
+        "40",
+        "50",
+        "20",
+        "60",
+        "30"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "“Taşıyıcıya teslim edilen her bir parça bagaj için yolcuya belirli kayıtları içeren bir bagaj kuponu verilir.” Aşağıdakilerden hangisi TSHK'da belirtilen bu kayıtlar arasında yer almaz?",
+      "secenekler": [
+        "Bagaj ağırlığı",
+        "Bagaj rengi",
+        "Yolcunun adı soyadı",
+        "Bagaj kuponu tarihi",
+        "Bagaj kuponu numarası"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava sahası, egemenlik, Paris/Chicago, ICAO",
+      "soru": "“Açık Semalar Anlaşması'nda olduğu gibi, bu teşkilat da üyesi olan ülkelerin hava sahalarını birleştirerek Avrupa Hava Sahası oluşturmak amacıyla standartlar oluşturmaktadır.” Bu bilgi hangi kurumun temel kuruluş amacı olarak değerlendirilebilir?",
+      "secenekler": [
+        "ICAO",
+        "IATA",
+        "EASA",
+        "EUROCONTROL",
+        "ACI"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "Yolcu taşıma sözleşmesinde taşıyıcı, yolcuya belirli kayıtları içeren ve uluslararası standartlara uygun bir bilet vermekle yükümlüdür. Aşağıdakilerden hangisi TSHK'da belirtilen bu kayıtlardan biri değildir?",
+      "secenekler": [
+        "Kalkış yeri",
+        "Yolcunun adı soyadı",
+        "Varış yeri",
+        "Bilet numarası",
+        "Yolcu bagajının hacmi"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "Montreal Konvansiyonu uyarınca hava sevk fişinin içeriğinden kim sorumlu olacaktır?",
+      "secenekler": [
+        "Alıcı",
+        "Taşıyıcı",
+        "İthalatçı",
+        "Gönderen",
+        "Gönderilen"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "1929 Varşova Konvansiyonu'na göre yolcu başına taşıyıcının sorumluluğu ne kadar bir değerle sınırlıdır?",
+      "secenekler": [
+        "Yolcu başına 100.000 Frank",
+        "Yolcu başına 125.000 Frank",
+        "Yolcu başına 25.000 SDR",
+        "Yolcu taşımasında sınırlı sorumluluk hükmü yoktur",
+        "Yolcu başına 125.000 SDR"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "Kargo taşımacılığında, gönderen özel bir beyanda bulunmadığı ve ilave ödeme yapmadığı müddetçe, taşıyıcının kargonun tahrip olması, kaybolması ya da hasar görmesi halinde her kilogram için sorumluluğu ……. SDR ile sınırlıdır. Montreal Konvansiyonu'nun 2022-23 sınavındaki güncel metni gözetildiğinde boşluğa hangisi gelir?",
+      "secenekler": [
+        "17",
+        "20",
+        "22",
+        "18",
+        "19"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Trafik hakları, ikili anlaşmalar, açık semalar",
+      "soru": "“Dördüncü hava trafik hakkı, genellikle ……. hava trafik hakkının uygulanması ile paralellik gösterir. İkili anlaşmaların karşılıklı hakkaniyet niteliği sebebiyle bir ülkeden diğerine verilen uçuş hakkı diğer ülkeye de aynı şartlarla verilir.” Boşlukla belirtilen hava trafik hakkı hangisidir?",
+      "secenekler": [
+        "İkinci Hava Trafik Hakkı",
+        "Üçüncü Hava Trafik Hakkı",
+        "Birinci Hava Trafik Hakkı",
+        "Beşinci Hava Trafik Hakkı",
+        "Dördüncü Hava Trafik Hakkı"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "“Eğer taşıyıcı kontrol edilmiş bagajın kaybolduğunu kabul ederse ya da kontrol edilmiş bagaj ulaşmış olması gereken tarihten sonraki ……. günün bitiminde ulaşmamışsa, yolcu taşıma anlaşmasından doğan haklarını taşıyıcıya karşı uygulama hakkına sahiptir.” Montreal Konvansiyonu uyarınca boşluğa hangisi gelmelidir?",
+      "secenekler": [
+        "28",
+        "21",
+        "15",
+        "7",
+        "14"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava sahası, egemenlik, Paris/Chicago, ICAO",
+      "soru": "……. kavramı ICAO ve Eurocontrol tarafından benimsenmiş bir terminoloji olup hava trafik hizmetlerinin emniyeti için kullanılan havacılık elektroniği alanında görev yapan mühendis ve teknik personeli ifade etmektedir. Boşluğa hangisi gelmelidir?",
+      "secenekler": [
+        "SHGM",
+        "IATA",
+        "DHMİ",
+        "ESARR",
+        "ATSEP"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "• Paylarının en az %51'inin nama yazılı olması\n• Çoğunluk paylarının ve yönetim kurulu üyeleri ile oy hakkı çoğunluğunun ve kontrolünün Türkiye Cumhuriyeti vatandaşı olan paydaşlarda bulunması\n• Kurucunun veya kurucu paydaşların, temsil ve ilzama yetkili yöneticilerinin zimmet, ihtilas, irtikap, rüşvet, hırsızlık, dolandırıcılık, sahtecilik vb. suçları işlememiş olması\nYukarıdaki bilgiler ticari hava işletmelerinin tabi olduğu hangi konu ile ilgilidir?",
+      "secenekler": [
+        "Ticari merkez",
+        "İşletmede devralmalar",
+        "Şirket payları",
+        "Şirket türü",
+        "İşletmenin bölünmesi"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava sahası, egemenlik, Paris/Chicago, ICAO",
+      "soru": "Hava araçlarının yüzeydeki hareketleri, iniş ya da kalkışları için (her türlü bina, tesis ve donanım dâhil) tümünün ya da bir kısmının kullanılmasına yönelik su ya da kara üzerinde tanımlanmış sahalardır. ICAO tarafından yapılan bu tanım hangisine aittir?",
+      "secenekler": [
+        "Hava meydanı",
+        "Hava aracı",
+        "Hava sahası",
+        "Uluslararası hava sahası",
+        "Havayolu işletmesi"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "Normlar hiyerarşisine göre yazılı hukuk kaynakları düşünüldüğünde, aşağıdakilerden hangisi hiyerarşinin en altında yer alır?",
+      "secenekler": [
+        "Cumhurbaşkanlığı Kararnamesi",
+        "Yönetmelik",
+        "Anayasa",
+        "Genelge",
+        "Kanun"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "İşletme yetkilendirme (SHY-6A, hava taksi, yer hizmetleri SHY-22)",
+      "soru": "Ticari Hava Taşıma İşletmeleri Yönetmeliği (SHY-6A) Madde 3/(1)'de hava taşıma işletmeleri “Koltuk kapasitesi ……. olan uçaklarla yolcu taşımacılığı ile sadece yük taşımacılığı yapan ticari hava taşıma işletmeleri” şeklinde tanımlanmıştır. Boşluğa hangisi gelmelidir?",
+      "secenekler": [
+        "20 ve üzeri",
+        "30 ve üzeri",
+        "15 ve üzeri",
+        "5 ve üzeri",
+        "25 ve üzeri"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava aracı tescil/sicil, lisanslar",
+      "soru": "Sivil hava araçlarının uçuş operasyonunun ulusal ve uluslararası sivil havacılık kurallarına uygun olarak planlanması, uygulanmasının takip edilmesi, yönetimi ve kontrolünü sağlamakla sorumlu lisanslı personel hangisidir?",
+      "secenekler": [
+        "Hava trafik kontrolörü",
+        "Pilot",
+        "Hava aracı teknikeri",
+        "Dispeçer – Uçuş harekât uzmanı",
+        "Kabin memuru"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu",
+      "soru": "Montreal Konvansiyonu'nun 24. maddesi gereği yapılan gözden geçirmelerle kargonun tahrip olması, kaybolması ya da hasar görmesi hâlinde kg başına sınırlı sorumluluk limiti güncellenmektedir. Bu limitin (SDR) eskiden yeniye doğru sırası hangisidir?",
+      "secenekler": [
+        "17-18-19",
+        "18-19-22",
+        "17-19-20",
+        "17-22-25",
+        "17-19-22"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hukukun temel kavramları (özel/kamu hukuku dalları)",
+      "soru": "Havayolu sektöründeki bir işletmeci hangi mevzuata göre şirket sözleşmesi hazırlamaktadır?",
+      "secenekler": [
+        "Sivil Havacılık Kanunu",
+        "Borçlar Kanunu",
+        "Montreal Konvansiyonu",
+        "Medeni Kanun",
+        "Türk Ticaret Kanunu"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Trafik hakları, ikili anlaşmalar, açık semalar",
+      "soru": "Havayolu işletmesi, yolcu veya yük taşımak amacıyla ikinci bir ülkeye uçuş gerçekleştirir ve burada yolcu ve yükünü boşaltır. Daha sonra ikinci ülkeden aldığı yolcu ve yükleri üçüncü bir ülkeye bu trafik hakkı kapsamında taşıyabilir. Açıklanan hava trafik hakkı hangisidir?",
+      "secenekler": [
+        "Üçüncü hava trafik hakkı",
+        "Beşinci hava trafik hakkı",
+        "Altıncı hava trafik hakkı",
+        "Dördüncü hava trafik hakkı",
+        "Yedinci hava trafik hakkı"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "Kuruluş süreci, ABD'nin havacılıkta teknik yetki belgesi veren Federal Havacılık Otoritesi (FAA) gibi bir kuruma sahip olan tek ülke olmasına karşı AB'nin güç dengesini sağlama hamlesi olarak nitelendirilebilen örgüt hangisidir?",
+      "secenekler": [
+        "Avrupa Havacılık Emniyeti Ajansı (EASA)",
+        "Federal Havacılık Otoritesi (FAA)",
+        "Uluslararası Havaalanları Konseyi (ACI)",
+        "Avrupa Sivil Havacılık Konferansı (ECAC)",
+        "Birleşik Havacılık Otoriteleri (JAA)"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Üstel düzeltme yönteminde aşağıdaki α (alfa) değerlerinden hangisi talep dalgalanmalarına en hızlı şekilde karşılık verecektir?",
+      "secenekler": [
+        "0,2",
+        "0,5",
+        "0",
+        "Bilinemez",
+        "0,1"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Lojistik kavramı, tarihçe, tedarik zinciri",
+      "soru": "Hammadde, yarı mamul ve mamul şeklindeki stokların fabrikada veya depodaki hareketleriyle ve taşınmalarıyla ilgili faaliyetler lojistiğin hangi fonksiyonunu tanımlar?",
+      "secenekler": [
+        "Tersine lojistik",
+        "Dağıtım",
+        "Satın alma",
+        "Talep yönetimi",
+        "Elleçleme"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Aşağıdaki düzeltme katsayılarından hangisinde üstel düzeltmeye dayalı tahmin değeri, basit (naif) yönteme dayalı tahmin değeriyle aynı olur?",
+      "secenekler": [
+        "0,5",
+        "Hesaplanamaz",
+        "1 / dönem sayısı",
+        "1",
+        "0"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir ürüne yönelik talebe ilişkin zaman serisi trend denklemi F = 25,3 + 2,1x olarak verilmiştir. Bu durumda 7. döneme ilişkin tahmin değeri kaç olur?",
+      "secenekler": [
+        "27,5",
+        "40",
+        "26,4",
+        "Bilinemez",
+        "25,3"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "“Genellikle tüm stok birimleri içerisinde %50'lik bir paya sahiptirler. Bu %50'lik birim, yıllık kullanım değeri (D·v) olarak tüm stok değeri içerisinde %5'lik değere karşılık gelir.” Bu ifade hangi stok türü için doğrudur?",
+      "secenekler": [
+        "D tipi stoklar",
+        "ABC tipi stoklar",
+        "B tipi stoklar",
+        "A tipi stoklar",
+        "C tipi stoklar"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Aşağıdakilerden hangisi önceden talep tahmininde bulunulmaması durumunda karşılaşılabilecek problemlerden biri değildir?",
+      "secenekler": [
+        "Satışla birlikte üretim miktarının da azaldığı dönemlerde işsiz kalan işgücünün değerlendirilebileceği farklı bir üretim alanının planlanamaması",
+        "Gerekli olabilecek tesislerin zamanında üretime hazır hale getirilememesi",
+        "Pazarda o ürüne yönelen talebin zamanında karşılanamaması",
+        "Yeni bir tesise ne zaman ihtiyaç duyulacağının öngörülememesi",
+        "İşgücüne yönelen dönemsel talebin değişmesi"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Aşağıdakilerden hangisi tüketici anketleri ve pazar araştırmasının işe yaradığı alanlardan biri değildir?",
+      "secenekler": [
+        "Aylık satış ortalamalarının tespiti",
+        "Müşteri eğilimlerini ve beklentilerini görme",
+        "Ürün tasarımı geliştirme",
+        "Talep tahmini",
+        "Yeni ürün planlama süreçleri"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir ürüne ait ESM 400 birim olarak bulunmuştur. Talepte oluşacak %50 artış ile yeni ESM değeri için hangisi söylenir?",
+      "secenekler": [
+        "%50'den az artar",
+        "Tahmin edilemez",
+        "Değişmez",
+        "%50 artar",
+        "%50'den fazla artar"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Malzemenin yapısından dolayı sadece belli dönemlerde sayılıp sipariş verilen stok modeli için aşağıdakilerden hangisi söylenebilir?",
+      "secenekler": [
+        "Periyodik gözden geçirmeye dayalı stok modelidir.",
+        "Yenileme çok hızlı gerçekleşmektedir.",
+        "Talep kesikli dağılımla ifade edilir.",
+        "Sürekli gözden geçirmeye dayalı stok modelidir.",
+        "Talep deterministiktir."
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Ortalama Mutlak Yüzde Hata (MAPE) yöntemiyle ilgili olarak aşağıdakilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Tahminlerin gerçek değerlerden, gerçek değerlerin ortalama yüzde kaçı kadar saptığını belirler.",
+        "Tahmin yöntemlerinin geçerlik ve güvenilirliklerini ölçmek için kullanılır.",
+        "Ortalama mutlak yüzde sapma (MAPD) olarak da isimlendirilir.",
+        "MAPE değeri ne kadar büyükse yöntem o kadar güvenilirdir.",
+        "Mutlak yüzde hataların ortalaması alınarak hesaplanır."
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "“Üretim için gerekli olan malzemenin zamanında temin edilmesi gerekmektedir.” Bu ifade lojistiğin hangi fonksiyonunu ifade eder?",
+      "secenekler": [
+        "Talep yönetimi",
+        "Dağıtım",
+        "Stok yönetimi",
+        "Bilgi yönetimi",
+        "Elleçleme"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Stok kodu – birim maliyet – yıllık kullanım: A01: 90 TL – 90 | A02: 35 TL – 40 | A03: 300 TL – 130 | A04: 80 TL – 60 | A05: 30 TL – 100 | A06: 20 TL – 180 | A07: 10 TL – 170 | A08: 320 TL – 50 | A09: 5 TL – 600 | A10: 200 TL – 120\nABC stok sınıflandırması yapıldığında hangi parça kesinlikle A sınıfı stok kalemidir?",
+      "secenekler": [
+        "A02",
+        "A03",
+        "A06",
+        "A01",
+        "A04"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "6 aylık hareketli ortalama tahmini, 3 aylık hareketli ortalama tahmininden daha iyi sonuç veriyor. Talep ile ilgili aşağıdakilerden hangisi geçerli olduğunda bu durum doğru olur?",
+      "secenekler": [
+        "Talep üç aydır süregelen reklam kampanyası sonucu değişmektedir.",
+        "Talep aşağı doğru bir iniş göstermektedir.",
+        "Talep yükseliş göstermektedir.",
+        "Talep görece durağandır.",
+        "Talep mevsimsel bir eğri takip etmekte ve yılda iki defa tekrar etmektedir."
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bir ürün ya da mamulün dışarıdan satın alınması durumunda ortaya çıkan maliyet hangi tür maliyettir?",
+      "secenekler": [
+        "Üretim maliyeti",
+        "Birim maliyet",
+        "Birim satın alma maliyeti",
+        "Elde bulundurma maliyeti",
+        "Hazırlık maliyeti"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Genel",
+      "soru": "İki değişken arasındaki lineer (çizgisel) ilişkinin gücünü ya da derecesini hangisi ifade eder?",
+      "secenekler": [
+        "Alfa (α)",
+        "Beta (β)",
+        "Korelasyon katsayısı (r)",
+        "Gama (γ)",
+        "Delta (δ)"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir ürünün satışını, o ürünün pazarlamasına ayrılan bütçe, fiyat seviyesi, rakip ürünlerin fiyatları, promosyon stratejileri gibi mikro ekonomik faktörlerin yanı sıra ekonominin durumu ve işsizlik oranı gibi makro ekonomik faktörlerle ilişkilendiren tahmin modelleri hangileridir?",
+      "secenekler": [
+        "Nedensel modeller",
+        "Zaman serisi modelleri",
+        "Nitel yöntemler",
+        "Delfi yöntemi",
+        "Basit yöntem"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bir fabrikada üretilen ürüne olan yıllık talep 10.000 birimdir. Günlük üretim hızı 100 birim, günlük talep 40 birimdir. Yıllık elde bulundurma maliyeti 1 TL, hazırlık maliyeti 200 TL'dir. Bir defada üretilmesi gereken ekonomik üretim miktarı kaç birimdir?",
+      "secenekler": [
+        "40",
+        "100",
+        "2000",
+        "2582",
+        "10000"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Üretilen bir ürünün günlük üretim hızı 300 adet, tüketim hızı 200 adettir. Ekonomik üretim miktarı 3000 adet ise maksimum stok düzeyi kaçtır?",
+      "secenekler": [
+        "3000",
+        "2000",
+        "1000",
+        "1500",
+        "450"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Aşağıdaki talep tahmin yöntemlerinden hangisi geçmiş dönemleri eşit ağırlıkta dikkate alır?",
+      "secenekler": [
+        "Hareketli ortalamalar",
+        "Trend analizi",
+        "Mevsim indeksi",
+        "Ağırlıklı hareketli ortalamalar",
+        "Üstel düzeltme"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Genel",
+      "soru": "Aşağıdakilerden hangisi ürün geri kazanma yöntemlerinden biri değildir?",
+      "secenekler": [
+        "Geri dönüşüm",
+        "Tamir",
+        "Yamyamlaşma (cannibalization)",
+        "Yeniden üretim",
+        "Yakmak"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Genellikle meyve, sebze gibi bozulabilir ürünler için kullanılan depolama çeşidi aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Genel ürün deposu",
+        "Soğuk hava deposu",
+        "Gümrük depoları ya da antrepolar",
+        "Ev eşyaları ve mobilya depoları",
+        "Dökme mallar depoları"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Özellikle mevsim etkisi, kriz beklentisi gibi nedenlerle belli dönemlerde talepte oluşacak değişiklik için önceden biriktirilen stok çeşidi hangisidir?",
+      "secenekler": [
+        "Emniyet stoku",
+        "Çevrim stoku",
+        "Boru hattı stoku",
+        "Ayrıştırma stoku",
+        "Beklenti/Tahmin stoku"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Ambalajlama işlevleri",
+      "soru": "Aşağıdakilerden hangisi paketlemenin işlevlerinden değildir?",
+      "secenekler": [
+        "İçerme",
+        "Koruma",
+        "Paylaştırma",
+        "Üniteleme",
+        "Üretilebilme"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Birim fiyatı 10 TL olan bir ham maddenin 9.000 adetten fazla alınması durumunda tedarikçisi %10 indirim yapmaktadır. Buna göre 10.000 adet alındığında toplam satın alma maliyeti kaç TL'dir?",
+      "secenekler": [
+        "10 TL",
+        "90.000 TL",
+        "9 TL",
+        "9,5 TL",
+        "100.000 TL"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bağlı bulunduğu depoya “gereksinime göre” sipariş veren bir mağaza son bir ayda her hafta başında olmak üzere dört kez sipariş vermiştir. Her sipariş eşit miktarda ve 25 adettir. Sipariş maliyeti 30 TL, elde bulundurma maliyeti birim başına haftalık 2 TL'dir. Mağazada dönem başında stok bulunmamaktadır. Mağazanın bir ayda sattığı toplam ürün kaç adettir?",
+      "secenekler": [
+        "100",
+        "0 (sıfır)",
+        "50",
+        "120",
+        "30"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir lojistik firmasının gelecek dönemdeki iş hacmini miktar olarak tahmin etmesi lojistiğin hangi faaliyeti ile ilgilidir?",
+      "secenekler": [
+        "Tersine lojistik",
+        "Elleçleme",
+        "Satın alma",
+        "Talep yönetimi",
+        "Dağıtım"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Nicel talep tahminlerinde kullanılan bilgilerle ve üretimle ilgili olarak aşağıdakilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Bilgi akışında satıcı üreticiden önce gelir.",
+        "Nihai tüketici beğeni, şikâyet, istek, sipariş gibi bilgiler sunar.",
+        "Üretici tüketiciden gelen bilgilere göre satıcıya sipariş geçer.",
+        "Mamul akışında hammadde dağıtıcıdan önce gelir.",
+        "Talep tahmininde kullanılan bilginin ve mamulün hareket yönü birbirine terstir."
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Ürün taşınmayı ya da satılmayı beklemek üzere bir yerde bekletiliyorsa lojistiğin hangi fonksiyonundan bahsedilmektedir?",
+      "secenekler": [
+        "Paketleme",
+        "Depolama",
+        "Elleçleme",
+        "Dağıtım",
+        "Talep yönetimi"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "DRP/MRP planlama, sipariş yönetimi",
+      "soru": "Tedarik edilen bir malzemenin günlük tüketim hızı 30 adettir. Tedarik süresi 6 gün olduğuna göre yeniden sipariş noktası kaç birimdir?",
+      "secenekler": [
+        "6",
+        "30",
+        "18",
+        "5",
+        "180"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Lojistik kavramı, tarihçe, tedarik zinciri",
+      "soru": "Tedarik zincirindeki dağıtım kanalları arasındaki veya birbirine komşu iki montaj hattı arasındaki stok türü hangisidir?",
+      "secenekler": [
+        "Tedarik stoku",
+        "Çevrim stoku",
+        "Emniyet stoku",
+        "Ayrıştırma stoku",
+        "Boru hattı stoku"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Ham madde, yarı mamul, mamul ve yardımcı malzeme olarak stok sınıflandırması yapıldığında stoklar neye göre sınıflandırılmıştır?",
+      "secenekler": [
+        "Malzemenin kimyasal özelliklerine göre",
+        "Malzemenin şekline göre",
+        "Fonksiyonlarına göre",
+        "Arz-talebe göre",
+        "Malzemenin değerine göre"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Malzeme birçok farklı üretim noktasından merkezi bir depoya yollanır ve müşteri için depoda bir araya getirilir. Bu tür bir depo için aşağıdakilerden hangisi söylenebilir?",
+      "secenekler": [
+        "Ürün karışım deposu",
+        "Özel depolama",
+        "Birleştirme deposu",
+        "Ayrıştırma deposu",
+        "Üretim destek deposu"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Ambalajlama işlevleri",
+      "soru": "“Paketin içindeki ürünler nem, toz, böcek gibi dış etkenlerden korunmalıdır.” Bu açıklama paketlemenin hangi işlevini ifade etmektedir?",
+      "secenekler": [
+        "İletişim",
+        "Üniteleme",
+        "Koruma",
+        "Paylaştırma",
+        "Üretilebilme"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Talepte veya tedarikteki kısa dönemli dalgalanmalarda stoksuz kalmamak için elde bulundurulan; amacı hizmet düzeyini yüksek tutmak ve stok tükenmesi durumunda talebin beklememesini sağlamak olan stok türü hangisidir?",
+      "secenekler": [
+        "Emniyet stoku",
+        "Takip stoku",
+        "Beklenti stoku",
+        "Çevrim stoku",
+        "Ayrıştırma stoku"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Aşağıdakilerden hangisi depoların verdiği hizmetler arasında yer almaz?",
+      "secenekler": [
+        "Montaj hattında parçayı üretmek",
+        "Paketleme",
+        "Çapraz sevkiyat",
+        "Etiketleme, paket küçültme",
+        "İade işlemleri"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Bir mağazada satılan gömleklerin tüketim hızı günlük 40 adettir. Gömleklerin tedarikçiden mağazaya ulaşması 8 gün sürmektedir. Yeniden sipariş noktası kaç adettir?",
+      "secenekler": [
+        "15",
+        "4",
+        "320",
+        "640",
+        "160"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Bir üretim işletmesinin ürettiği ürünleri talebe bakmaksızın önce depolara, oradan da mağazalara dağıtarak genelde mağazalar üzerinde satış baskısı kurduğu dağıtım ağı yöntemi hangisidir?",
+      "secenekler": [
+        "Parça periyodu yöntemi",
+        "İtme yöntemi",
+        "Malzeme gereksinim planlama yöntemi",
+        "Bütünleşik planlama yöntemi",
+        "Çekme yöntemi"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Tersine lojistik faaliyetini başlatan aşağıdakilerden hangisi olamaz?",
+      "secenekler": [
+        "Mağaza çalışanı",
+        "Nihai kullanıcı",
+        "Müşteri",
+        "Üretim kontrol elemanı",
+        "Ham madde tedarikçisi"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "EOQ / ekonomik üretim miktarı / iskonto modelleri",
+      "soru": "Sipariş miktarının yalnızca ihtiyaç miktarıyla sınırlandığı sipariş verme yöntemi hangisidir?",
+      "secenekler": [
+        "Sabit sipariş periyodu modeli",
+        "Parça periyodu modeli",
+        "Periyodik gözden geçirmeye dayalı model",
+        "Gereksinime göre sipariş modeli",
+        "Ekonomik sipariş miktarı modeli"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Zaman serisi tahmin yöntemleriyle ilgili olarak aşağıdakilerden hangisi doğrudur?",
+      "secenekler": [
+        "Geçmiş talep verilerinin analizi geleceğe yönelik tahmine yardımcı olur.",
+        "İki ürünün satış rakamlarının birbirinden etkilendiği durumlarda kullanılır.",
+        "Gelecekteki talebin geçmişteki taleple aynı olacağı varsayımı üzerine kuruludur.",
+        "Kalitatif yaklaşımlarla derlenmiş verilerin geniş ölçüde kullanılmasını gerektirir.",
+        "Zamansal trendler, döngüler ve mevsimsel hareketleri hesaba kattığı için nedensel tahmin yöntemlerinden daha güçlüdür."
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Ambalajlama işlevleri",
+      "soru": "“Evrensel ürün kodları gibi semboller kullanarak herkesin ürünü kolayca tanımasını sağlar.” Bu açıklama paketlemenin hangi işlevini ifade etmektedir?",
+      "secenekler": [
+        "Üniteleme",
+        "Üretilebilme",
+        "İletişim",
+        "Paylaştırma",
+        "Kolaylık"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Ambalajlama işlevleri",
+      "soru": "“Ürünlerin müşteri tarafından fazla efor sarf edilmeden kolayca kullanılmasını sağlar.” Bu tanım paketleme işlevlerinden hangisine aittir?",
+      "secenekler": [
+        "İçerme",
+        "Koruma",
+        "Paylaştırma",
+        "Üniteleme",
+        "Kolaylık"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Aşağıdaki taşımacılık türlerinden hangisi doğalgaz ve petrol ürünleri taşımacılığı için en uygun yöntemdir?",
+      "secenekler": [
+        "Kara yolu taşımacılığı",
+        "Boru hattı taşımacılığı",
+        "Deniz yolu taşımacılığı",
+        "Demir yolu taşımacılığı",
+        "İntermodal taşımacılık"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Tersine lojistik, müşteri hizmetleri, performans",
+      "soru": "Bir işletme belirli bir malzemeyi farklı tedarikçilerden tedarik etmekte, her tedarikçi için bir puan skalası geliştirmekte ve tedarikçilerini aldıkları puana göre gruplandırmaktadır. Bu işletme lojistiğin hangi fonksiyonunu yerine getirmektedir?",
+      "secenekler": [
+        "Talep yönetimi",
+        "Elleçleme",
+        "Satın alma",
+        "Dağıtım",
+        "Tersine lojistik"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Aşağıdakilerden hangisi tedarik süresince oluşacak talep değişikliğinde stoksuz kalmamak için elde bulundurulan stok türüdür?",
+      "secenekler": [
+        "Boru hattı stoku",
+        "Düzeysel stok",
+        "Emniyet stoku",
+        "Ayrıştırma stoku",
+        "Elde bulundurulmayan stok"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir fabrikada kullanılan hammaddenin aylık tüketimi 20 palettir. Tedarik süresi 2 ay olduğuna göre hammaddeye ait yeniden sipariş noktası kaç birimdir?",
+      "secenekler": [
+        "20",
+        "2",
+        "10",
+        "200",
+        "40"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "“Genellikle tüm stok birimleri içerisinde %30'luk bir paya sahiptirler. Bu %30'luk birim, yıllık kullanım değeri (D·v) olarak tüm stok değeri içerisinde %15'lik değere karşılık gelir.” Bu ifade hangi stok türü için doğrudur?",
+      "secenekler": [
+        "B tipi stoklar",
+        "A tipi stoklar",
+        "C tipi stoklar",
+        "Çevrim stoku",
+        "Boru hattı stoku"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Aşağıdakilerden hangisi lojistik girdilerinden değildir?",
+      "secenekler": [
+        "Doğal kaynaklar",
+        "Bilgi kaynağı",
+        "İnsan kaynağı",
+        "Finansal kaynaklar",
+        "Taşıma kaynağı"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Ekmek üreten bir fırın, bir sonraki günün üretim miktarını belirlerken yaklaşık olarak bir önceki gün satılan ekmek adedini dikkate almakta ve malzemeyi buna göre planlamaktadır. Aşağıdaki üstel düzeltme katsayılarından hangisi bu model için en uygunudur?",
+      "secenekler": [
+        "0,50",
+        "0",
+        "0,75",
+        "0,10",
+        "0,9"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Kısa, orta ve uzun vadeli tahminlerle ilgili olarak aşağıdakilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Üretim planlama için kısa, orta ve uzun vadeli tahminler kullanılabilir.",
+        "AR-GE çalışmalarında kısa vadeli tahminlere başvurulur.",
+        "Orta vadeli tahmin 3 yıldan kısa bir süre için yapılır.",
+        "Yeni tesis kurma kararı uzun vadeli tahmin gerektirir.",
+        "Kısa vadeli tahmin genelde 3 aydan kısa bir süre için yapılır."
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "DRP/MRP planlama, sipariş yönetimi",
+      "soru": "Bir ürüne olan haftalık talep 400 adettir. Tedarik süresi 5 hafta olduğuna göre ürüne ait yeniden sipariş noktası kaç birimdir?",
+      "secenekler": [
+        "5",
+        "80",
+        "200",
+        "400",
+        "2000"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Genel",
+      "soru": "Aşağıdakilerden hangisi ürün yaşam (hayat) eğrisinin aşamalarından biri değildir?",
+      "secenekler": [
+        "Bebeklik",
+        "Olgunluk",
+        "Büyüme",
+        "Geliştirme",
+        "Düşüş"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Aşağıdaki modellerin hangisinde talebin yapısı ve tedarik süresi kesin olarak bilinmektedir?",
+      "secenekler": [
+        "Emniyet modeli",
+        "Deterministik modeller",
+        "Periyodik gözden geçirmeye dayalı modeller",
+        "Olasılıklı modeller",
+        "Sürekli gözden geçirmeye dayalı modeller"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Aşağıdaki stok modellerinin hangisinde talebin yapısı ve/veya tedarik süresi kesin olarak bilinmemekte ve bir olasılık dağılımı ile ifade edilmektedir?",
+      "secenekler": [
+        "Sürekli gözden geçirmeye dayalı modeller",
+        "Stokastik modeller",
+        "Boru hattı modeli",
+        "Deterministik modeller",
+        "Ayrıştırma stoku modeli"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Ambalajlama işlevleri",
+      "soru": "Birincil paketler ikincil paketlere üniteler hâlinde yerleştirilebilir. Bu paketler de paletlere, nihayetinde ise bu paletler konteynerlere yüklenir. Bu işlemler bir ürünün taşınacağı sefer sayısını azaltır. Bu açıklama paketlemenin hangi işlevini ifade etmektedir?",
+      "secenekler": [
+        "İletişim",
+        "Paylaştırma",
+        "Kolaylık",
+        "Üretilebilme",
+        "Üniteleme"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Genel",
+      "soru": "İki değişken arasında “mükemmel korelasyon” ilişkisi varsa korelasyon katsayısı aşağıdakilerden hangisine eşit olur?",
+      "secenekler": [
+        "r < 0",
+        "r > -1",
+        "0 < r < 1",
+        "r = 0",
+        "r = 1 veya r = -1"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir otomobil üreticisi, birim maliyeti 1000 TL olan bir hammaddeyi tek seferde 500 adetten fazla sipariş vermesi durumunda %10 indirim almaktadır. Buna göre tek seferde 600 adet sipariş vermesi durumunda hammaddenin birim maliyeti kaç TL olur?",
+      "secenekler": [
+        "900",
+        "500.000",
+        "450",
+        "1000",
+        "800"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir otomobil üreticisi, birim maliyeti 1000 TL olan bir hammaddeyi tek seferde 600 adetten fazla sipariş vermesi durumunda %10 indirim almaktadır. Buna göre tek seferde 400 adet sipariş vermesi durumunda hammaddenin toplam maliyeti kaç TL olur?",
+      "secenekler": [
+        "320.000",
+        "600.000",
+        "1.000",
+        "400.000",
+        "450.000"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Bir ürüne olan talep zamanla değişmiyorsa bu talep nasıl bir özellik göstermektedir?",
+      "secenekler": [
+        "Bilinmez",
+        "Sabit",
+        "Doğrusal",
+        "Mevsimsel",
+        "Düzensiz"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Aşağıdakilerden hangisi üretim merkezinde üretilen bir ürünün nihai tüketiciye ulaşabilmesini sağlayan dağıtım ağı aktörüdür?",
+      "secenekler": [
+        "Ham madde deposu",
+        "Mağaza",
+        "Yarı mamul deposu",
+        "Mamul depo",
+        "Fabrika"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Lojistik kavramı, tarihçe, tedarik zinciri",
+      "soru": "Kullanım fonksiyonunu tamamlayan ürünler bir kaynaktan tek bir merkeze ulaşmakta ise hangi lojistik faaliyetten bahsedilmektedir?",
+      "secenekler": [
+        "Tedarik zinciri yönetimi",
+        "Geriye doğru dağıtım",
+        "İleriye doğru dağıtım",
+        "Stok yönetimi",
+        "Talep yönetimi"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Aşağıdaki taşımacılık türlerinden hangisinin teslim zamanı en kısadır?",
+      "secenekler": [
+        "Hava yolu taşımacılığı",
+        "Deniz yolu taşımacılığı",
+        "Boru hattı taşımacılığı",
+        "Demir yolu taşımacılığı",
+        "Kara yolu taşımacılığı"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Bir depoda malzeme ve/veya ürünlerin hareketleri ve bulundurulması ile ilgili tüm işlemleri kapsayan ifade aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Birleştirme",
+        "Elleçleme",
+        "Ayrıştırma",
+        "Hareket",
+        "Paketleme"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Kullanım ömrü tamamlanmış bir buzdolabının yeniden üretilmesi için başka bir kaynağa aktarıldığı duruma ne denir?",
+      "secenekler": [
+        "Stok yönetimi",
+        "İleriye doğru lojistik",
+        "Tersine lojistik",
+        "Pazarlama yönetimi",
+        "Dağıtım planlama"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Aşağıdaki taşımacılık türlerinden hangisinde faaliyet gösteren bir firmanın rakip sayısı en çoktur?",
+      "secenekler": [
+        "Deniz yolu taşımacılığı",
+        "Hava yolu taşımacılığı",
+        "Boru hattı taşımacılığı",
+        "Demir yolu taşımacılığı",
+        "Kara yolu taşımacılığı"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)",
+      "soru": "Aşağıdakilerden hangisi “Kırbaç Etkisi”ni ifade etmektedir?",
+      "secenekler": [
+        "Tüketiciden gelen bilginin ham madde kaynağına ulaşana kadar tahmine kaynaklık eden verinin değişmesi",
+        "Tahmin yokluğundan dolayı pazarda bir ürüne yönelen talebin karşılanmasında zamanlamanın tutturulamaması",
+        "Tahmin yokluğundan dolayı yeni bir tesise ne zaman ihtiyaç duyulacağının öngörülememesi",
+        "Mamul zincirinin geleceğe yönelik tahmin yapılmasını kolaylaştırması",
+        "Tüketiciden gelen talep doğrultusunda iş gücüne yönelen dönemsel talebin değişmesi"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "2022 Bütünleme sınavına göre taşımacılık türlerinden hangisinin taşıma kapasitesi en yüksektir?",
+      "secenekler": [
+        "Boru hattı",
+        "Kara yolu",
+        "Hava yolu",
+        "Demir yolu",
+        "Deniz yolu"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Geçmiş sınav",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Şekilde ortada bulunan depo hangi amaçla kullanılmıştır?",
+      "secenekler": [
+        "Üretim",
+        "Ürün karışım",
+        "Ayrıştırma",
+        "Birleştirme",
+        "Çapraz sevkiyat"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-depo-karisim.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Şekilde ortada bulunan depo hangi amaçla kullanılmıştır?",
+      "secenekler": [
+        "Üretim",
+        "Ürün karışım",
+        "Ayrıştırma",
+        "Birleştirme",
+        "Çapraz sevkiyat"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-depo-birlestirme.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Şekilde ortada bulunan depo hangi amaçla kullanılmıştır?",
+      "secenekler": [
+        "Üretim",
+        "Ürün karışım",
+        "Ayrıştırma",
+        "Birleştirme",
+        "Çapraz sevkiyat"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-depo-ayristirma.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bir montaj hattında kullanılmakta olan 3 adet parça aynı tedarikçiden alınmaktadır. Tedarikçi firma, bir parçadan 100 birim ve üzeri alınması durumunda birim maliyette %2 iskonto uygulamaktadır. Üç parçaya ait veriler (D: yıllık talep, C: birim maliyet, Cs: sipariş maliyeti, Ch: elde bulundurma oranı) tabloda verilmiştir.\nA1 için tek seferde verilmesi gereken sipariş miktarı kaçtır?",
+      "secenekler": [
+        "19",
+        "10",
+        "100",
+        "119",
+        "81"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-montaj-tablo.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bir montaj hattında kullanılmakta olan 3 adet parça aynı tedarikçiden alınmaktadır. Tedarikçi firma, bir parçadan 100 birim ve üzeri alınması durumunda birim maliyette %2 iskonto uygulamaktadır. Üç parçaya ait veriler (D: yıllık talep, C: birim maliyet, Cs: sipariş maliyeti, Ch: elde bulundurma oranı) tabloda verilmiştir.\nA1 için ekonomik sipariş miktarındaki toplam yıllık maliyet kaçtır?",
+      "secenekler": [
+        "5972,42 TL",
+        "5962,29 TL",
+        "5689,87 TL",
+        "4600,42 TL",
+        "5975,29 TL"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-montaj-tablo.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bir montaj hattında kullanılmakta olan 3 adet parça aynı tedarikçiden alınmaktadır. Tedarikçi firma, bir parçadan 100 birim ve üzeri alınması durumunda birim maliyette %2 iskonto uygulamaktadır. Üç parçaya ait veriler (D: yıllık talep, C: birim maliyet, Cs: sipariş maliyeti, Ch: elde bulundurma oranı) tabloda verilmiştir.\nB1 parçasında indirim olmasaydı, tek seferde verilmesi gereken sipariş miktarı kaç olurdu?",
+      "secenekler": [
+        "28",
+        "20",
+        "100",
+        "120",
+        "80"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-montaj-tablo.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bir montaj hattında kullanılmakta olan 3 adet parça aynı tedarikçiden alınmaktadır. Tedarikçi firma, bir parçadan 100 birim ve üzeri alınması durumunda birim maliyette %2 iskonto uygulamaktadır. Üç parçaya ait veriler (D: yıllık talep, C: birim maliyet, Cs: sipariş maliyeti, Ch: elde bulundurma oranı) tabloda verilmiştir.\nB1 parçasının ekonomik sipariş miktarına ait toplam maliyet formülünde, bir birimi bir yıl elde bulundurmanın maliyeti kaç TL olarak alınmalıdır?",
+      "secenekler": [
+        "0,24",
+        "3,10",
+        "3,038",
+        "0,729",
+        "0,744"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-montaj-tablo.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bir montaj hattında kullanılmakta olan 3 adet parça aynı tedarikçiden alınmaktadır. Tedarikçi firma, bir parçadan 100 birim ve üzeri alınması durumunda birim maliyette %2 iskonto uygulamaktadır. Üç parçaya ait veriler (D: yıllık talep, C: birim maliyet, Cs: sipariş maliyeti, Ch: elde bulundurma oranı) tabloda verilmiştir.\nC1 parçasından tek seferde kaç adet sipariş verilmelidir?",
+      "secenekler": [
+        "149",
+        "49",
+        "100",
+        "51",
+        "Hiçbiri"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-montaj-tablo.webp"
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Stok yönetimi: türler, maliyetler",
+      "soru": "Bir montaj hattında kullanılmakta olan 3 adet parça aynı tedarikçiden alınmaktadır. Tedarikçi firma, bir parçadan 100 birim ve üzeri alınması durumunda birim maliyette %2 iskonto uygulamaktadır. Üç parçaya ait veriler (D: yıllık talep, C: birim maliyet, Cs: sipariş maliyeti, Ch: elde bulundurma oranı) tabloda verilmiştir.\nC1'in indirimli fiyatı kaç TL'dir?",
+      "secenekler": [
+        "2,40",
+        "1,92",
+        "2,352",
+        "2,448",
+        "1,50"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0,
+      "gorsel": "gorseller/loj-montaj-tablo.webp"
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "Hava araçlarının, bir noktadan ulaşmak istedikleri başka bir noktaya gerçekleştirdikleri uçuşlarının öncelikle emniyetli olarak gerçekleşmesi için tüm aşamalarını yöneten, başka bir ifade ile hava araçlarının havadaki ve havaalanındaki trafiğinin emniyetli, düzenli, hızlı bir şekilde akışını sağlayan meslek grubu aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Hava Trafik Kontrolörü",
+        "Dispeçer",
+        "Sorumlu Müdür",
+        "Tarayıcı personel",
+        "Kabin memuru"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "Aşağıdakilerden hangisi hava aracı teknisyenliği için doğru bir bilgi değildir?",
+      "secenekler": [
+        "Hava aracı teknisyenleri; hafif, döner katlı veya büyük hava araçlarına bakım yapmak üzere SHGM tarafından lisanslandırılan meslek grubudur.",
+        "Hava aracı teknisyenleri hava aracı gövde yapılarının, motorların, elektronik ve aviyonik sistemlerin muayenesini (kontrolünü), bakımını ve onarımını gerçekleştirir.",
+        "Hava aracı teknisyenlerinin, bir hava aracının bakımını yapıp uçuşa elverişlilik belgesini imzalayabilmesi için SHGM’nden SHY-66 hava aracı bakım teknisyeni lisansına sahip olması gereklidir",
+        "Lisans sahibi kişinin bakım çıkış sertifikasını imzalayacağı uçağın tip eğitimini almış olmalı ve yetkili olduğu uçak tipi lisansında yazılı olmalıdır.",
+        "Pilot lisansına sahip olması ve en az 5 yıllık pilotluk tecrübesi bulunması gereklidir."
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "Aşağıdakilerden hangisi DHMİ’nin görevleri arasında yer almaz?",
+      "secenekler": [
+        "Sivil havacılık faaliyetlerinin gereği olan havalimanlarının işletilmesi,",
+        "Meydan yer hizmetlerinin yapılması,",
+        "Hava trafik kontrol hizmetlerinin ifasını gerçekleştirmek",
+        "Sivil hava ulaştırması konusunda ülke politikalarını belirlemek; ikili ve çok taraflı anlaşmaların çalışmalarına katılmak ve bunları sonuçlandırmak.",
+        "Havacılık faaliyetlerinin sürdürülmesi için gerekli meydan ve tesislerin kurulması"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Hava sahası, egemenlik, Paris/Chicago, ICAO",
+      "soru": "2920 Sayılı Türk Sivil Havacılık Kanunu uyarınca Türk Hava Sahasını kullanımına yönelik verilen bilgilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Türk Hava Sahasının kullanımı, Genel Kurmay Başkanlığı’nın olumlu görüşüne bağlıdır.",
+        "Herhangi bir sebeple Türk Hava sahasını güvenlik ve emniyet yönünden tehdit söz konusuysa hava sahasının kullanımına izin verilmez.",
+        "Türk Hava Sahasında seyreden hava araçlarının izleyebilecekleri uçuş rotaları ve kullanabilecekleri alanlar Genel Kurmay Başkanlığı ile koordinasyon halinde çalışılması koşuluyla Sivil Havacılık Genel Müdürlüğüne aittir.",
+        "Türk Hava Sahasında seyreden, yabancı ülkeden gelen veya yabancı ülkeye giden hava araçları ancak gümrüklü alana sahip olan havaalanlarına inmeye veya bu alanlardan kalkış yapmaya mecburdurlar.",
+        "Kanun, hava sahasına giren ve resmi izinlere dayalı olarak hava sahasında uçuş gerçekleştiren hava araçlarının kullanabileceği havaalanları ve havalimanları ile uçuş rotaları ile ilgili sınırlandırmaları düzenlemektedir."
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "Genel",
+      "soru": "Aşağıda İşletmecinin yapısı ve şirket türlerinde paylarla ilgili verilen bilgilerden hangisi geçerli bir bilgi değildir?",
+      "secenekler": [
+        "Paylarının en az %51’ inin nama yazılı olması",
+        "Çoğunluk paylarının ve yönetim kurulu üyeleri ile oy hakkı çoğunluğunun ve kontrolünün Türkiye Cumhuriyeti vatandaşı olan paydaşlarda bulunması,",
+        "Türk Ceza Kanununun 384 üncü maddesinde yer alan nakliye ve muhabere vasıtaları aleyhindeki suçlardan, kesin hüküm giymemiş olmaları, haklarında Mahkemece alınmış ve kesinleşmiş bir iflas veya konkordato kararı olmaması, gereklidir.",
+        "BİST’de veya uluslararası borsalarda işlem gören halka açık ticari hava taşımacılığı yapacak işletmelerin paylarının %51’inin nama yazılı olması şartı aranmaz.",
+        "Denetim Kurulu üyelerinin tamamının Türkiye Cumhuriyeti vatandaşı olması"
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Havacılık Hukuku",
+      "konu": "2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret",
+      "soru": "Ülkemizde havayolu taşımacılığının temel kaynağını hangi kanun oluşturmaktadır?",
+      "secenekler": [
+        "Montreal Konvansiyonu",
+        "Posta Kanunu",
+        "Türk Ticaret Kanunu",
+        "Türk Sivil Havacılık Kanunu"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "_______, sunulan herhangi bir önerinin oluşturduğu faydaların, bu faydaları elde etmek için katlanılan maliyetlere (fedakârlıklara) kıyaslanarak şekillendiği bir yapıdır. Yukarıdaki boşluğu doğru şekilde tamamlayan seçenek hangisidir?",
+      "secenekler": [
+        "Değer",
+        "Fayda",
+        "İhtiyaç",
+        "Tatmin",
+        "Sadakat"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "_______, müşterinin öneriyi/teklifi elde etme ve kullanma yolunda yaşayacağı tüm deneyimleri içerir. Yukarıdaki boşluğu doğru şekilde tamamlayan seçenek hangisidir?",
+      "secenekler": [
+        "Değer alma sistemi",
+        "Değer sunma sistemi",
+        "Memnuniyet sistemi",
+        "Maliyetleme sistemi",
+        "Müşteri iletişimi sistemi"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri deneyimi, yolculuğu, kampanyalar",
+      "soru": "Aşağıdakilerden hangisi müşteri deneyimini şekillendiren beş deneyimsel boyuttan biri değildir?",
+      "secenekler": [
+        "Duyusal deneyim",
+        "Duygusal deneyim",
+        "Psikolojik deneyim",
+        "Davranışsal deneyim",
+        "İlişkisel deneyim"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri deneyimi, yolculuğu, kampanyalar",
+      "soru": "Bir müşteri deneyimini şekillendiren beş deneyimsel boyut hakkında aşağıdaki ifadelerden hangisi yanlıştır?",
+      "secenekler": [
+        "Düşünsel deneyimler, kişilerin hissetmesine dayalı oluşurlar.",
+        "Duyusal deneyimler, insanın beş duyusunun harekete geçirilmesiyle yaşanan deneyimlerdir.",
+        "Düşünsel deneyimler bilişsel boyutta şekillenir.",
+        "Duygusal deneyim, belirli duygusal tepkilerin oluşmasına sebebiyet veren deneyimlerdir.",
+        "Davranışsal deneyim, müşteri davranışlarında ve yaşam tarzında değişiklik oluşturan deneyimlerdir."
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "________, fiili deneyimden kişisel veya kitlesel iletişime ve sıradan gözlemlere kadar müşterinin işletme, ürün ve marka ile karşılaştığı her durumdur. Yukarıdaki boşluğu en doğru şekilde tamamlayan seçenek aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Müşteri memnuniyeti",
+        "Müşteri karar anı",
+        "Müşteri sadakati",
+        "Müşteri temas noktası",
+        "Müşteri şikayeti"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Memnuniyet, sadakat, şikayet",
+      "soru": "________, kârlı müşterilerini belirleyebilen, ödüllendirebilen ve başarılı bir şekilde elde tutabilen önemli bir MİY aracıdır. Yukarıdaki boşluğu doğru şekilde tamamlayan seçenek hangisidir?",
+      "secenekler": [
+        "Risk yönetim programları",
+        "Tutundurma programları",
+        "Reklam programları",
+        "Sadakat programları",
+        "Satış programları"
+      ],
+      "dogru": "D",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "Başarılı bir kampanya yönetim süreci ve aşamaları hakkında aşağıdakilerden hangisi doğru değildir?",
+      "secenekler": [
+        "Başarılı bir kampanya yönetim süreci birbiriyle bağlantılı dört aşamadan oluşmaktadır.",
+        "Planlama aşaması, kampanyanın amaç ve hedeflerinin tanımlanarak rasyonelleştirildiği stratejik bir süreci ifade eder.",
+        "Geliştirme aşaması teklifin oluşturulup, kampanya tasarımının şekillendirilmesi ile ilgilenen taktiksel bir süreçtir.",
+        "Yürütme aşaması kampanyanın seçilen mecrada yürütülmesi ve kontrol edilmesine ilişkin operasyonel bir süreci içerir.",
+        "Yükselme aşaması kampanya sonuçlarının başlangıçta belirlenen hedeflere göre değerlendirilmesi sürecini ifade eder."
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "MİY kavramı, gelişimi, temel felsefe",
+      "soru": "İşletmelerin müşteri şikâyetlerini teşvik etmek için gerçekleştirebilecekleri faaliyetler için aşağıdakilerden hangisi yanlıştır?",
+      "secenekler": [
+        "Müşterilerin başvurabileceği farklı geri bildirim kanalları açılabilir.",
+        "Şikâyet başvuru süreçleri ve etkileşimi kolaylaştırılabilir.",
+        "Şikâyet politikaları ve süreçleri hakkında bilgilendirme yapılabilir.",
+        "Geribildirim sonucunda müşterilerin şikâyetlerinin çözüme kavuşturulacağına yönelik güven oluşturabilir.",
+        "Şikâyet edebilmek için müşterinin mutlaka bir bedel ödemesi gerekir."
+      ],
+      "dogru": "E",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Veri, veri madenciliği, segmentasyon",
+      "soru": "________, anlamlı kalıpları ve kuralları keşfetmek için büyük miktarda verinin araştırılması ve analiz edilmesi sürecidir. Yukarıdaki boşluğu en doğru şekilde tamamlayan seçenek aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Veri madenciliği",
+        "Pazarlama araştırması",
+        "İşbirlikçi MİY",
+        "Operasyonel MİY",
+        "Stratejik MİY"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "_________, müşterinin gelecekteki net katkısını bugünkü değere getirmek için uygulanır. Yukarıdaki boşluğu en doğru şekilde tamamlayan seçenek aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Elde tutma oranı",
+        "Veri madenciliği",
+        "İskonto oranı",
+        "RFM analizi",
+        "Pazar sepet analizi"
+      ],
+      "dogru": "C",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Müşteri İlişkileri Yönetimi",
+      "konu": "Müşteri değeri, CLV, karlılık, portföy",
+      "soru": "_________ müşterinin satın alma güncelliği, satın alma sıklığı ve satın almanın parasal değeri açısından tanımlanmasını ve farklılaştırılmasını hedefleyen bir tekniktir. Bu teknik, müşteri davranışını ve müşteri değerini değerlendirmek için güncellik, sıklık ve parasal değer ölçütlerini kullanır. Yukarıdaki boşluğu en doğru şekilde tamamlayan seçenek aşağıdakilerden hangisidir?",
+      "secenekler": [
+        "Net tavsiye skoru",
+        "RFM analizi",
+        "Müşteri yaşam boyu değer analizi",
+        "Cüzdan büyüklüğü",
+        "Cüzdan payı"
+      ],
+      "dogru": "B",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
+      "sinavSayisi": 0
+    },
+    {
+      "kategori": "Lojistik Yönetimi",
+      "konu": "Taşımacılık, depolama, çapraz sevkiyat",
+      "soru": "Bazı şirketler ürünlerini müşterilere direk pazarlayabilir ve bu şekilde sahada bir depo ihtiyacını elerler. Bu tür bir operasyona ne denir?",
+      "secenekler": [
+        "Doğrudan Sevkıyat",
+        "Hareket",
+        "Saklama",
+        "Antrepo",
+        "Sözleşmeye Dayalı Depolama"
+      ],
+      "dogru": "A",
+      "aciklama": "",
+      "kaynak": "Ders kitabı (ünite sonu)",
       "sinavSayisi": 0
     }
   ]
