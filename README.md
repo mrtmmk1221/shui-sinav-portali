@@ -17,6 +17,14 @@ soru-bankasi/
 
 **Canlı adres:** https://mrtmmk1221.github.io/shui-sinav-portali/
 
+## Final Seferi (RPG çalışma uygulaması)
+
+26 Aralık finaline kadar günlük görev, XP, lanetli kart ve boss savaşlarıyla çalışmak için ayrı bir uygulama: `final-seferi/` klasöründe.
+
+**Adres:** https://mrtmmk1221.github.io/shui-sinav-portali/final-seferi/
+
+Telefona ayrı bir uygulama olarak kurulabilir ve internetsiz çalışır.
+
 ## Telefona uygulama olarak kurma
 
 - **Android (Chrome):** siteyi aç → üstteki **⬇ Uygulamayı yükle** butonuna bas (görünmüyorsa Chrome menüsü → *Ana ekrana ekle* / *Uygulamayı yükle*).

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Final Seferi</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#5E5CE6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Final Seferi">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@1.57.0/dist/umd/lucide.min.js"></script>
+<style>
+/* Final Seferi — sakin, ferah, tek odak. Linear/Vercel sadeliği; renk yalnızca durum bildirir. */
+:root{
+  --bg:#FAFAFA; --surface:rgba(255,255,255,.72); --solid:#FFFFFF; --ink:#0F1115; --mute:#6B7280; --faint:#9CA3AF;
+  --line:rgba(15,17,21,.08); --line2:rgba(15,17,21,.14);
+  --accent:#5E5CE6; --accent-ink:#FFFFFF; --accent-soft:rgba(94,92,230,.10);
+  --ok:#16A34A; --ok-soft:rgba(22,163,74,.10); --bad:#DC2626; --bad-soft:rgba(220,38,38,.08); --gold:#B7791F; --gold-soft:rgba(183,121,31,.10);
+  --shadow:0 1px 2px rgba(15,17,21,.04),0 8px 24px rgba(15,17,21,.05);
+  --r:16px; --ease:cubic-bezier(.22,1,.36,1);
+  --display:"Plus Jakarta Sans",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1115; --surface:rgba(24,27,33,.72); --solid:#181B21; --ink:#EDEEF0; --mute:#9BA1AC; --faint:#6B7280;
+  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.13);
+  --accent:#8B89FF; --accent-ink:#0F1115; --accent-soft:rgba(139,137,255,.14);
+  --ok:#4ADE80; --ok-soft:rgba(74,222,128,.12); --bad:#F87171; --bad-soft:rgba(248,113,113,.11); --gold:#F2C46B; --gold-soft:rgba(242,196,107,.12);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1115; --surface:rgba(24,27,33,.72); --solid:#181B21; --ink:#EDEEF0; --mute:#9BA1AC; --faint:#6B7280;
+  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.13);
+  --accent:#8B89FF; --accent-ink:#0F1115; --accent-soft:rgba(139,137,255,.14);
+  --ok:#4ADE80; --ok-soft:rgba(74,222,128,.12); --bad:#F87171; --bad-soft:rgba(248,113,113,.11); --gold:#F2C46B; --gold-soft:rgba(242,196,107,.12);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25); color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{background:var(--bg)}
+body{margin:0;min-height:100dvh;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+svg.lucide{width:18px;height:18px;stroke-width:1.75;flex:none}
+.glass{background:var(--surface);-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);border:1px solid var(--line)}
+
+/* üst bar */
+.top{position:sticky;top:0;z-index:20;border-width:0 0 1px;padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px}
+.top .in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px}
+.brand{font:700 15px/1 var(--display);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.brand svg{color:var(--accent)}
+.sp{flex:1}
+.pill{display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--body);color:var(--mute);padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:var(--solid);white-space:nowrap}
+.pill b{color:var(--ink);font-weight:600}
+.icon-btn{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:var(--solid);color:var(--mute);transition:transform .15s var(--ease),color .15s}
+.icon-btn:hover{color:var(--ink)} .icon-btn:active{transform:scale(.94)}
+.topbar-prog{height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto}
+.topbar-prog i{display:block;height:100%;width:0;background:var(--accent);border-radius:3px;transition:width .6s var(--ease)}
+
+.wrap{max-width:720px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom,0px))}
+h1{font:800 clamp(28px,6vw,36px)/1.1 var(--display);letter-spacing:-.025em;margin:0 0 6px;text-wrap:balance}
+.lead{color:var(--mute);margin:0 0 24px;font-size:15px}
+.card{border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
+.stack{display:flex;flex-direction:column;gap:14px}
+
+/* seviye */
+.lvl{display:flex;align-items:center;gap:14px}
+.badge{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font:800 17px var(--display);flex:none}
+.lvl-t{font:700 16px/1.25 var(--display)}
+.lvl-s{font-size:13px;color:var(--mute)}
+.xpbar{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-top:12px}
+.xpbar i{display:block;height:100%;background:var(--accent);border-radius:8px;transition:width .8s var(--ease)}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+/* rota */
+.route{display:flex;align-items:flex-start;gap:0;overflow-x:auto;scrollbar-width:none;padding:4px 2px 2px;margin:0 -2px}
+.route::-webkit-scrollbar{display:none}
+.stop{flex:1 0 78px;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;text-align:center}
+.stop::before{content:"";position:absolute;top:13px;left:-50%;width:100%;height:2px;background:var(--line2);z-index:0}
+.stop:first-child::before{display:none}
+.stop.done::before,.stop.cur::before{background:var(--accent)}
+.dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--solid);border:1.5px solid var(--line2);color:var(--faint);position:relative;z-index:1;transition:all .3s var(--ease)}
+.dot svg{width:14px;height:14px}
+.stop.done .dot{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.stop.cur .dot{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.stop span{font:500 11.5px/1.25 var(--body);color:var(--mute);max-width:86px}
+.stop.cur span{color:var(--ink);font-weight:600}
+
+/* görev kartı */
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:6px}
+.quest h2{font:700 22px/1.25 var(--display);letter-spacing:-.015em;margin:8px 0 4px;text-wrap:balance}
+.quest p{margin:0;color:var(--mute);font-size:15px}
+.cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:0;border-radius:14px;background:var(--accent);color:var(--accent-ink);font:700 17px var(--display);margin-top:18px;transition:transform .15s var(--ease),filter .15s}
+.cta:hover{filter:brightness(1.05)} .cta:active{transform:scale(.98)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.ghost{flex:1 1 140px;display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border:1px solid var(--line2);background:var(--solid);border-radius:12px;font:500 14.5px var(--body);transition:transform .15s var(--ease),border-color .15s}
+.ghost:hover{border-color:var(--accent)} .ghost:active{transform:scale(.97)}
+.ghost.hot{border-color:var(--gold);color:var(--gold);background:var(--gold-soft)}
+.ghost[disabled]{opacity:.45;cursor:default;transform:none}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:16px}
+.week span{text-align:center;font:500 12px/1 var(--body);padding:9px 0;border-radius:10px;background:var(--line);color:var(--mute)}
+.week span.done{background:var(--accent);color:var(--accent-ink)}
+.week span.today{box-shadow:inset 0 0 0 1.5px var(--accent);color:var(--ink)}
+.note{font-size:13px;color:var(--mute);margin:20px 4px 0;line-height:1.6}
+.cmenu{display:none} .cmenu.open{display:flex}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* soru ekranı */
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.tag{font:500 13px/1.3 var(--body);color:var(--mute)}
+.chip{display:inline-flex;align-items:center;gap:5px;font:600 11.5px/1 var(--body);padding:5px 8px;border-radius:999px}
+.chip.curse{color:var(--bad);background:var(--bad-soft)} .chip.hot{color:var(--gold);background:var(--gold-soft)}
+.chip svg{width:13px;height:13px}
+.qcard{margin-top:14px}
+.qcard.enter{animation:fadeSlide .45s var(--ease) both}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.q{font:600 clamp(18px,4.4vw,21px)/1.45 var(--display);letter-spacing:-.01em;margin:0 0 18px;text-wrap:pretty}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;min-height:54px;padding:13px 14px;margin:0 0 9px;border:1px solid var(--line2);background:var(--solid);border-radius:14px;font:400 16px/1.45 var(--body);
+  transition:transform .18s var(--ease),border-color .18s,background-color .25s,box-shadow .3s}
+@media (hover:hover){.opt:not([disabled]):hover{transform:scale(1.012);border-color:var(--accent);box-shadow:0 4px 14px rgba(94,92,230,.10)}}
+.opt:not([disabled]):active{transform:scale(.975)}
+.opt b{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--line);font:600 13px var(--body);color:var(--mute);transition:all .25s}
+.opt[disabled]{cursor:default}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft);box-shadow:0 0 0 4px var(--ok-soft),0 0 28px var(--ok-soft);animation:glow .9s var(--ease)}
+.opt.ok b{background:var(--ok);color:#fff}
+.opt.bad{border-color:var(--bad);background:var(--bad-soft);animation:shake .42s cubic-bezier(.36,.07,.19,.97)}
+.opt.bad b{background:var(--bad);color:#fff}
+.opt.dim{opacity:.55}
+@keyframes glow{0%{box-shadow:0 0 0 0 var(--ok-soft)}50%{box-shadow:0 0 0 8px var(--ok-soft),0 0 36px var(--ok-soft)}100%{box-shadow:0 0 0 4px var(--ok-soft),0 0 28px var(--ok-soft)}}
+@keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(3px)}30%,50%,70%{transform:translateX(-5px)}40%,60%{transform:translateX(5px)}}
+.explain{margin-top:6px;padding:14px 16px;border-radius:14px;background:var(--accent-soft);font-size:15px;line-height:1.55;animation:fadeSlide .35s var(--ease) both}
+.explain b{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-weight:600}
+.after{margin-top:12px}
+.xpfloat{position:fixed;z-index:50;font:800 16px var(--display);color:var(--ok);pointer-events:none;animation:floatUp 1s var(--ease) forwards}
+@keyframes floatUp{from{opacity:0;transform:translate(-50%,0)}20%{opacity:1}to{opacity:0;transform:translate(-50%,-46px)}}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:40}
+
+/* sonuç */
+.res{font:800 clamp(52px,14vw,76px)/1 var(--display);letter-spacing:-.04em;margin:12px 0 6px}
+.res small{font-size:.4em;color:var(--mute);font-weight:600;letter-spacing:0}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media (max-width:420px){.card{padding:16px}.pill.hide-s{display:none}}
+</style>
+</head>
+<body>
+<header class="top glass">
+  <div class="in">
+    <div class="brand"><i data-lucide="plane"></i>Final Seferi</div>
+    <div class="sp"></div>
+    <span class="pill" id="tDays"></span>
+    <span class="pill hide-s" id="tXp"></span>
+    <button class="icon-btn" id="theme" aria-label="Tema değiştir"><i data-lucide="sun"></i></button>
+  </div>
+  <div class="topbar-prog" id="tProgWrap" hidden><i id="tProg"></i></div>
+</header>
+<main class="wrap" id="app"><p class="lead">Yükleniyor…</p></main>
+<canvas id="fx" aria-hidden="true"></canvas>
+<script>
+{
+const FINAL='2026-12-26';
+const CN={HH:'Havacılık Hukuku',MIY:'Müşteri İlişkileri Yönetimi',LOJ:'Lojistik Yönetimi'};
+const MAIN={
+ HH:['2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret','Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu','Taşıma belgeleri: bilet, bagaj, hava yük senedi, ihbar süreleri','Hava aracı tescil/sicil, lisanslar'],
+ MIY:['Müşteri değeri, CLV, karlılık, portföy','Memnuniyet, sadakat, şikayet','Müşteri kazanma, tutma, kayıp (churn)','Veri, veri madenciliği, segmentasyon'],
+ LOJ:['Stok yönetimi: türler, maliyetler','EOQ / ekonomik üretim miktarı / iskonto modelleri','Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)','DRP/MRP planlama, sipariş yönetimi']};
+const SHORT={'2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret':'TSHK ve kurumlar','Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu':'Varşova ve Montreal','Taşıma belgeleri: bilet, bagaj, hava yük senedi, ihbar süreleri':'Taşıma belgeleri ve ihbar süreleri','Hava aracı tescil/sicil, lisanslar':'Tescil, sicil ve lisanslar','Müşteri değeri, CLV, karlılık, portföy':'Müşteri değeri ve CLV','Memnuniyet, sadakat, şikayet':'Memnuniyet ve sadakat','Müşteri kazanma, tutma, kayıp (churn)':'Kazanma, elde tutma, kayıp','Veri, veri madenciliği, segmentasyon':'Veri madenciliği ve segmentasyon','Stok yönetimi: türler, maliyetler':'Stok türleri ve maliyetleri','EOQ / ekonomik üretim miktarı / iskonto modelleri':'ESM ve iskonto modelleri','Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)':'Talep tahmini','DRP/MRP planlama, sipariş yönetimi':'DRP ve sipariş yönetimi'};
+const REG=[
+ {n:'Eğitim Kampı',s:'2026-11-20',e:'2026-11-22',m:-1,ic:'tent'},
+ {n:'Ankara Kulesi',s:'2026-11-23',e:'2026-11-29',m:0,boss:'Bürokrasi Golemi',bn:30,ic:'landmark'},
+ {n:'Varşova Geçidi',s:'2026-11-30',e:'2026-12-06',m:1,boss:'Tazminat Hidrası',bn:30,ic:'scale'},
+ {n:'Kargo Labirenti',s:'2026-12-07',e:'2026-12-13',m:2,boss:'Stok Ejderhası',bn:45,ic:'package'},
+ {n:'Veri Kuyusu',s:'2026-12-14',e:'2026-12-20',m:3,boss:'Karma Kral',bn:60,ic:'database'},
+ {n:'Final Kalesi',s:'2026-12-21',e:'2026-12-25',m:9,ic:'castle'},
+ {n:'FİNAL',s:'2026-12-26',e:'2026-12-26',m:9,ic:'trophy'}];
+const DAYC=['BOSS','HH','MIY','LOJ','HH','MIY','LOJ'];
+const LV=[[0,'Yer Hizmetleri Stajyeri'],[400,'Check-in Memuru'],[900,'Kabin Memuru'],[1600,'İkinci Pilot'],[2500,'Kaptan Pilot'],[3500,'Filo Komutanı']];
+const $=s=>document.querySelector(s), app=$('#app');
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+const ds=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const pd=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const today=()=>ds(new Date());
+const addD=(s,n)=>{const d=pd(s);d.setDate(d.getDate()+n);return ds(d)};
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const dayCourse=t=>{const d=pd(t).getDay();return d===0?['HH','MIY','LOJ'][Math.floor((pd(t)-pd('2026-11-22'))/6048e5)%3]:DAYC[d]};
+const regIdx=t=>{let r=0;REG.forEach((g,i)=>{if(t>=g.s)r=i});return r};
+const monday=t=>{const d=pd(t);const k=(d.getDay()+6)%7;d.setDate(d.getDate()-k);return ds(d)};
+const icons=()=>{try{window.lucide&&lucide.createIcons({attrs:{'stroke-width':1.75}})}catch(e){}};
+const reduced=()=>window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+let Q=[],BY={},S=null,db=null,uid=null,saveT=null,saving=false,dirty=false;
+const blank=()=>({xp:0,seen:{},cursed:{},days:{},boss:{},chest:{},joker:{}});
+const LSK='finalSeferi.v1';
+function load(){try{const r=localStorage.getItem(LSK);if(r)return Object.assign(blank(),JSON.parse(r))}catch(e){}return blank()}
+function save(){try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}dirty=true;clearTimeout(saveT);saveT=setTimeout(push,1200)}
+async function push(){if(!db||!uid||saving||!dirty)return;saving=true;dirty=false;
+ try{await db.collection('data/users/'+uid).doc('progress').set({state:JSON.stringify(S),at:Date.now()})}catch(e){dirty=true}
+ saving=false;if(dirty)setTimeout(push,1500)}
+const level=xp=>{let i=0;LV.forEach((l,k)=>{if(xp>=l[0])i=k});return i};
+
+// ---------- tema ----------
+const TK='finalSeferi.theme';
+function getTheme(){try{return localStorage.getItem(TK)||'system'}catch(e){return 'system'}}
+function applyTheme(t){const r=document.documentElement;if(t==='system')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t);
+ const ic={system:'monitor',light:'sun',dark:'moon'}[t];$('#theme').innerHTML=`<i data-lucide="${ic}"></i>`;$('#theme').setAttribute('aria-label','Tema: '+({system:'sistem',light:'açık',dark:'koyu'}[t]));icons()}
+$('#theme').onclick=()=>{const n={system:'light',light:'dark',dark:'system'}[getTheme()];try{localStorage.setItem(TK,n)}catch(e){}applyTheme(n)};
+applyTheme(getTheme());
+
+// ---------- üst bar ----------
+function topbar(prog){
+ const t=today(),left=Math.max(0,Math.round((pd(FINAL)-pd(t))/864e5));
+ $('#tDays').innerHTML=`<i data-lucide="calendar"></i><b>${left}</b> gün`;
+ $('#tXp').innerHTML=`<i data-lucide="zap"></i><b>${S?S.xp:0}</b> XP`;
+ const w=$('#tProgWrap');if(prog==null){w.hidden=true}else{w.hidden=false;requestAnimationFrame(()=>{$('#tProg').style.width=prog+'%'})}
+ icons()}
+
+// ---------- soru seçimi ----------
+function score(q){const s=S.seen[q.id];if(!s)return 0+Math.random();return 2+(s.c>=s.n?2:0)+Math.random()+(s.last===today()?5:0)}
+function pick(pool,n,ex){return pool.filter(q=>!ex.has(q.id)).sort((a,b)=>score(a)-score(b)).slice(0,n)}
+function cursedList(filter){return Object.keys(S.cursed).map(id=>BY[id]).filter(q=>q&&(!filter||filter(q)))}
+function dailySet(t){
+ const r=REG[regIdx(t)],ex=new Set();let out=[];
+ const add=a=>a.forEach(q=>{if(!ex.has(q.id)){ex.add(q.id);out.push(q)}});
+ if(r.m===-1){['HH','MIY','LOJ'].forEach((c,i)=>add(pick(Q.filter(q=>q.c===c),i===1?6:7,ex)));return shuffle(out)}
+ const c=dayCourse(t);
+ const cq=Q.filter(q=>q.c===c);
+ if(r.m===9){add(cursedList(q=>q.c===c).slice(0,10));add([...cq].sort((a,b)=>b.x-a.x||score(a)-score(b)).filter(q=>!(S.seen[q.id]&&S.seen[q.id].last===t)).slice(0,20-out.length));return shuffle(out)}
+ const mains=MAIN[c];
+ add(cursedList().sort((a,b)=>(S.cursed[a.id].since>S.cursed[b.id].since?1:-1)).slice(0,2));
+ add(pick(cq.filter(q=>q.t===mains[r.m]),14,ex));
+ for(let k=0;k<=3&&out.length<16;k++)add(pick(cq.filter(q=>q.t===mains[k]),16-out.length,ex));
+ add(pick(cq.filter(q=>!mains.includes(q.t)),20-out.length,ex));
+ add(pick(cq,20-out.length,ex));
+ return shuffle(out).slice(0,20)}
+function bossSet(ri){
+ const r=REG[ri],ex=new Set(),out=[],per=Math.round(r.bn/3);
+ ['HH','MIY','LOJ'].forEach(c=>{const ts=MAIN[c].slice(0,r.m+1);let p=pick(Q.filter(q=>q.c===c&&ts.includes(q.t)),per,ex);p.forEach(q=>ex.add(q.id));
+  if(p.length<per){const more=pick(Q.filter(q=>q.c===c),per-p.length,ex);more.forEach(q=>ex.add(q.id));p=p.concat(more)}out.push(...p)});
+ return shuffle(out)}
+function chestSet(){const wk=monday(today());return shuffle(cursedList(q=>S.cursed[q.id].since>=wk).concat(cursedList(q=>S.cursed[q.id].since<wk)))}
+
+// ---------- ana ekran ----------
+function weekDone(t){const m=monday(t);let n=0;for(let i=0;i<6;i++)if(S.days[addD(m,i)]&&S.days[addD(m,i)].done)n++;return n}
+function home(){
+ R=null;topbar(null);
+ const t=today(),ri=regIdx(t),r=REG[ri],dow=pd(t).getDay(),lv=level(S.xp);
+ const nx=LV[lv+1],pct=nx?Math.round((S.xp-LV[lv][0])/(nx[0]-LV[lv][0])*100):100;
+ const d=S.days[t]||{};const cur=Object.keys(S.cursed).length;
+ const prevBoss=REG.slice(1,ri).map((g,i)=>i+1).filter(i=>REG[i].boss&&!(S.boss[i]&&S.boss[i].won));
+ const bossRi=dow===0&&r.boss&&!(S.boss[ri]&&S.boss[ri].won)?ri:-1, oldBoss=prevBoss.length?prevBoss[0]:-1;
+ let eyebrow,title,desc,btn,mode,ic='play';
+ if(t>FINAL){eyebrow='Sefer';title='Sefer tamamlandı';desc='Final geride kaldı.';btn='Serbest tur';mode='free'}
+ else if(bossRi>=0){const g=REG[bossRi];eyebrow='Pazar boss savaşı';title=g.boss;desc=g.bn+' soru · 3 dersin karışımı · geçme sınırı %70'+(S.joker[monday(t)]?' · 1 joker hakkın var':'');btn='Savaşa gir';mode='boss:'+bossRi;ic='swords'}
+ else if(!d.done){const dc=dayCourse(t);eyebrow=r.m===-1?'Seviye tespiti':r.m>=0&&r.m<9?'Ana görev':'Final hazırlığı';title=r.m===-1?'Üç dersten karışık 20 soru':CN[dc];
+  desc='20 soru'+(r.m>=0&&r.m<9?' · '+SHORT[MAIN[dc][r.m]]:r.m===9?' · lanetli kartlar ve en çok çıkan sorular':'');btn='Başla';mode='daily'}
+ else {eyebrow='Bugün';title='Günlük görev tamam';desc='İstersen 20 soruluk ekstra tur.';btn='Ekstra tur';mode='extra';ic='plus'}
+ const sat=dow===6,wk=monday(t),chestOpen=!!S.chest[wk];
+ app.innerHTML=`
+ <h1>${esc(r.n)}</h1>
+ <p class="lead">${r.m>=0&&r.m<9&&r.boss?'Pazar boss’u: '+esc(r.boss):r.m===-1?'Seviyeni ölçüyoruz.':'Finale son düzlük.'}</p>
+ <div class="stack">
+  <section class="card glass">
+   <div class="lvl"><div class="badge">${lv+1}</div><div><div class="lvl-t">${esc(LV[lv][1])}</div><div class="lvl-s">${nx?`${S.xp} / ${nx[0]} XP · sonraki: ${esc(nx[1])}`:S.xp+' XP · en üst seviye'}</div></div></div>
+   <div class="xpbar" role="progressbar" aria-label="Seviye ilerlemesi" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:0" data-w="${pct}"></i></div>
+   <div class="stats"><span class="pill"><i data-lucide="skull"></i><b>${cur}</b> lanetli kart</span><span class="pill"><i data-lucide="flame"></i><b>${weekDone(t)}</b>/6 bu hafta</span></div>
+  </section>
+  <section class="card glass"><div class="route" id="route">${REG.map((g,i)=>{const done=i<ri||(g.boss&&S.boss[i]&&S.boss[i].won&&i<ri);return `<div class="stop ${i<ri?'done':i===ri?'cur':''}"><div class="dot"><i data-lucide="${i<ri?'check':g.ic}"></i></div><span>${esc(g.n)}</span></div>`}).join('')}</div></section>
+  <section class="card glass quest">
+   <div class="eyebrow"><i data-lucide="${bossRi>=0?'swords':'target'}"></i>${esc(eyebrow)}</div>
+   <h2>${esc(title)}</h2><p>${esc(desc)}</p>
+   <button class="cta" id="go" data-m="${mode}"><i data-lucide="${ic}"></i>${btn}</button>
+   <div class="row">
+    <button class="ghost ${sat&&!chestOpen&&cur?'hot':''}" id="chest" ${cur?'':'disabled'}><i data-lucide="gift"></i>Sandık${sat?'':' · lanetliler'}</button>
+    ${oldBoss>=0?`<button class="ghost hot" id="oldboss"><i data-lucide="swords"></i>${esc(REG[oldBoss].boss)}</button>`:''}
+    <button class="ghost" id="free" aria-expanded="false"><i data-lucide="book-open"></i>Ders seç</button>
+   </div>
+   <div class="row cmenu" id="pick">${Object.keys(CN).map(c=>`<button class="ghost" data-c="${c}">${esc(CN[c])}</button>`).join('')}</div>
+   <div class="week" aria-label="Bu haftanın günleri">${['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'].map((n,i)=>{const dd=addD(wk,i);return `<span class="${S.days[dd]&&S.days[dd].done||(i===6&&S.boss[regIdx(dd)]&&S.boss[regIdx(dd)].won)?'done':''} ${dd===t?'today':''}">${n}</span>`}).join('')}</div>
+  </section>
+ </div>
+ <p class="note">İlk denemede doğru +10 XP · lanet kaldırma +15 XP · boss +100 XP. Yanlış yaptığın soru lanetlenir; iki farklı günde doğru yapınca lanet kalkar. Pazartesi–cumartesi altı görevin hepsi biterse pazar boss’una bir joker.</p>`;
+ icons();
+ requestAnimationFrame(()=>{const b=app.querySelector('.xpbar i');if(b)b.style.width=b.dataset.w+'%';const c=app.querySelector('.stop.cur');if(c)c.scrollIntoView({block:'nearest',inline:'center'})});
+ $('#go').onclick=e=>{const m=e.currentTarget.dataset.m;
+  if(m.startsWith('boss:')){const bi=+m.split(':')[1];start(bossSet(bi),{kind:'boss',ri:bi})}
+  else if(m==='daily')start(dailySet(t),{kind:'daily'});
+  else start(pick(Q,20,new Set()),{kind:'extra'})};
+ $('#chest').onclick=()=>{const s=chestSet();if(s.length)start(s,{kind:'chest'})};
+ if(oldBoss>=0)$('#oldboss').onclick=()=>start(bossSet(oldBoss),{kind:'boss',ri:oldBoss});
+ $('#free').onclick=e=>{const p=$('#pick');p.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',p.classList.contains('open'))};
+ document.querySelectorAll('#pick [data-c]').forEach(b=>b.onclick=()=>start(pick(Q.filter(q=>q.c===b.dataset.c),20,new Set()),{kind:'extra'}));
+}
+
+// ---------- efektler ----------
+const fx=$('#fx'),fctx=fx.getContext('2d');let parts=[],fxRun=false;
+function confetti(x,y){if(reduced())return;const dpr=window.devicePixelRatio||1;fx.width=innerWidth*dpr;fx.height=innerHeight*dpr;fctx.setTransform(dpr,0,0,dpr,0,0);
+ const cs=getComputedStyle(document.documentElement);const cols=[cs.getPropertyValue('--ok').trim(),cs.getPropertyValue('--accent').trim(),cs.getPropertyValue('--gold').trim()];
+ for(let i=0;i<34;i++){const a=-Math.PI/2+(Math.random()-.5)*Math.PI*1.1,v=4+Math.random()*5;parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,r:2+Math.random()*3,c:cols[i%3],life:1,rot:Math.random()*6,sq:Math.random()<.5})}
+ if(!fxRun){fxRun=true;requestAnimationFrame(tick)}}
+function tick(){fctx.clearRect(0,0,fx.width,fx.height);parts=parts.filter(p=>p.life>0);
+ parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.vx*=.985;p.life-=.018;p.rot+=.15;fctx.globalAlpha=Math.max(0,p.life);fctx.fillStyle=p.c;
+  if(p.sq){fctx.save();fctx.translate(p.x,p.y);fctx.rotate(p.rot);fctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);fctx.restore()}else{fctx.beginPath();fctx.arc(p.x,p.y,p.r*.8,0,7);fctx.fill()}});
+ fctx.globalAlpha=1;if(parts.length)requestAnimationFrame(tick);else{fxRun=false;fctx.clearRect(0,0,fx.width,fx.height)}}
+function floatXp(el,n){if(!n)return;const r=el.getBoundingClientRect();const f=document.createElement('div');f.className='xpfloat';f.textContent='+'+n+' XP';f.style.left=(r.right-40)+'px';f.style.top=(r.top+r.height/2-10)+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),1000)}
+
+// ---------- oturum ----------
+let R=null;
+function start(list,meta){if(!list.length)return;R={list,i:0,ok:0,xp:0,meta,ans:null,joker:meta.kind==='boss'&&!!S.joker[monday(today())],skipped:0};scrollTo(0,0);ask()}
+function ask(){
+ const q=R.list[R.i],n=R.list.length,cursed=!!S.cursed[q.id];
+ topbar(R.i/n*100);
+ const order=shuffle(q.o.map((t,k)=>k));
+ app.innerHTML=`<div class="qhead"><button class="icon-btn" id="quit" aria-label="Turu bitir"><i data-lucide="x"></i></button>
+   <span class="tag">${esc(CN[q.c])}</span><span class="sp"></span><span class="pill"><b>${R.i+1}</b>/${n}</span></div>
+ <section class="card glass qcard enter">
+  <div class="row" style="margin:0 0 12px;gap:6px">${cursed?'<span class="chip curse"><i data-lucide="skull"></i>Lanetli kart</span>':''}${q.x>1?`<span class="chip hot"><i data-lucide="flame"></i>Sınavlarda ${q.x} kez çıktı</span>`:q.x===1?'<span class="chip hot"><i data-lucide="flame"></i>Sınavda çıktı</span>':''}</div>
+  <p class="q">${esc(q.q)}</p>
+  <div id="opts">${order.map((k,j)=>`<button class="opt" data-k="${k}"><b>${'ABCDE'[j]}</b><span>${esc(q.o[k])}</span></button>`).join('')}</div>
+  <div id="exp"></div>
+  <div class="after" id="after"></div>
+ </section>`;
+ icons();
+ $('#quit').onclick=home;
+ document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.k,b));
+ if(R.joker){$('#after').innerHTML='<button class="ghost" id="jk" style="width:100%"><i data-lucide="sparkles"></i>Joker kullan (pas geç)</button>';icons();$('#jk').onclick=()=>{R.joker=false;S.joker[monday(today())]=false;R.skipped++;save();next()}}
+}
+function answer(k,btn){
+ if(R.ans!==null)return;const q=R.list[R.i],t=today(),ok=k===q.a;R.ans=k;
+ document.querySelectorAll('.opt').forEach(b=>{const j=+b.dataset.k;b.disabled=true;if(j===q.a)b.classList.add('ok');else if(j===k)b.classList.add('bad');else b.classList.add('dim')});
+ const s=S.seen[q.id]||(S.seen[q.id]={n:0,c:0,last:''});s.n++;if(ok)s.c++;
+ const cu=S.cursed[q.id];let gain=0;
+ if(ok){if(cu){if(cu.lastOk&&cu.lastOk!==t){delete S.cursed[q.id];gain=15}else{cu.lastOk=t;gain=5}}else gain=10}
+ else{S.cursed[q.id]={since:cu?cu.since:t,lastOk:''}}
+ s.last=t;S.xp+=gain;R.xp+=gain;if(ok)R.ok++;save();
+ topbar((R.i+1)/R.list.length*100);
+ const a=$('#after');
+ if(ok){const r=btn.getBoundingClientRect();confetti(r.left+r.width/2,r.top+r.height/2);floatXp(btn,gain);
+  if(q.e){$('#exp').innerHTML=`<div class="explain"><b><i data-lucide="lightbulb"></i>Not</b>${esc(q.e)}</div>`;a.innerHTML='<button class="cta" id="nx" style="margin-top:4px">Devam<i data-lucide="arrow-right"></i></button>';icons();$('#nx').onclick=next}
+  else setTimeout(()=>{if(R&&R.ans===k&&R.list[R.i]===q)next()},900)}
+ else{if(navigator.vibrate){try{navigator.vibrate(40)}catch(e){}}
+  $('#exp').innerHTML=`<div class="explain"><b><i data-lucide="check"></i>Doğru cevap: ${esc(q.o[q.a])}</b>${q.e?esc(q.e):''}</div>`;
+  a.innerHTML='<button class="cta" id="nx" style="margin-top:4px">Devam<i data-lucide="arrow-right"></i></button>';icons();$('#nx').onclick=next;$('#nx').focus({preventScroll:true})}
+}
+function next(){if(!R)return;R.ans=null;R.i++;if(R.i<R.list.length){ask();const c=app.querySelector('.qcard');if(c&&c.getBoundingClientRect().top<60)scrollTo({top:0,behavior:reduced()?'auto':'smooth'})}else finish()}
+function finish(){
+ const t=today(),m=R.meta,n=R.list.length-R.skipped,pct=n?Math.round(R.ok/n*100):0;let extra='';
+ if(m.kind==='daily'){S.days[t]={done:true,ok:R.ok,n};if(weekDone(t)>=6&&S.joker[monday(t)]===undefined)S.joker[monday(t)]=true}
+ if(m.kind==='chest')S.chest[monday(t)]=true;
+ if(m.kind==='boss'){const b=S.boss[m.ri]||{won:false,best:0};b.best=Math.max(b.best,pct);if(pct>=70&&!b.won){b.won=true;S.xp+=100;R.xp+=100;extra='Boss yenildi.'}else if(pct<70)extra='%70 gerekli; boss tekrar bekliyor.';S.boss[m.ri]=b}
+ save();push();topbar(100);
+ const cur=Object.keys(S.cursed).length;
+ app.innerHTML=`<section class="card glass qcard enter" style="text-align:center;padding:32px 20px">
+  <div class="eyebrow" style="justify-content:center"><i data-lucide="${m.kind==='boss'?'swords':'flag'}"></i>${m.kind==='boss'?esc(REG[m.ri].boss):'Tur bitti'}</div>
+  <div class="res">${R.ok}<small> / ${n}</small></div>
+  <p class="lead" style="margin:0">+${R.xp} XP · ${cur} lanetli kart${extra?' · '+esc(extra):''}</p>
+  <button class="cta" id="home"><i data-lucide="map"></i>Haritaya dön</button></section>`;
+ icons();
+ if(pct>=70){setTimeout(()=>confetti(innerWidth/2,innerHeight*.4),150)}
+ $('#home').onclick=home;R=null}
+document.addEventListener('keydown',e=>{if(!R)return;const q=R.list[R.i];const btns=[...document.querySelectorAll('.opt')];
+ const k='12345'.indexOf(e.key)>=0?'12345'.indexOf(e.key):'abcde'.indexOf((e.key||'').toLowerCase());
+ if(R.ans===null&&k>=0&&k<btns.length){btns[k].click()}else if(R.ans!==null&&(e.key==='Enter'||e.key===' ')){e.preventDefault();if($('#nx'))next()}});
+
+// ---------- açılış ----------
+async function boot(){
+ S=load();topbar(null);
+ try{const r=await fetch('questions.json');Q=await r.json()}catch(e){app.innerHTML='<p class="lead">Sorular yüklenemedi. Sayfayı yenile.</p>';return}
+ Q.forEach(q=>BY[q.id]=q);
+ // artık bulunmayan soruların lanetini kaldır
+ Object.keys(S.cursed).forEach(id=>{if(!BY[id])delete S.cursed[id]});
+ home();
+ try{
+  const cl=window.claude;if(!cl||!cl.use)return;
+  const [d,u]=await Promise.all([cl.use('db'),cl.use('user')]);if(!d||!u)return;
+  const id=await u.id();if(!id)return;db=d;uid=id;
+  const snap=await db.collection('data/users/'+uid).doc('progress').get();
+  if(snap.exists){const rem=JSON.parse(snap.data().state||'{}');
+   if((rem.xp||0)>=S.xp||!Object.keys(S.seen).length){S=Object.assign(blank(),rem);Object.keys(S.cursed).forEach(id=>{if(!BY[id])delete S.cursed[id]});try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){};if(!R)home()}
+   else{dirty=true;push()}}
+  else if(S.xp>0){dirty=true;push()}
+ }catch(e){}
+}
+boot();
+if('serviceWorker' in navigator && !/claude/.test(location.hostname)){
+ window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})});
+}
+}
+</script>
+</body>
+</html>
