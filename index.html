@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Online soru bankası ve deneme sınavı">
+  <title>Soru Bankası</title>
+  <script>
+    // Tema, sayfa çizilmeden önce uygulanır (yanıp sönmeyi önler)
+    try {
+      const t = localStorage.getItem('sb_tema');
+      document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) { document.documentElement.dataset.theme = 'light'; }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a href="#" class="brand" data-action="home">
+        <span class="brand__logo" aria-hidden="true">✈</span>
+        <span>
+          <strong id="app-title">Soru Bankası</strong>
+          <small id="app-subtitle"></small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Ana menü">
+        <button class="nav__btn" data-action="home">Ana Sayfa</button>
+        <button class="nav__btn" data-action="mistakes">Yanlışlarım <span class="badge" id="mistake-count">0</span></button>
+        <button class="icon-btn" data-action="theme" aria-label="Temayı değiştir" title="Temayı değiştir">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="container" aria-live="polite">
+    <p class="muted center">Sorular yükleniyor…</p>
+  </main>
+
+  <!-- ANA EKRAN -->
+  <template id="tpl-home">
+    <section class="grid-2">
+      <form class="card setup" id="setup-form">
+        <h1 class="h1">Yeni test oluştur</h1>
+
+        <label class="field">
+          <span>Kategori</span>
+          <select id="f-kategori"></select>
+        </label>
+
+        <label class="field">
+          <span>Konu</span>
+          <select id="f-konu"></select>
+        </label>
+
+        <fieldset class="field">
+          <legend>Soru sayısı</legend>
+          <div class="segmented" id="f-sayi">
+            <label><input type="radio" name="sayi" value="5"><span>5</span></label>
+            <label><input type="radio" name="sayi" value="10" checked><span>10</span></label>
+            <label><input type="radio" name="sayi" value="20"><span>20</span></label>
+            <label><input type="radio" name="sayi" value="0"><span>Tümü</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Mod</legend>
+          <div class="segmented segmented--wide">
+            <label><input type="radio" name="mod" value="calisma" checked><span>Çalışma</span></label>
+            <label><input type="radio" name="mod" value="sinav"><span>Sınav</span></label>
+          </div>
+          <small class="muted" id="mod-info"></small>
+        </fieldset>
+
+        <div class="toggles">
+          <label class="switch"><input type="checkbox" id="f-karistir-soru" checked><span class="switch__track"></span>Soruları karıştır</label>
+          <label class="switch"><input type="checkbox" id="f-karistir-sik"><span class="switch__track"></span>Şıkları karıştır</label>
+        </div>
+
+        <p class="muted" id="f-ozet"></p>
+        <button type="submit" class="btn btn--primary btn--block">Teste Başla</button>
+        <button type="button" class="btn btn--ghost btn--block" data-action="mistake-test" id="btn-mistake-test">Sadece yanlışlarımdan test</button>
+      </form>
+
+      <aside class="stack">
+        <div class="card">
+          <h2 class="h2">İstatistiklerim</h2>
+          <div class="stats" id="stats"></div>
+        </div>
+        <div class="card">
+          <h2 class="h2">Kategoriye göre</h2>
+          <div id="cat-stats" class="bars"></div>
+        </div>
+        <div class="card">
+          <h2 class="h2">Son testler</h2>
+          <ul id="history" class="history"></ul>
+        </div>
+      </aside>
+    </section>
+  </template>
+
+  <!-- SORU EKRANI -->
+  <template id="tpl-quiz">
+    <section class="quiz">
+      <div class="quiz__bar card">
+        <button class="btn btn--ghost btn--sm" data-action="quit">✕ Çık</button>
+        <span class="quiz__count" id="q-count"></span>
+        <span class="timer hidden" id="q-timer" role="timer"></span>
+      </div>
+      <div class="progress"><i id="q-progress"></i></div>
+
+      <article class="card question">
+        <p class="question__meta" id="q-meta"></p>
+        <h2 class="question__text" id="q-text"></h2>
+        <div class="options" id="q-options" role="radiogroup"></div>
+        <div class="explain hidden" id="q-explain"></div>
+      </article>
+
+      <div class="quiz__nav">
+        <button class="btn btn--ghost" data-action="prev">← Önceki</button>
+        <button class="btn btn--primary" data-action="next" id="btn-next">Sonraki →</button>
+      </div>
+
+      <div class="card palette hidden" id="q-palette">
+        <p class="muted">Soru haritası (boş / işaretli)</p>
+        <div class="palette__grid" id="palette-grid"></div>
+      </div>
+      <p class="muted center small">Kısayollar: A–E veya 1–5 şık seçer · Enter / → sonraki · ← önceki</p>
+    </section>
+  </template>
+
+  <!-- KARNE -->
+  <template id="tpl-result">
+    <section class="stack">
+      <div class="card result">
+        <h1 class="h1">Sınav Karnesi</h1>
+        <div class="result__score">
+          <div class="ring" id="r-ring"><span id="r-pct"></span></div>
+          <div class="result__grid">
+            <div class="kpi kpi--ok"><b id="r-dogru"></b><span>Doğru</span></div>
+            <div class="kpi kpi--bad"><b id="r-yanlis"></b><span>Yanlış</span></div>
+            <div class="kpi"><b id="r-bos"></b><span>Boş</span></div>
+            <div class="kpi"><b id="r-sure"></b><span>Süre</span></div>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn btn--primary" data-action="retry-wrong" id="btn-retry">Hatalı Soruları Tekrar Çöz</button>
+          <button class="btn btn--ghost" data-action="home">Ana Sayfa</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="h2">Soru soru inceleme</h2>
+        <div id="review" class="review"></div>
+      </div>
+    </section>
+  </template>
+
+  <!-- YANLIŞLARIM -->
+  <template id="tpl-mistakes">
+    <section class="card">
+      <div class="row row--between">
+        <div>
+          <h1 class="h1">Yanlışlarım</h1>
+          <p class="muted">Bir soruyu doğru çözdüğünde bu listeden düşer.</p>
+        </div>
+        <div class="row">
+          <button class="btn btn--primary" data-action="mistake-test">Yanlışlardan test başlat</button>
+          <button class="btn btn--ghost" data-action="clear-mistakes" id="btn-clear">Listeyi temizle</button>
+        </div>
+      </div>
+      <div id="mistake-list" class="review"></div>
+    </section>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
