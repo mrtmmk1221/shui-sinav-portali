@@ -2,7 +2,7 @@
    Uygulama dosyaları önbellekten gelir; sorular.json önce internetten denenir,
    bağlantı yoksa son kaydedilen kopya kullanılır.
    Uygulama dosyalarını değiştirdiğinde SURUM değerini artır. */
-const SURUM = 'shui-v4';
+const SURUM = 'shui-v5';
 const DOSYALAR = ['./', 'index.html', 'style.css', 'app.js', 'sorular.json', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png',
   'gorseller/hh-trafik-3.webp', 'gorseller/hh-trafik-6.webp', 'gorseller/loj-depo-ayristirma.webp', 'gorseller/loj-depo-birlestirme.webp', 'gorseller/loj-depo-karisim.webp', 'gorseller/loj-montaj-tablo.webp', 'gorseller/loj-ts-tablo.webp'];
 

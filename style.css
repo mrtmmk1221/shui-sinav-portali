@@ -206,7 +206,14 @@ select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4p
 .chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 99px; background: var(--surface-2); border: 1px solid var(--border); }
 .chip--hot { color: var(--warn); }
 .chip--bad { color: var(--bad); }
-.question__text { font-family: var(--font-head); font-size: clamp(17px, 3.4vw, 19.5px); font-weight: 600; line-height: 1.5; letter-spacing: -0.01em; margin: 0 0 20px; white-space: pre-line; }
+.question__text { font-family: var(--font-head); font-size: clamp(17px, 3.4vw, 19.5px); font-weight: 600; line-height: 1.55; letter-spacing: -0.01em; margin: 0 0 20px; white-space: pre-line; }
+.question__items {
+  display: block; margin-bottom: 14px; padding: 12px 14px; border-radius: 12px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  font-family: var(--font-body); font-weight: 500; font-size: 15.5px; line-height: 1.75;
+}
+.question__line { display: block; padding-left: 1.9em; text-indent: -1.9em; }
+.question__line + .question__line { margin-top: 4px; }
 .question__img { margin: 0 0 20px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); background: #fff; }
 .question__img img { display: block; width: 100%; height: auto; }
 [data-theme="dark"] .question__img img { filter: invert(.92) hue-rotate(180deg) contrast(.95); }
@@ -277,6 +284,7 @@ select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4p
 .review__dot.ok { background: var(--ok); } .review__dot.bad { background: var(--bad); } .review__dot.empty { background: var(--muted); }
 .review__body { margin-top: 12px; display: grid; gap: 6px; font-size: 14.5px; padding-left: 36px; }
 .review__body img { max-width: 100%; border-radius: 10px; border: 1px solid var(--border); }
+.review summary > span > div { white-space: pre-line; }
 .review__ans { color: var(--ok); font-weight: 600; }
 .review__mine { color: var(--bad); }
 .empty-state { padding: 32px; text-align: center; color: var(--muted); }

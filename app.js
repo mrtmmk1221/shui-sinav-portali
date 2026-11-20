@@ -112,6 +112,58 @@
     },
   };
 
+
+  /** "I. ... II. ... III. ... Yukarıdakilerden hangileri ...?" biçimindeki
+      öncüllü soruları satırlara böler: her öncül ayrı satır, soru cümlesi ayrı paragraf. */
+  function formatStem(text) {
+    if (!text) return text;
+    if (text.includes('\n')) {
+      // Satırlara zaten bölünmüş öncüllü sorular: son satırdaki soru cümlesini ayrı paragraf yap
+      const lines = text.split('\n');
+      if (lines.length > 2 && !text.includes('\n\n') && /\?\s*$/.test(lines[lines.length - 1])) {
+        return lines.slice(0, -1).join('\n') + '\n\n' + lines[lines.length - 1];
+      }
+      return text;
+    }
+    const L = 'A-Za-zÇĞİÖŞÜçğıöşüÂâÎîÛû';
+    const series = [
+      ['I', 'II', 'III', 'IV', 'V', 'VI'],
+      ['i', 'ii', 'iii', 'iv', 'v', 'vi'],
+      ['1', '2', '3', '4', '5', '6'],
+    ];
+    for (const marks of series) {
+      const pos = [];
+      let from = 0;
+      for (const m of marks) {
+        const sep = marks[0] === '1' ? '[-)]' : '[.\\-)]';
+        const re = new RegExp(`(^|[\\s.,;:?“"(])(${m})\\s*${sep}\\s*(?=[${L}0-9“"])`, 'g');
+        re.lastIndex = from;
+        const hit = re.exec(text);
+        if (!hit) break;
+        const at = hit.index + hit[1].length;
+        // öncüller birbirinden çok uzak olmasın (normal cümle içindeki "I. Dünya Savaşı" gibi durumları ele)
+        if (pos.length && at - pos[pos.length - 1] > 400) break;
+        pos.push(at); from = at + m.length + 1;
+      }
+      if (pos.length < 2) continue;
+      const head = text.slice(0, pos[0]).trim();
+      const items = pos.map((p, k) => text.slice(p, k + 1 < pos.length ? pos[k + 1] : undefined).trim());
+      // son öncülün içinden soru cümlesini ayır
+      let last = items[items.length - 1], tail = '';
+      const q = last.search(/\s(Yukarıda|Yukarıdaki|Yukarıdakiler|Verilen|Buna göre|Bu bilgiler|Aşağıdaki|Hangi|Bu ifade)/);
+      if (q > 0) { tail = last.slice(q).trim(); last = last.slice(0, q).trim(); }
+      else if (/\?\s*$/.test(last)) {
+        // soru cümlesi büyük harfle başlayan son cümledir: "... alınır. Asli Kaynaklar ile ilgili ... hangileri doğrudur?"
+        const cut = last.lastIndexOf('. ', last.length - 2);
+        if (cut > 0 && last.length - cut > 20) { tail = last.slice(cut + 2).trim(); last = last.slice(0, cut + 1).trim(); }
+      }
+      items[items.length - 1] = last;
+      const fixed = items.map(s => s.replace(new RegExp(`^(${marks.join('|')})\\s*([.\\-)])\\s*`), (a, m, d) => `${m}${d === '-' ? '.' : d} `));
+      return [head, fixed.join('\n'), tail].filter(Boolean).join('\n\n').replace(/\n\n(?=I\.|i\.|1[.)])/, '\n\n');
+    }
+    return text;
+  }
+
   /* ---------------------------------------------------------
      Data — sorular.json okunur ve doğrulanır
      --------------------------------------------------------- */
@@ -146,7 +198,7 @@
       return {
         id, kategori,
         konu: String(raw.konu || 'Genel').trim(),
-        soru: String(raw.soru),
+        soru: formatStem(String(raw.soru)),
         secenekler, dogru,
         aciklama: String(raw.aciklama || ''),
         kaynak: raw.kaynak ? String(raw.kaynak) : '',
@@ -411,7 +463,11 @@
         if (Store.data.yanlislar.includes(q.id)) chips.push(['Daha önce yanlış', 'chip--bad', 'rotate-ccw']);
         meta.replaceChildren(...chips.filter(c => c[0] && c[0] !== 'Genel').map(([t, cls, ic]) =>
           Util.el('span', { class: 'chip ' + (cls || '') }, ic ? Util.icon(ic) : null, document.createTextNode(t))));
-        Util.$('#q-text').textContent = q.soru;
+        const parts = q.soru.split('\n\n');
+        const qt = Util.$('#q-text');
+        if (parts.length > 1) {
+          qt.replaceChildren(...parts.slice(0, -1).map(p => Util.el('span', { class: 'question__items' }, ...p.split('\n').map(line => Util.el('span', { class: 'question__line', text: line })))), Util.el('span', { text: parts[parts.length - 1] }));
+        } else qt.textContent = q.soru;
         const fig = Util.$('#q-img');
         if (q.gorsel) { fig.querySelector('img').src = q.gorsel; fig.classList.remove('hidden'); }
         else fig.classList.add('hidden');
