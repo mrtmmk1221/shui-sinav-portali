@@ -1,392 +1,608 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Final Seferi</title>
+<title>SHUİ Akademi</title>
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#5E5CE6">
+<meta name="theme-color" content="#0B1120">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Final Seferi">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SHUİ Akademi">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@1.57.0/dist/umd/lucide.min.js"></script>
 <style>
-/* Final Seferi — sakin, ferah, tek odak. Linear/Vercel sadeliği; renk yalnızca durum bildirir. */
 :root{
-  --bg:#FAFAFA; --surface:rgba(255,255,255,.72); --solid:#FFFFFF; --ink:#0F1115; --mute:#6B7280; --faint:#9CA3AF;
-  --line:rgba(15,17,21,.08); --line2:rgba(15,17,21,.14);
-  --accent:#5E5CE6; --accent-ink:#FFFFFF; --accent-soft:rgba(94,92,230,.10);
-  --ok:#16A34A; --ok-soft:rgba(22,163,74,.10); --bad:#DC2626; --bad-soft:rgba(220,38,38,.08); --gold:#B7791F; --gold-soft:rgba(183,121,31,.10);
-  --shadow:0 1px 2px rgba(15,17,21,.04),0 8px 24px rgba(15,17,21,.05);
-  --r:16px; --ease:cubic-bezier(.22,1,.36,1);
-  --display:"Plus Jakarta Sans",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
-  color-scheme:light;
+  --bg:#F4F6FB;--bg2:#FFFFFF;--panel:rgba(255,255,255,.82);--panel2:#F1F4F9;--ink:#0F172A;--ink2:#334155;--mute:#64748B;--faint:#94A3B8;
+  --line:rgba(15,23,42,.09);--line2:rgba(15,23,42,.16);
+  --sky:#0284C7;--indigo:#4F46E5;--amber:#D97706;--grad:linear-gradient(90deg,#0EA5E9,#4F46E5);
+  --ok:#059669;--okbg:rgba(16,185,129,.12);--bad:#E11D48;--badbg:rgba(244,63,94,.10);--gold:#D97706;--goldbg:rgba(245,158,11,.12);
+  --shadow:0 1px 2px rgba(15,23,42,.05),0 12px 32px rgba(15,23,42,.07);
+  --r:24px;--r2:16px;--ease:cubic-bezier(.22,1,.36,1);
+  --display:"Plus Jakarta Sans",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif;color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0F1115; --surface:rgba(24,27,33,.72); --solid:#181B21; --ink:#EDEEF0; --mute:#9BA1AC; --faint:#6B7280;
-  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.13);
-  --accent:#8B89FF; --accent-ink:#0F1115; --accent-soft:rgba(139,137,255,.14);
-  --ok:#4ADE80; --ok-soft:rgba(74,222,128,.12); --bad:#F87171; --bad-soft:rgba(248,113,113,.11); --gold:#F2C46B; --gold-soft:rgba(242,196,107,.12);
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0F1115; --surface:rgba(24,27,33,.72); --solid:#181B21; --ink:#EDEEF0; --mute:#9BA1AC; --faint:#6B7280;
-  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.13);
-  --accent:#8B89FF; --accent-ink:#0F1115; --accent-soft:rgba(139,137,255,.14);
-  --ok:#4ADE80; --ok-soft:rgba(74,222,128,.12); --bad:#F87171; --bad-soft:rgba(248,113,113,.11); --gold:#F2C46B; --gold-soft:rgba(242,196,107,.12);
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25); color-scheme:dark}
+  --bg:#0B1120;--bg2:#111827;--panel:rgba(17,24,39,.78);--panel2:#162032;--ink:#F1F5F9;--ink2:#CBD5E1;--mute:#94A3B8;--faint:#64748B;
+  --line:rgba(148,163,184,.13);--line2:rgba(148,163,184,.24);
+  --sky:#38BDF8;--indigo:#818CF8;--amber:#FBBF24;
+  --ok:#34D399;--okbg:rgba(16,185,129,.14);--bad:#FB7185;--badbg:rgba(244,63,94,.13);--gold:#FBBF24;--goldbg:rgba(245,158,11,.13);
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 16px 40px rgba(0,0,0,.35);color-scheme:dark;
+}
 *{box-sizing:border-box;min-width:0}
 html{background:var(--bg)}
-body{margin:0;min-height:100dvh;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
-button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
-svg.lucide{width:18px;height:18px;stroke-width:1.75;flex:none}
-.glass{background:var(--surface);-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);border:1px solid var(--line)}
+body{margin:0;min-height:100dvh;background:var(--bg);color:var(--ink);font:400 15px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:-20% -10% auto auto;width:520px;height:520px;border-radius:50%;background:rgba(14,165,233,.10);filter:blur(90px);pointer-events:none;z-index:0}
+body::after{content:"";position:fixed;inset:auto auto -20% -10%;width:520px;height:520px;border-radius:50%;background:rgba(99,102,241,.10);filter:blur(90px);pointer-events:none;z-index:0}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+svg.lucide{width:18px;height:18px;stroke-width:2;flex:none}
+.glass{background:var(--panel);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line)}
+:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+.hide{display:none!important}
 
 /* üst bar */
-.top{position:sticky;top:0;z-index:20;border-width:0 0 1px;padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px}
-.top .in{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px}
-.brand{font:700 15px/1 var(--display);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-.brand svg{color:var(--accent)}
+header{position:sticky;top:0;z-index:30;border-width:0 0 1px;padding-top:env(safe-area-inset-top,0px)}
+.hin{max-width:1200px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;border:0;background:none;padding:0;text-align:left}
+.logo{width:38px;height:38px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;box-shadow:0 6px 18px rgba(79,70,229,.35)}
+.bt{font:800 16px/1.1 var(--display);letter-spacing:-.01em}
+.bs{font-size:11px;color:var(--mute);font-weight:500}
+.nav{display:flex;gap:4px;padding:4px;border-radius:16px;background:var(--panel2);border:1px solid var(--line)}
+.nl{border:0;background:none;padding:8px 13px;border-radius:12px;font-size:13px;font-weight:700;color:var(--mute);display:inline-flex;align-items:center;gap:6px;white-space:nowrap;transition:background .2s,color .2s}
+.nl:hover{color:var(--ink)}
+.nl.on{background:var(--grad);color:#fff;box-shadow:0 4px 14px rgba(79,70,229,.3)}
+.badge{font-size:10.5px;font-weight:800;padding:1px 6px;border-radius:999px;background:var(--badbg);color:var(--bad)}
+.nl.on .badge{background:rgba(255,255,255,.22);color:#fff}
 .sp{flex:1}
-.pill{display:inline-flex;align-items:center;gap:6px;font:500 13px/1 var(--body);color:var(--mute);padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:var(--solid);white-space:nowrap}
-.pill b{color:var(--ink);font-weight:600}
-.icon-btn{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;border:1px solid var(--line);background:var(--solid);color:var(--mute);transition:transform .15s var(--ease),color .15s}
-.icon-btn:hover{color:var(--ink)} .icon-btn:active{transform:scale(.94)}
-.topbar-prog{height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto}
-.topbar-prog i{display:block;height:100%;width:0;background:var(--accent);border-radius:3px;transition:width .6s var(--ease)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:12px;font-size:12.5px;font-weight:700;border:1px solid var(--line);background:var(--panel2);color:var(--ink2);white-space:nowrap}
+.chip.streak{color:var(--gold);background:var(--goldbg);border-color:rgba(245,158,11,.28)}
+.chip.sync.ok{color:var(--ok);background:var(--okbg);border-color:rgba(16,185,129,.28)}
+.ib{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--line);background:var(--panel2);color:var(--ink2);transition:transform .15s var(--ease)}
+.ib:active{transform:scale(.94)}
+.mnav{display:none;overflow-x:auto;scrollbar-width:none;padding:0 16px 10px;gap:6px}
+.mnav::-webkit-scrollbar{display:none}
+.mnav .nl{flex:none}
+.bs{white-space:nowrap}
+@media (max-width:1180px) and (min-width:1001px){.bs{display:none}}
+@media (max-width:1000px){.nav{display:none}.mnav{display:flex}.mnav .nl{background:var(--panel2);border:1px solid var(--line)}.mnav .nl.on{background:var(--grad);border-color:transparent}}
+@media (max-width:560px){.bs,.chip.sync span.lbl{display:none}}
 
-.wrap{max-width:720px;margin:0 auto;padding:24px 16px calc(48px + env(safe-area-inset-bottom,0px))}
-h1{font:800 clamp(28px,6vw,36px)/1.1 var(--display);letter-spacing:-.025em;margin:0 0 6px;text-wrap:balance}
-.lead{color:var(--mute);margin:0 0 24px;font-size:15px}
-.card{border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
-.stack{display:flex;flex-direction:column;gap:14px}
+main{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:24px 16px calc(56px + env(safe-area-inset-bottom,0px))}
+.page{animation:fadeIn .45s var(--ease) both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card{border-radius:var(--r);padding:22px;box-shadow:var(--shadow)}
+h1{font:800 clamp(26px,4.6vw,40px)/1.12 var(--display);letter-spacing:-.025em;margin:0;text-wrap:balance}
+h2{font:800 22px/1.2 var(--display);letter-spacing:-.015em;margin:0}
+h3{font:700 17px/1.3 var(--display);margin:0}
+.mute{color:var(--mute)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.g2,.g3{grid-template-columns:1fr}}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:800;background:rgba(14,165,233,.13);color:var(--sky);border:1px solid rgba(14,165,233,.26)}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;border-radius:14px;border:1px solid var(--line2);background:var(--panel2);font-weight:700;font-size:14px;transition:transform .15s var(--ease),filter .15s,border-color .15s}
+.btn:hover{border-color:var(--sky)}
+.btn:active{transform:scale(.97)}
+.btn.pri{background:var(--grad);color:#fff;border:0;box-shadow:0 8px 22px rgba(79,70,229,.32)}
+.btn.pri:hover{filter:brightness(1.07)}
+.btn.sm{min-height:36px;padding:0 12px;font-size:13px;border-radius:11px}
+.btn.danger{color:var(--bad)}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.hero{position:relative;overflow:hidden;padding:30px}
+.hero-g{display:grid;grid-template-columns:1.35fr 1fr;gap:28px;align-items:center}
+@media (max-width:900px){.hero-g{grid-template-columns:1fr}.hero{padding:22px}}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cd{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.cd div{border-radius:16px;padding:12px 6px;text-align:center;background:var(--panel2);border:1px solid var(--line)}
+.cd b{display:block;font:800 30px/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cd span{font-size:11.5px;color:var(--mute);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.date{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute);font-weight:600}
+.date input{border:1px solid var(--line2);background:var(--panel2);border-radius:10px;padding:6px 8px;font-size:13px}
+.stat{padding:18px;border-radius:20px}
+.stat .k{font-size:12px;font-weight:700;color:var(--mute);display:flex;align-items:center;gap:6px}
+.stat .v{font:800 28px/1.1 var(--display);margin-top:6px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .s{font-size:12px;color:var(--faint);margin-top:2px}
+.cc{display:flex;flex-direction:column;gap:12px}
+.ci{width:46px;height:46px;border-radius:14px;display:grid;place-items:center}
+.ci svg{width:22px;height:22px}
+.bar{height:8px;border-radius:8px;background:var(--panel2);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:8px;width:0;transition:width .8s var(--ease)}
+.c-HH{--c:var(--sky);--cbg:rgba(14,165,233,.14);--cg:linear-gradient(90deg,#38BDF8,#2563EB)}
+.c-MIY{--c:var(--indigo);--cbg:rgba(99,102,241,.15);--cg:linear-gradient(90deg,#818CF8,#9333EA)}
+.c-LOJ{--c:var(--amber);--cbg:rgba(245,158,11,.15);--cg:linear-gradient(90deg,#FBBF24,#EA580C)}
+.ci{background:var(--cbg);color:var(--c)} .bar i{background:var(--cg)}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:800;padding:4px 9px;border-radius:999px;background:var(--cbg,var(--panel2));color:var(--c,var(--mute))}
+.tag.hot{background:var(--goldbg);color:var(--gold)} .tag.bad{background:var(--badbg);color:var(--bad)}
+.tag svg{width:13px;height:13px}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:30px 0 14px;flex-wrap:wrap}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.fb{border:1px solid var(--line);background:var(--panel2);padding:8px 13px;border-radius:12px;font-size:13px;font-weight:700;color:var(--mute);transition:all .2s}
+.fb.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fb .n{opacity:.6;font-weight:600;margin-left:4px}
 
-/* seviye */
-.lvl{display:flex;align-items:center;gap:14px}
-.badge{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font:800 17px var(--display);flex:none}
-.lvl-t{font:700 16px/1.25 var(--display)}
-.lvl-s{font-size:13px;color:var(--mute)}
-.xpbar{height:8px;background:var(--line);border-radius:8px;overflow:hidden;margin-top:12px}
-.xpbar i{display:block;height:100%;background:var(--accent);border-radius:8px;transition:width .8s var(--ease)}
-.stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-
-/* rota */
-.route{display:flex;align-items:flex-start;gap:0;overflow-x:auto;scrollbar-width:none;padding:4px 2px 2px;margin:0 -2px}
-.route::-webkit-scrollbar{display:none}
-.stop{flex:1 0 78px;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;text-align:center}
-.stop::before{content:"";position:absolute;top:13px;left:-50%;width:100%;height:2px;background:var(--line2);z-index:0}
-.stop:first-child::before{display:none}
-.stop.done::before,.stop.cur::before{background:var(--accent)}
-.dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--solid);border:1.5px solid var(--line2);color:var(--faint);position:relative;z-index:1;transition:all .3s var(--ease)}
-.dot svg{width:14px;height:14px}
-.stop.done .dot{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.stop.cur .dot{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
-.stop span{font:500 11.5px/1.25 var(--body);color:var(--mute);max-width:86px}
-.stop.cur span{color:var(--ink);font-weight:600}
-
-/* görev kartı */
-.eyebrow{font:600 12px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:6px}
-.quest h2{font:700 22px/1.25 var(--display);letter-spacing:-.015em;margin:8px 0 4px;text-wrap:balance}
-.quest p{margin:0;color:var(--mute);font-size:15px}
-.cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;border:0;border-radius:14px;background:var(--accent);color:var(--accent-ink);font:700 17px var(--display);margin-top:18px;transition:transform .15s var(--ease),filter .15s}
-.cta:hover{filter:brightness(1.05)} .cta:active{transform:scale(.98)}
-.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.ghost{flex:1 1 140px;display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border:1px solid var(--line2);background:var(--solid);border-radius:12px;font:500 14.5px var(--body);transition:transform .15s var(--ease),border-color .15s}
-.ghost:hover{border-color:var(--accent)} .ghost:active{transform:scale(.97)}
-.ghost.hot{border-color:var(--gold);color:var(--gold);background:var(--gold-soft)}
-.ghost[disabled]{opacity:.45;cursor:default;transform:none}
-.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:16px}
-.week span{text-align:center;font:500 12px/1 var(--body);padding:9px 0;border-radius:10px;background:var(--line);color:var(--mute)}
-.week span.done{background:var(--accent);color:var(--accent-ink)}
-.week span.today{box-shadow:inset 0 0 0 1.5px var(--accent);color:var(--ink)}
-.note{font-size:13px;color:var(--mute);margin:20px 4px 0;line-height:1.6}
-.cmenu{display:none} .cmenu.open{display:flex}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-
-/* soru ekranı */
-.qhead{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.tag{font:500 13px/1.3 var(--body);color:var(--mute)}
-.chip{display:inline-flex;align-items:center;gap:5px;font:600 11.5px/1 var(--body);padding:5px 8px;border-radius:999px}
-.chip.curse{color:var(--bad);background:var(--bad-soft)} .chip.hot{color:var(--gold);background:var(--gold-soft)}
-.chip svg{width:13px;height:13px}
-.qcard{margin-top:14px}
-.qcard.enter{animation:fadeSlide .45s var(--ease) both}
-@keyframes fadeSlide{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.q{font:600 clamp(18px,4.4vw,21px)/1.45 var(--display);letter-spacing:-.01em;margin:0 0 18px;text-wrap:pretty}
-.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;min-height:54px;padding:13px 14px;margin:0 0 9px;border:1px solid var(--line2);background:var(--solid);border-radius:14px;font:400 16px/1.45 var(--body);
-  transition:transform .18s var(--ease),border-color .18s,background-color .25s,box-shadow .3s}
-@media (hover:hover){.opt:not([disabled]):hover{transform:scale(1.012);border-color:var(--accent);box-shadow:0 4px 14px rgba(94,92,230,.10)}}
-.opt:not([disabled]):active{transform:scale(.975)}
-.opt b{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--line);font:600 13px var(--body);color:var(--mute);transition:all .25s}
+/* soru */
+.qwrap{max-width:820px;margin:0 auto}
+.prog{height:6px;border-radius:6px;background:var(--panel2);overflow:hidden;border:1px solid var(--line)}
+.prog i{display:block;height:100%;background:var(--grad);border-radius:6px;transition:width .6s var(--ease)}
+.qcard{margin-top:16px}
+.qcard.enter{animation:fadeIn .4s var(--ease) both}
+.q{font:700 clamp(17px,2.4vw,20px)/1.5 var(--display);margin:14px 0 18px;letter-spacing:-.005em;white-space:pre-line}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;padding:13px 14px;margin:0 0 9px;border:1px solid var(--line2);background:var(--bg2);border-radius:14px;font-size:15.5px;line-height:1.45;transition:transform .18s var(--ease),border-color .18s,background-color .25s,box-shadow .3s}
+@media (hover:hover){.opt:not([disabled]):hover{transform:scale(1.01);border-color:var(--sky);box-shadow:0 4px 16px rgba(14,165,233,.12)}}
+.opt:not([disabled]):active{transform:scale(.98)}
+.opt b{flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--panel2);font-size:13px;font-weight:800;color:var(--mute);transition:all .25s}
 .opt[disabled]{cursor:default}
-.opt.ok{border-color:var(--ok);background:var(--ok-soft);box-shadow:0 0 0 4px var(--ok-soft),0 0 28px var(--ok-soft);animation:glow .9s var(--ease)}
-.opt.ok b{background:var(--ok);color:#fff}
-.opt.bad{border-color:var(--bad);background:var(--bad-soft);animation:shake .42s cubic-bezier(.36,.07,.19,.97)}
-.opt.bad b{background:var(--bad);color:#fff}
+.opt.sel{border-color:var(--indigo);background:rgba(99,102,241,.10)} .opt.sel b{background:var(--indigo);color:#fff}
+.opt.ok{border-color:var(--ok);background:var(--okbg);animation:glow .9s var(--ease)} .opt.ok b{background:var(--ok);color:#fff}
+.opt.bad{border-color:var(--bad);background:var(--badbg);animation:shake .42s cubic-bezier(.36,.07,.19,.97)} .opt.bad b{background:var(--bad);color:#fff}
 .opt.dim{opacity:.55}
-@keyframes glow{0%{box-shadow:0 0 0 0 var(--ok-soft)}50%{box-shadow:0 0 0 8px var(--ok-soft),0 0 36px var(--ok-soft)}100%{box-shadow:0 0 0 4px var(--ok-soft),0 0 28px var(--ok-soft)}}
+@keyframes glow{0%{box-shadow:0 0 0 0 var(--okbg)}50%{box-shadow:0 0 0 8px var(--okbg)}100%{box-shadow:0 0 0 3px var(--okbg)}}
 @keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(3px)}30%,50%,70%{transform:translateX(-5px)}40%,60%{transform:translateX(5px)}}
-.explain{margin-top:6px;padding:14px 16px;border-radius:14px;background:var(--accent-soft);font-size:15px;line-height:1.55;animation:fadeSlide .35s var(--ease) both}
-.explain b{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-weight:600}
-.after{margin-top:12px}
-.xpfloat{position:fixed;z-index:50;font:800 16px var(--display);color:var(--ok);pointer-events:none;animation:floatUp 1s var(--ease) forwards}
-@keyframes floatUp{from{opacity:0;transform:translate(-50%,0)}20%{opacity:1}to{opacity:0;transform:translate(-50%,-46px)}}
-#fx{position:fixed;inset:0;pointer-events:none;z-index:40}
+.fbx{margin-top:8px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);animation:fadeIn .35s var(--ease) both}
+.fbx.ok{background:var(--okbg);border-color:rgba(16,185,129,.3)} .fbx.bad{background:var(--badbg);border-color:rgba(244,63,94,.3)}
+.fbx h4{margin:0 0 4px;font:800 15px var(--display);display:flex;align-items:center;gap:7px}
+.fbx.ok h4{color:var(--ok)} .fbx.bad h4{color:var(--bad)}
+.fbx p{margin:0;color:var(--ink2);font-size:14.5px}
+.qnav{display:flex;gap:10px;margin-top:16px}
+.qnav .btn{flex:1}
+.star.on{color:var(--gold);background:var(--goldbg);border-color:rgba(245,158,11,.3)}
+.star.on svg{fill:currentColor}
+.big{font:800 clamp(48px,10vw,68px)/1 var(--display);letter-spacing:-.04em}
 
-/* sonuç */
-.res{font:800 clamp(52px,14vw,76px)/1 var(--display);letter-spacing:-.04em;margin:12px 0 6px}
-.res small{font-size:.4em;color:var(--mute);font-weight:600;letter-spacing:0}
+/* sınav */
+.exam-g{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:start}
+@media (max-width:900px){.exam-g{grid-template-columns:1fr}}
+.timer{font:800 30px/1 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.timer.low{color:var(--bad)}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px;margin-top:12px}
+.pal button{height:38px;border-radius:10px;border:1px solid var(--line2);background:var(--bg2);font-size:13px;font-weight:700;color:var(--mute);position:relative}
+.pal button.ans{background:rgba(99,102,241,.16);color:var(--indigo);border-color:rgba(99,102,241,.4)}
+.pal button.cur{outline:2px solid var(--sky);outline-offset:1px}
+.pal button.flag::after{content:"";position:absolute;top:3px;right:3px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.pal button.r-ok{background:var(--okbg);color:var(--ok);border-color:rgba(16,185,129,.4)}
+.pal button.r-bad{background:var(--badbg);color:var(--bad);border-color:rgba(244,63,94,.4)}
+.scope{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:16px;border-radius:18px;border:1px solid var(--line2);background:var(--bg2);transition:border-color .2s,transform .15s var(--ease)}
+.scope:hover{border-color:var(--sky)} .scope.on{border-color:var(--indigo);box-shadow:0 0 0 3px rgba(99,102,241,.18)}
+.scope .ci{width:42px;height:42px}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--mute);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.rv{padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--bg2);margin-bottom:10px}
+.rv .a{font-size:14px;margin-top:6px}
+.rv .a .y{color:var(--bad);font-weight:600} .rv .a .c{color:var(--ok);font-weight:700}
 
+/* notlar / kartlar */
+.search{display:flex;align-items:center;gap:8px;border:1px solid var(--line2);background:var(--bg2);border-radius:14px;padding:0 12px;min-height:44px;flex:1 1 240px;max-width:380px}
+.search input{border:0;background:none;outline:none;flex:1;font-size:14px;padding:10px 0}
+.note h3{margin:8px 0 10px}
+.note ul{margin:0;padding-left:18px;color:var(--ink2);font-size:14px;line-height:1.6}
+.note li{margin-bottom:6px}
+.note li strong{color:var(--ink)}
+.note code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;padding:1px 6px;border-radius:6px;background:var(--goldbg);color:var(--ink)}
+.flip{perspective:1400px;max-width:720px;margin:16px auto 0;cursor:pointer}
+.flip-in{display:grid;min-height:300px;transition:transform .6s var(--ease);transform-style:preserve-3d}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.face{grid-area:1/1;position:relative;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);padding:26px;display:flex;flex-direction:column;justify-content:center;gap:12px;box-shadow:var(--shadow)}
+.face.back{transform:rotateY(180deg)}
+.face .q{margin:0}
+.fc-ans{font:800 21px/1.35 var(--display);color:var(--ok)}
+.mrow{padding:16px;border-radius:18px;border:1px solid var(--line);background:var(--bg2);display:flex;gap:12px;align-items:flex-start}
+.mrow .body{flex:1}
+.mrow .qt{font-weight:600;line-height:1.45}
+.mrow .ans{margin-top:6px;font-size:14px;color:var(--ok);font-weight:700}
+.mrow details{margin-top:6px;font-size:13.5px;color:var(--ink2)}
+.mrow summary{cursor:pointer;color:var(--mute);font-weight:600}
+.empty{text-align:center;padding:48px 20px}
+.empty .ci{margin:0 auto 12px;width:56px;height:56px}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(2,6,23,.55);display:grid;place-items:center;padding:16px;animation:fadeIn .2s ease both}
+.modal .card{max-width:440px;width:100%}
+textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--line2);background:var(--bg2);padding:10px;font:12px/1.4 ui-monospace,Menlo,monospace;color:var(--ink);resize:vertical}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:70}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:80;padding:10px 16px;border-radius:12px;background:var(--ink);color:var(--bg);font-weight:700;font-size:13.5px;box-shadow:var(--shadow);animation:fadeIn .25s ease both}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-@media (max-width:420px){.card{padding:16px}.pill.hide-s{display:none}}
 </style>
 </head>
 <body>
-<header class="top glass">
-  <div class="in">
-    <div class="brand"><i data-lucide="plane"></i>Final Seferi</div>
+<header class="glass">
+  <div class="hin">
+    <button class="brand" data-go="home"><span class="logo"><i data-lucide="plane"></i></span><span><div class="bt">SHUİ Akademi</div><div class="bs">Sivil Hava Ulaştırma İşletmeciliği</div></span></button>
     <div class="sp"></div>
-    <span class="pill" id="tDays"></span>
-    <span class="pill hide-s" id="tXp"></span>
-    <button class="icon-btn" id="theme" aria-label="Tema değiştir"><i data-lucide="sun"></i></button>
+    <nav class="nav" id="nav"></nav>
+    <div class="sp"></div>
+    <span class="chip sync" id="sync" title="İlerleme durumu"><i data-lucide="cloud-off"></i><span class="lbl">Bu cihazda</span></span>
+    <span class="chip streak" title="Kesintisiz doğru serisi"><i data-lucide="flame"></i><span id="streak">0</span></span>
+    <button class="ib" id="theme" aria-label="Tema değiştir"><i data-lucide="sun"></i></button>
   </div>
-  <div class="topbar-prog" id="tProgWrap" hidden><i id="tProg"></i></div>
+  <nav class="mnav" id="mnav"></nav>
 </header>
-<main class="wrap" id="app"><p class="lead">Yükleniyor…</p></main>
+<main id="app"><p class="mute">Yükleniyor…</p></main>
 <canvas id="fx" aria-hidden="true"></canvas>
 <script>
 {
-const FINAL='2026-12-26';
+// ===================== VERİ =====================
 const CN={HH:'Havacılık Hukuku',MIY:'Müşteri İlişkileri Yönetimi',LOJ:'Lojistik Yönetimi'};
-const MAIN={
- HH:['2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret','Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu','Taşıma belgeleri: bilet, bagaj, hava yük senedi, ihbar süreleri','Hava aracı tescil/sicil, lisanslar'],
- MIY:['Müşteri değeri, CLV, karlılık, portföy','Memnuniyet, sadakat, şikayet','Müşteri kazanma, tutma, kayıp (churn)','Veri, veri madenciliği, segmentasyon'],
- LOJ:['Stok yönetimi: türler, maliyetler','EOQ / ekonomik üretim miktarı / iskonto modelleri','Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)','DRP/MRP planlama, sipariş yönetimi']};
-const SHORT={'2920 TSHK, SHGM/DHMİ, kurumlar, yap-işlet-devret':'TSHK ve kurumlar','Varşova/Montreal/Guadalajara, taşıyıcı sorumluluğu':'Varşova ve Montreal','Taşıma belgeleri: bilet, bagaj, hava yük senedi, ihbar süreleri':'Taşıma belgeleri ve ihbar süreleri','Hava aracı tescil/sicil, lisanslar':'Tescil, sicil ve lisanslar','Müşteri değeri, CLV, karlılık, portföy':'Müşteri değeri ve CLV','Memnuniyet, sadakat, şikayet':'Memnuniyet ve sadakat','Müşteri kazanma, tutma, kayıp (churn)':'Kazanma, elde tutma, kayıp','Veri, veri madenciliği, segmentasyon':'Veri madenciliği ve segmentasyon','Stok yönetimi: türler, maliyetler':'Stok türleri ve maliyetleri','EOQ / ekonomik üretim miktarı / iskonto modelleri':'ESM ve iskonto modelleri','Talep tahmini (MAD, RSFE, hareketli ort., üstel düzeltme, regresyon)':'Talep tahmini','DRP/MRP planlama, sipariş yönetimi':'DRP ve sipariş yönetimi'};
-const REG=[
- {n:'Eğitim Kampı',s:'2026-11-20',e:'2026-11-22',m:-1,ic:'tent'},
- {n:'Ankara Kulesi',s:'2026-11-23',e:'2026-11-29',m:0,boss:'Bürokrasi Golemi',bn:30,ic:'landmark'},
- {n:'Varşova Geçidi',s:'2026-11-30',e:'2026-12-06',m:1,boss:'Tazminat Hidrası',bn:30,ic:'scale'},
- {n:'Kargo Labirenti',s:'2026-12-07',e:'2026-12-13',m:2,boss:'Stok Ejderhası',bn:45,ic:'package'},
- {n:'Veri Kuyusu',s:'2026-12-14',e:'2026-12-20',m:3,boss:'Karma Kral',bn:60,ic:'database'},
- {n:'Final Kalesi',s:'2026-12-21',e:'2026-12-25',m:9,ic:'castle'},
- {n:'FİNAL',s:'2026-12-26',e:'2026-12-26',m:9,ic:'trophy'}];
-const DAYC=['BOSS','HH','MIY','LOJ','HH','MIY','LOJ'];
-const LV=[[0,'Yer Hizmetleri Stajyeri'],[400,'Check-in Memuru'],[900,'Kabin Memuru'],[1600,'İkinci Pilot'],[2500,'Kaptan Pilot'],[3500,'Filo Komutanı']];
+const CS={HH:'Havacılık Hukuku',MIY:'Müşteri İlişkileri',LOJ:'Lojistik Yönetimi'};
+const CI={HH:'scale',MIY:'users',LOJ:'package'};
+const CD={HH:'Şikago, Varşova ve Montreal konvansiyonları, hava trafik hakları, 2920 sayılı TSHK, SHGM/DHMİ, lisanslar ve işletme yetkilendirme.',
+ MIY:'Operasyonel/analitik/işbirlikçi MİY, müşteri değeri ve CLV, RFM, cüzdan payı, müşteri kazanma, elde tutma ve veri madenciliği.',
+ LOJ:'Talep tahmini (MAD, RSFE, izleme sinyali), ESM ve iskonto modelleri, stok türleri, ABC analizi, depo türleri ve taşımacılık.'};
+const NOTES=[
+ {c:'HH',tag:'Temel mevzuat ve kurumlar',title:'2920 sayılı TSHK, SHGM ve DHMİ',pts:[
+  '<strong>2920 sayılı Türk Sivil Havacılık Kanunu</strong> 14.10.1983’te yürürlüğe girdi; 7 kısım ve 150 maddeden oluşur. Türk sivil havacılığının serbestleşmesinin temelini attı.',
+  '<strong>SHGM:</strong> Türk sivil hava araçlarının sicilini tutar, lisans ve ruhsatları verir, azami kalkış ağırlığı <strong>500 gram ve üzeri</strong> İHA’ların kayıt sistemini kurar. 2005’te <strong>5431 sayılı kanunla</strong> özerk yapıya kavuştu.',
+  '<strong>DHMİ:</strong> Havalimanlarını işletir, hava trafik ve seyrüsefer hizmeti verir; yüksek maliyetli yatırımları <strong>Yap-İşlet-Devret</strong> modeliyle özel sektöre yaptırır.',
+  '<strong>Normlar hiyerarşisi:</strong> Anayasa → Kanunlar ve milletlerarası antlaşmalar → Cumhurbaşkanlığı kararnameleri → Yönetmelikler → diğer düzenleyici işlemler. Örf ve âdet yazısız kaynaktır.']},
+ {c:'HH',tag:'Uluslararası kuruluşlar',title:'ICAO, IATA ve EUROCONTROL',pts:[
+  '<strong>ICAO:</strong> 1944 Şikago Konvansiyonu’nun 43. maddesiyle kuruldu (geçici adı PICAO), 1947’de faaliyete geçti. Merkezi <strong>Montreal</strong>; üyeleri devletlerdir.',
+  '<strong>IATA:</strong> 1945’te Havana’da kuruldu; üyeleri havayolu işletmeleridir. Yönettiği sistemler: tehlikeli madde taşımacılığı, BSP, satış acenteliği sistemi, kargo hesap düzenleme sistemi (CASS).',
+  '<strong>EUROCONTROL:</strong> 1963’te Avrupa hava sahasındaki trafiği düzenlemek için kuruldu; 2002’de EASA kurulunca etkisi azaldı.',
+  '<strong>Şikago Konvansiyonu</strong> 1944’te imzalandı, 4 Nisan 1947’de yürürlüğe girdi; havacılıkta seyrüsefer, ICAO ve uluslararası hava taşımacılığı olmak üzere üç başlıktan oluşur.']},
+ {c:'HH',tag:'Hava trafik hakları',title:'1–9. hava trafik hakları ve kabotaj',pts:[
+  '<strong>1. hak:</strong> İniş yapmadan transit geçiş. <strong>2. hak:</strong> Ticari olmayan teknik iniş (yakıt, bakım).',
+  '<strong>3. hak:</strong> Kendi ülkesinden yabancı ülkeye yolcu/yük götürme. <strong>4. hak:</strong> Yabancı ülkeden kendi ülkesine getirme; 3. hakla paralellik gösterir (karşılıklılık).',
+  '<strong>5. hak:</strong> Kendi ülkesinden başlayan seferde iki yabancı ülke arasında taşıma (İstanbul → Batum → Bakü).',
+  '<strong>8. hak (ardışık kabotaj)</strong> varış ülkesinin kabotaj hakkıyla bağlantılıdır: yabancı ülkenin iki iç noktası arasında, kendi ülkesinden başlayan seferin devamında taşıma.']},
+ {c:'HH',tag:'Sorumluluk ve süreler',title:'Varşova ve Montreal’in kritik rakamları',pts:[
+  '<strong>Varşova 1929:</strong> Yolcu başına <strong>125.000 Poincaré frangı</strong>; kayıtlı bagaj ve yükte kg başına <strong>250 frank</strong>.',
+  '<strong>SDR</strong> ilk kez <strong>1975 Montreal Protokolleri</strong> ile frank yerine kullanıldı.',
+  '<strong>Montreal 1999 yük sınırı:</strong> İlk metinde kg başına <strong>17 SDR</strong>, güncellemelerle 19 ve şimdi <strong>22 SDR</strong>.',
+  '<strong>İhbar süreleri:</strong> Hasarda bagaj için <strong>7 gün</strong>, yük için <strong>14 gün</strong>; gecikmede <strong>21 gün</strong>. Varşova’da kayıp kabulü için 7 gün, Montreal’de <strong>21 gün</strong>.',
+  '<strong>Hava sevk fişinin içeriğinden gönderen sorumludur.</strong> Dava açma süresi <strong>2 yıl</strong>.']},
+ {c:'HH',tag:'Lisans ve işletmeler',title:'Pilot, dispeçer ve işletme şartları',pts:[
+  '<strong>PPL:</strong> En az <strong>17 yaş</strong>, yetkili eğitim organizasyonunda en az <strong>45 saat</strong> uçuş. <strong>ATPL:</strong> en az 1500 saat.',
+  '<strong>Uçuş harekât uzmanı (dispeçer):</strong> En az <strong>21 yaş</strong>, en az ön lisans mezunu; uçuş operasyonunu planlar, takip eder ve kontrol eder.',
+  '<strong>Havayolu işletmesi (SHY-6A):</strong> Koltuk kapasitesi <strong>20 ve üzeri</strong> uçaklarla yolcu ya da sadece yük taşıyan işletme. Payların en az <strong>%51’i nama yazılı</strong> olmalı.',
+  '<strong>Sadece tarifesiz seferler:</strong> 100+ koltuklu en az 3 uçak, <strong>10 milyon ABD doları</strong> sermaye. <strong>Hava taksi:</strong> uçak başına 200 bin $, 2 milyon $ sağlanırsa ilave sermaye aranmaz.']},
+ {c:'MIY',tag:'Temel kavramlar',title:'MİY mimarisi ve bileşenleri',pts:[
+  '<strong>MİY’in temel bileşenleri:</strong> insanlar, süreçler ve teknoloji.',
+  '<strong>Stratejik MİY</strong> müşteri odaklı kültür ve strateji; <strong>operasyonel MİY</strong> pazarlama, satış gücü ve hizmet otomasyonu; <strong>analitik MİY</strong> verinin toplanması, saklanması ve analizi; <strong>işbirlikçi MİY</strong> kanallar arası etkileşim ve koordinasyon ağı.',
+  '<strong>Pazarlama anlayışları:</strong> üretim → ürün → satış → modern pazarlama → toplumsal pazarlama. Satış anlayışında agresif satış ve yoğun tutundurma öne çıkar.',
+  '<strong>Pazarlama karması (4P):</strong> ürün, fiyat, dağıtım, tutundurma.']},
+ {c:'MIY',tag:'Ölçüm ve değer',title:'Müşteri değeri, RFM ve cüzdan payı',pts:[
+  '<strong>Gerçek değer:</strong> İşletme davranışı değiştirmezse müşteriden beklenen gelecek katkıların bugünkü değeri. <strong>Potansiyel değer:</strong> bilinçli stratejilerle davranış değiştirilirse ulaşılabilecek değer.',
+  '<strong>Cüzdan büyüklüğü:</strong> Müşterinin bir kategorideki toplam harcaması. <strong>Cüzdan payı:</strong> bunun ne kadarının işletmeye geldiği.',
+  '<strong>RFM:</strong> Satın alma güncelliği (Recency), sıklığı (Frequency) ve parasal değeri (Monetary).',
+  'Maliyetleri katkısını aşan müşterinin ömür boyu değeri <strong>sıfırın altındadır</strong>.']},
+ {c:'MIY',tag:'Süreçler',title:'Kazanma, elde tutma ve müşteri kaybı',pts:[
+  '<strong>Müşteri ilişkileri geliştirme süreci:</strong> tanılama → kazanma → geliştirme (büyütme: çapraz satış, üst satış) → elde tutma.',
+  '<strong>Elde tutma</strong> sadakati güçlendirip müşteri yaşam süresini uzatır; elde tutma oranı arttıkça ortalama kıdem de artar.',
+  '<strong>B2C kayıp nedenleri:</strong> yaşlanma, aile yaşam döngüsü, mali ve kişisel değişiklikler. <strong>B2B:</strong> müşterinin üretimi ya da ticareti bırakması.',
+  '<strong>Şikâyet</strong> bir ilişki düzeltme fırsatıdır; işletmeye müşteri ve ürün hakkında bilgi sağlar.']},
+ {c:'LOJ',tag:'Hesaplama formülleri',title:'ESM, yeniden sipariş noktası, izleme sinyali',pts:[
+  '<strong>ESM:</strong> <code>√(2DS / H)</code> · <strong>Ekonomik üretim miktarı:</strong> <code>√(2DS / (H(1 − d/p)))</code> · maks. stok <code>Q(1 − d/p)</code>.',
+  'ESM talebin karekökü ile orantılıdır: talep %50 artarsa ESM yalnızca ≈%22 artar.',
+  '<strong>Yeniden sipariş noktası:</strong> <code>günlük talep × tedarik süresi</code>.',
+  '<strong>İzleme sinyali:</strong> <code>RSFE / MAD</code>. Büyük üretim miktarında sınır ±4, küçük üretimde ±8. <strong>MAPE</strong> ne kadar küçükse yöntem o kadar güvenilir.',
+  '<strong>Üstel düzeltme:</strong> α büyüdükçe son talebe ağırlık artar; α = 1 iken basit yöntemle (Ft = Dt−1) aynı sonucu verir.']},
+ {c:'LOJ',tag:'Stok ve depo',title:'Stok türleri, ABC analizi ve depolar',pts:[
+  '<strong>Arz-talebe göre stoklar:</strong> hammadde, yarı mamul, mamul, yardımcı malzeme.',
+  '<strong>A tipi:</strong> miktarca az, değerce çok yüksek kalemler. <strong>C tipi:</strong> miktarca ≈%50, yıllık kullanım değerince ≈%5.',
+  '<strong>Emniyet stoku:</strong> talep ve tedarikteki kısa dönemli dalgalanmalara karşı tampon.',
+  '<strong>Birleştirme deposu:</strong> farklı noktalardan gelen ürünleri müşteri için tek sevkiyatta birleştirir. <strong>Çapraz sevkiyat:</strong> ürün depolanmadan giden araca aktarılır.',
+  '<strong>Depolama nedenleri:</strong> dağıtım ve üretim ücretlerinden kazanç, miktar iskontosu, zaman ve mekân farkını aşmak, tam zamanında programlara destek.']},
+ {c:'LOJ',tag:'Taşıma ve tersine lojistik',title:'Taşımacılık, paketleme ve geri kazanım',pts:[
+  '<strong>Taşıma kapasitesi</strong> en yüksek boru hattıdır; teslim süresi en kısa hava yoludur; rakip sayısı en fazla kara yolundadır.',
+  '<strong>Paketleme işlevleri:</strong> içerme, koruma (nem, toz, böcek), üniteleme (palet, konteyner), iletişim (evrensel ürün kodları), kolaylık.',
+  '<strong>Ürün geri kazanma yöntemleri:</strong> tamir, yenileme, yeniden üretim, yamyamlaşma, geri dönüşüm. Yakma geri kazanım değildir.',
+  'Geleneksel üretimde son ürünün tek kaynaktan merkeze ulaşması <strong>ileriye doğru dağıtımdır</strong>; tersine lojistiği müşteriler veya zincirde daha ileride olanlar başlatır.']},
+];
+
+// ===================== DURUM =====================
 const $=s=>document.querySelector(s), app=$('#app');
-const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const pad=n=>String(n).padStart(2,'0');
-const ds=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
-const pd=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
-const today=()=>ds(new Date());
-const addD=(s,n)=>{const d=pd(s);d.setDate(d.getDate()+n);return ds(d)};
-const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
-const dayCourse=t=>{const d=pd(t).getDay();return d===0?['HH','MIY','LOJ'][Math.floor((pd(t)-pd('2026-11-22'))/6048e5)%3]:DAYC[d]};
-const regIdx=t=>{let r=0;REG.forEach((g,i)=>{if(t>=g.s)r=i});return r};
-const monday=t=>{const d=pd(t);const k=(d.getDay()+6)%7;d.setDate(d.getDate()-k);return ds(d)};
-const icons=()=>{try{window.lucide&&lucide.createIcons({attrs:{'stroke-width':1.75}})}catch(e){}};
-const reduced=()=>window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-let Q=[],BY={},S=null,db=null,uid=null,saveT=null,saving=false,dirty=false;
-const blank=()=>({xp:0,seen:{},cursed:{},days:{},boss:{},chest:{},joker:{}});
-const LSK='finalSeferi.v1';
-function load(){try{const r=localStorage.getItem(LSK);if(r)return Object.assign(blank(),JSON.parse(r))}catch(e){}return blank()}
-function save(){try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}dirty=true;clearTimeout(saveT);saveT=setTimeout(push,1200)}
-async function push(){if(!db||!uid||saving||!dirty)return;saving=true;dirty=false;
- try{await db.collection('data/users/'+uid).doc('progress').set({state:JSON.stringify(S),at:Date.now()})}catch(e){dirty=true}
- saving=false;if(dirty)setTimeout(push,1500)}
-const level=xp=>{let i=0;LV.forEach((l,k)=>{if(xp>=l[0])i=k});return i};
-
-// ---------- tema ----------
-const TK='finalSeferi.theme';
-function getTheme(){try{return localStorage.getItem(TK)||'system'}catch(e){return 'system'}}
-function applyTheme(t){const r=document.documentElement;if(t==='system')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t);
- const ic={system:'monitor',light:'sun',dark:'moon'}[t];$('#theme').innerHTML=`<i data-lucide="${ic}"></i>`;$('#theme').setAttribute('aria-label','Tema: '+({system:'sistem',light:'açık',dark:'koyu'}[t]));icons()}
-$('#theme').onclick=()=>{const n={system:'light',light:'dark',dark:'system'}[getTheme()];try{localStorage.setItem(TK,n)}catch(e){}applyTheme(n)};
-applyTheme(getTheme());
-
-// ---------- üst bar ----------
-function topbar(prog){
- const t=today(),left=Math.max(0,Math.round((pd(FINAL)-pd(t))/864e5));
- $('#tDays').innerHTML=`<i data-lucide="calendar"></i><b>${left}</b> gün`;
- $('#tXp').innerHTML=`<i data-lucide="zap"></i><b>${S?S.xp:0}</b> XP`;
- const w=$('#tProgWrap');if(prog==null){w.hidden=true}else{w.hidden=false;requestAnimationFrame(()=>{$('#tProg').style.width=prog+'%'})}
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())};
+const icons=()=>{try{window.lucide&&lucide.createIcons()}catch(e){}};
+const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+const LSK='shuiAkademi.v1', DEV=Math.random().toString(36).slice(2,10);
+const blank=()=>({v:1,at:0,ans:{},wrong:{},star:{},fc:{},exams:[],streak:0,best:0,examDate:'2026-12-26',daily:{}});
+let Q=[],BY={},S=blank(),db=null,uid=null,ref=null,pushT=null,saving=false,dirty=false,synced=false;
+const copy=o=>JSON.parse(JSON.stringify(o));
+function loadLocal(){
+ try{const r=localStorage.getItem(LSK);if(r)return Object.assign(blank(),JSON.parse(r))}catch(e){}
+ // eski Final Seferi ilerlemesini taşı
+ const s=blank();
+ try{const o=JSON.parse(localStorage.getItem('finalSeferi.v1')||'null');if(o&&o.seen){
+  Object.entries(o.seen).forEach(([id,v])=>{s.ans[id]={n:v.n||0,c:v.c||0,last:v.last||'',ok:(v.c||0)>0}});
+  Object.entries(o.cursed||{}).forEach(([id,v])=>{s.wrong[id]={since:v.since||today(),ok:0}});s.at=1}}catch(e){}
+ return s}
+function save(){S.at=Date.now();try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}dirty=true;clearTimeout(pushT);pushT=setTimeout(push,900);syncChip()}
+async function push(){if(!ref||saving||!dirty)return;saving=true;dirty=false;
+ try{await ref.set({state:JSON.stringify(S),at:S.at,dev:DEV})}catch(e){dirty=true}
+ saving=false;syncChip();if(dirty)setTimeout(push,1500)}
+function syncChip(){const c=$('#sync');if(!c)return;
+ if(ref){c.className='chip sync ok';c.innerHTML=`<i data-lucide="${dirty||saving?'refresh-cw':'cloud'}"></i><span class="lbl">${dirty||saving?'Kaydediliyor':'Tüm cihazlarda'}</span>`}
+ else{c.className='chip sync';c.innerHTML='<i data-lucide="hard-drive"></i><span class="lbl">Bu cihazda</span>'}
  icons()}
+function adopt(rem){S=Object.assign(blank(),rem);Object.keys(S.wrong).forEach(id=>{if(!BY[id])delete S.wrong[id]});try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){}}
 
-// ---------- soru seçimi ----------
-function score(q){const s=S.seen[q.id];if(!s)return 0+Math.random();return 2+(s.c>=s.n?2:0)+Math.random()+(s.last===today()?5:0)}
-function pick(pool,n,ex){return pool.filter(q=>!ex.has(q.id)).sort((a,b)=>score(a)-score(b)).slice(0,n)}
-function cursedList(filter){return Object.keys(S.cursed).map(id=>BY[id]).filter(q=>q&&(!filter||filter(q)))}
-function dailySet(t){
- const r=REG[regIdx(t)],ex=new Set();let out=[];
- const add=a=>a.forEach(q=>{if(!ex.has(q.id)){ex.add(q.id);out.push(q)}});
- if(r.m===-1){['HH','MIY','LOJ'].forEach((c,i)=>add(pick(Q.filter(q=>q.c===c),i===1?6:7,ex)));return shuffle(out)}
- const c=dayCourse(t);
- const cq=Q.filter(q=>q.c===c);
- if(r.m===9){add(cursedList(q=>q.c===c).slice(0,10));add([...cq].sort((a,b)=>b.x-a.x||score(a)-score(b)).filter(q=>!(S.seen[q.id]&&S.seen[q.id].last===t)).slice(0,20-out.length));return shuffle(out)}
- const mains=MAIN[c];
- add(cursedList().sort((a,b)=>(S.cursed[a.id].since>S.cursed[b.id].since?1:-1)).slice(0,2));
- add(pick(cq.filter(q=>q.t===mains[r.m]),14,ex));
- for(let k=0;k<=3&&out.length<16;k++)add(pick(cq.filter(q=>q.t===mains[k]),16-out.length,ex));
- add(pick(cq.filter(q=>!mains.includes(q.t)),20-out.length,ex));
- add(pick(cq,20-out.length,ex));
- return shuffle(out).slice(0,20)}
-function bossSet(ri){
- const r=REG[ri],ex=new Set(),out=[],per=Math.round(r.bn/3);
- ['HH','MIY','LOJ'].forEach(c=>{const ts=MAIN[c].slice(0,r.m+1);let p=pick(Q.filter(q=>q.c===c&&ts.includes(q.t)),per,ex);p.forEach(q=>ex.add(q.id));
-  if(p.length<per){const more=pick(Q.filter(q=>q.c===c),per-p.length,ex);more.forEach(q=>ex.add(q.id));p=p.concat(more)}out.push(...p)});
- return shuffle(out)}
-function chestSet(){const wk=monday(today());return shuffle(cursedList(q=>S.cursed[q.id].since>=wk).concat(cursedList(q=>S.cursed[q.id].since<wk)))}
+// ===================== TEMA =====================
+const TK='shuiAkademi.theme';
+function theme(t){document.documentElement.setAttribute('data-theme',t);$('#theme').innerHTML=`<i data-lucide="${t==='dark'?'sun':'moon'}"></i>`;icons()}
+let TH='dark';try{TH=localStorage.getItem(TK)||'dark'}catch(e){}
+theme(TH);
+$('#theme').onclick=()=>{TH=TH==='dark'?'light':'dark';try{localStorage.setItem(TK,TH)}catch(e){}theme(TH)};
 
-// ---------- ana ekran ----------
-function weekDone(t){const m=monday(t);let n=0;for(let i=0;i<6;i++)if(S.days[addD(m,i)]&&S.days[addD(m,i)].done)n++;return n}
+// ===================== YARDIMCI =====================
+const solvedIds=c=>Object.keys(S.ans).filter(id=>BY[id]&&(!c||BY[id].c===c));
+function courseStat(c){const ids=solvedIds(c);let n=0,k=0;ids.forEach(id=>{n+=S.ans[id].n;k+=S.ans[id].c});
+ const tot=Q.filter(q=>!c||q.c===c).length;return {solved:ids.length,tot,acc:n?Math.round(k/n*100):0,n,k}}
+const wrongCount=c=>Object.keys(S.wrong).filter(id=>BY[id]&&(!c||BY[id].c===c)).length;
+function record(q,ok){
+ const s=S.ans[q.id]||(S.ans[q.id]={n:0,c:0,last:'',ok:false});s.n++;if(ok)s.c++;s.last=today();s.ok=ok;
+ const w=S.wrong[q.id];
+ if(ok){if(w){w.ok=(w.ok||0)+1;if(w.ok>=2)delete S.wrong[q.id]}S.streak++;S.best=Math.max(S.best,S.streak)}
+ else{S.wrong[q.id]={since:w?w.since:today(),ok:0};S.streak=0}
+ S.daily[today()]=(S.daily[today()]||0)+1;
+}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
+
+// ===================== NAV =====================
+const PAGES=[['home','Ana Sayfa','house'],['quiz','Test Çöz','list-checks'],['exam','Sınav Simülasyonu','timer'],['notes','Konu Özetleri','book-open'],['cards','Bilgi Kartları','layers'],['wrong','Yanlışlarım','circle-x']];
+let PAGE='home';
+function renderNav(){const w=wrongCount();const h=PAGES.map(([k,t,ic])=>`<button class="nl ${PAGE===k?'on':''}" data-go="${k}"><i data-lucide="${ic}"></i>${t}${k==='wrong'?` <span class="badge">${w}</span>`:''}</button>`).join('');
+ $('#nav').innerHTML=h;$('#mnav').innerHTML=h;$('#streak').textContent=S.streak;icons();
+ const on=$('#mnav .nl.on');if(on)on.scrollIntoView({block:'nearest',inline:'center'})}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){e.preventDefault();go(b.dataset.go,b.dataset)}});
+function go(p,opts={}){
+ PAGE=p;stopTimer();renderNav();scrollTo({top:0});
+ ({home,quiz:()=>quizPage(opts),exam:examPage,notes:()=>{if(opts.c)NF.c=opts.c;notesPage()},cards:cardsPage,wrong:wrongPage})[p]()}
+
+// ===================== ANA SAYFA =====================
+let cdT=null;
 function home(){
- R=null;topbar(null);
- const t=today(),ri=regIdx(t),r=REG[ri],dow=pd(t).getDay(),lv=level(S.xp);
- const nx=LV[lv+1],pct=nx?Math.round((S.xp-LV[lv][0])/(nx[0]-LV[lv][0])*100):100;
- const d=S.days[t]||{};const cur=Object.keys(S.cursed).length;
- const prevBoss=REG.slice(1,ri).map((g,i)=>i+1).filter(i=>REG[i].boss&&!(S.boss[i]&&S.boss[i].won));
- const bossRi=dow===0&&r.boss&&!(S.boss[ri]&&S.boss[ri].won)?ri:-1, oldBoss=prevBoss.length?prevBoss[0]:-1;
- let eyebrow,title,desc,btn,mode,ic='play';
- if(t>FINAL){eyebrow='Sefer';title='Sefer tamamlandı';desc='Final geride kaldı.';btn='Serbest tur';mode='free'}
- else if(bossRi>=0){const g=REG[bossRi];eyebrow='Pazar boss savaşı';title=g.boss;desc=g.bn+' soru · 3 dersin karışımı · geçme sınırı %70'+(S.joker[monday(t)]?' · 1 joker hakkın var':'');btn='Savaşa gir';mode='boss:'+bossRi;ic='swords'}
- else if(!d.done){const dc=dayCourse(t);eyebrow=r.m===-1?'Seviye tespiti':r.m>=0&&r.m<9?'Ana görev':'Final hazırlığı';title=r.m===-1?'Üç dersten karışık 20 soru':CN[dc];
-  desc='20 soru'+(r.m>=0&&r.m<9?' · '+SHORT[MAIN[dc][r.m]]:r.m===9?' · lanetli kartlar ve en çok çıkan sorular':'');btn='Başla';mode='daily'}
- else {eyebrow='Bugün';title='Günlük görev tamam';desc='İstersen 20 soruluk ekstra tur.';btn='Ekstra tur';mode='extra';ic='plus'}
- const sat=dow===6,wk=monday(t),chestOpen=!!S.chest[wk];
- app.innerHTML=`
- <h1>${esc(r.n)}</h1>
- <p class="lead">${r.m>=0&&r.m<9&&r.boss?'Pazar boss’u: '+esc(r.boss):r.m===-1?'Seviyeni ölçüyoruz.':'Finale son düzlük.'}</p>
- <div class="stack">
-  <section class="card glass">
-   <div class="lvl"><div class="badge">${lv+1}</div><div><div class="lvl-t">${esc(LV[lv][1])}</div><div class="lvl-s">${nx?`${S.xp} / ${nx[0]} XP · sonraki: ${esc(nx[1])}`:S.xp+' XP · en üst seviye'}</div></div></div>
-   <div class="xpbar" role="progressbar" aria-label="Seviye ilerlemesi" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:0" data-w="${pct}"></i></div>
-   <div class="stats"><span class="pill"><i data-lucide="skull"></i><b>${cur}</b> lanetli kart</span><span class="pill"><i data-lucide="flame"></i><b>${weekDone(t)}</b>/6 bu hafta</span></div>
-  </section>
-  <section class="card glass"><div class="route" id="route">${REG.map((g,i)=>{const done=i<ri||(g.boss&&S.boss[i]&&S.boss[i].won&&i<ri);return `<div class="stop ${i<ri?'done':i===ri?'cur':''}"><div class="dot"><i data-lucide="${i<ri?'check':g.ic}"></i></div><span>${esc(g.n)}</span></div>`}).join('')}</div></section>
-  <section class="card glass quest">
-   <div class="eyebrow"><i data-lucide="${bossRi>=0?'swords':'target'}"></i>${esc(eyebrow)}</div>
-   <h2>${esc(title)}</h2><p>${esc(desc)}</p>
-   <button class="cta" id="go" data-m="${mode}"><i data-lucide="${ic}"></i>${btn}</button>
-   <div class="row">
-    <button class="ghost ${sat&&!chestOpen&&cur?'hot':''}" id="chest" ${cur?'':'disabled'}><i data-lucide="gift"></i>Sandık${sat?'':' · lanetliler'}</button>
-    ${oldBoss>=0?`<button class="ghost hot" id="oldboss"><i data-lucide="swords"></i>${esc(REG[oldBoss].boss)}</button>`:''}
-    <button class="ghost" id="free" aria-expanded="false"><i data-lucide="book-open"></i>Ders seç</button>
-   </div>
-   <div class="row cmenu" id="pick">${Object.keys(CN).map(c=>`<button class="ghost" data-c="${c}">${esc(CN[c])}</button>`).join('')}</div>
-   <div class="week" aria-label="Bu haftanın günleri">${['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'].map((n,i)=>{const dd=addD(wk,i);return `<span class="${S.days[dd]&&S.days[dd].done||(i===6&&S.boss[regIdx(dd)]&&S.boss[regIdx(dd)].won)?'done':''} ${dd===t?'today':''}">${n}</span>`}).join('')}</div>
-  </section>
+ const st=courseStat(),w=wrongCount(),td=S.daily[today()]||0;
+ app.innerHTML=`<div class="page">
+ <section class="card glass hero"><div class="hero-g">
+  <div>
+   <span class="pill"><span class="dot"></span>3 ders · ${Q.length} soru · gerçek sınav modu</span>
+   <h1 style="margin-top:14px">Sivil Hava Ulaştırma İşletmeciliği Final Hazırlık</h1>
+   <p class="mute" style="max-width:620px;margin:12px 0 20px">Havacılık Hukuku, Müşteri İlişkileri Yönetimi ve Lojistik Yönetimi derslerinin çıkmış ve kitap sorularını çöz. Cevaplar ders kitabından teyit edildi; ilerlemen ${ref?'telefon ve bilgisayarda aynı yerde kaydediliyor':'bu cihazda kaydediliyor'}.</p>
+   <div class="row"><button class="btn pri" data-go="quiz"><i data-lucide="play"></i>Teste başla</button><button class="btn" data-go="exam"><i data-lucide="timer"></i>Sınav simülasyonu</button></div>
+  </div>
+  <div class="card" style="background:var(--panel2);box-shadow:none;border:1px solid var(--line)">
+   <div class="row" style="justify-content:space-between"><h3>Finale kalan süre</h3><label class="date"><i data-lucide="calendar"></i><input type="date" id="edate" value="${esc(S.examDate)}"></label></div>
+   <div class="cd"><div><b id="cdd">0</b><span>Gün</span></div><div><b id="cdh">0</b><span>Saat</span></div><div><b id="cdm">0</b><span>Dakika</span></div></div>
+   <p class="mute" id="cdtxt" style="margin:12px 0 0;font-size:13px"></p>
+  </div>
+ </div></section>
+ <div class="grid g4" style="margin-top:16px">
+  <div class="card glass stat"><div class="k"><i data-lucide="check-check"></i>Çözülen soru</div><div class="v">${st.solved}<span class="mute" style="font-size:16px"> / ${st.tot}</span></div><div class="s">Bugün ${td} cevap</div></div>
+  <div class="card glass stat"><div class="k"><i data-lucide="target"></i>Başarı oranı</div><div class="v">%${st.acc}</div><div class="s">${st.k} doğru / ${st.n} cevap</div></div>
+  <div class="card glass stat"><div class="k"><i data-lucide="circle-x"></i>Yanlışlarım</div><div class="v">${w}</div><div class="s">2 kez doğru yapınca silinir</div></div>
+  <div class="card glass stat"><div class="k"><i data-lucide="flame"></i>En iyi seri</div><div class="v">${S.best}</div><div class="s">Şu an ${S.streak} doğru üst üste</div></div>
  </div>
- <p class="note">İlk denemede doğru +10 XP · lanet kaldırma +15 XP · boss +100 XP. Yanlış yaptığın soru lanetlenir; iki farklı günde doğru yapınca lanet kalkar. Pazartesi–cumartesi altı görevin hepsi biterse pazar boss’una bir joker.</p>`;
- icons();
- requestAnimationFrame(()=>{const b=app.querySelector('.xpbar i');if(b)b.style.width=b.dataset.w+'%';const c=app.querySelector('.stop.cur');if(c)c.scrollIntoView({block:'nearest',inline:'center'})});
- $('#go').onclick=e=>{const m=e.currentTarget.dataset.m;
-  if(m.startsWith('boss:')){const bi=+m.split(':')[1];start(bossSet(bi),{kind:'boss',ri:bi})}
-  else if(m==='daily')start(dailySet(t),{kind:'daily'});
-  else start(pick(Q,20,new Set()),{kind:'extra'})};
- $('#chest').onclick=()=>{const s=chestSet();if(s.length)start(s,{kind:'chest'})};
- if(oldBoss>=0)$('#oldboss').onclick=()=>start(bossSet(oldBoss),{kind:'boss',ri:oldBoss});
- $('#free').onclick=e=>{const p=$('#pick');p.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',p.classList.contains('open'))};
- document.querySelectorAll('#pick [data-c]').forEach(b=>b.onclick=()=>start(pick(Q.filter(q=>q.c===b.dataset.c),20,new Set()),{kind:'extra'}));
+ <div class="sec-h"><div><h2>Dersler</h2><p class="mute" style="margin:4px 0 0">Bir ders seç, kaldığın yerden devam et.</p></div></div>
+ <div class="grid g3">${Object.keys(CN).map(c=>{const s=courseStat(c),p=Math.round(s.solved/s.tot*100);return `
+  <div class="card glass cc c-${c}">
+   <div class="row" style="justify-content:space-between"><span class="ci"><i data-lucide="${CI[c]}"></i></span><span class="tag">${s.tot} soru</span></div>
+   <h3>${CN[c]}</h3><p class="mute" style="margin:0;font-size:13.5px">${CD[c]}</p>
+   <div><div class="row" style="justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:6px"><span>${s.solved}/${s.tot} çözüldü</span><span class="mute">%${s.acc} başarı · ${wrongCount(c)} yanlış</span></div><div class="bar"><i data-w="${p}"></i></div></div>
+   <div class="row"><button class="btn pri sm" style="flex:1" data-go="quiz" data-c="${c}"><i data-lucide="play"></i>Test çöz</button><button class="btn sm" data-go="notes" data-c="${c}"><i data-lucide="book-open"></i>Özet</button></div>
+  </div>`}).join('')}</div>
+ <div class="sec-h"><div><h2>İlerleme ve senkronizasyon</h2></div></div>
+ <div class="card glass"><div class="row" style="justify-content:space-between;gap:16px">
+  <p style="margin:0;max-width:640px" class="mute">${ref?'<b style="color:var(--ok)">Senkron açık.</b> Claude hesabınla girdiğin her cihazda (telefon, bilgisayar) aynı ilerlemeyi görürsün; her cevap otomatik kaydedilir.':'Bu sayfa ilerlemeyi bu cihazda saklıyor. Telefon ve bilgisayarda aynı ilerleme için uygulamayı Claude bağlantısından aç ya da aşağıdan ilerlemeni aktar.'}</p>
+  <div class="row"><button class="btn sm" id="bexp"><i data-lucide="share-2"></i>İlerlemeyi aktar</button><button class="btn sm danger" id="breset"><i data-lucide="rotate-ccw"></i>Sıfırla</button></div>
+ </div></div>
+ </div>`;
+ icons();requestAnimationFrame(()=>document.querySelectorAll('.bar i[data-w]').forEach(b=>b.style.width=b.dataset.w+'%'));
+ $('#edate').onchange=e=>{if(e.target.value){S.examDate=e.target.value;save();tick()}};
+ $('#bexp').onclick=transfer;$('#breset').onclick=resetAsk;
+ clearInterval(cdT);tick();cdT=setInterval(()=>{if(PAGE==='home')tick();else clearInterval(cdT)},30000);
 }
+function tick(){const t=new Date(S.examDate+'T10:00:00')-new Date();const d=$('#cdd');if(!d)return;
+ const m=Math.max(0,Math.floor(t/6e4));d.textContent=Math.floor(m/1440);$('#cdh').textContent=Math.floor(m%1440/60);$('#cdm').textContent=m%60;
+ const left=courseStat().tot-courseStat().solved,days=Math.max(1,Math.ceil(t/864e5));
+ $('#cdtxt').textContent=t>0?`Hiç çözmediğin ${left} soru var; günde yaklaşık ${Math.ceil(left/days)} yeni soru ile finale kadar hepsini görürsün.`:'Sınav tarihi geçti.'}
+function modal(html){const m=document.createElement('div');m.className='modal';m.innerHTML=`<div class="card glass">${html}</div>`;document.body.appendChild(m);m.addEventListener('click',e=>{if(e.target===m)m.remove()});icons();return m}
+function transfer(){const code=btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+ const m=modal(`<h3>İlerlemeyi aktar</h3><p class="mute" style="font-size:13.5px">Bu kodu kopyalayıp diğer cihazdaki uygulamada “Kodu yükle” ile yapıştır. Yüklenen ilerleme mevcut olanın yerine geçer.</p>
+ <textarea id="tcode" readonly>${code}</textarea><div class="row" style="margin:10px 0 16px"><button class="btn sm" id="tcopy"><i data-lucide="copy"></i>Kopyala</button></div>
+ <textarea id="tin" placeholder="Diğer cihazdan aldığın kodu buraya yapıştır"></textarea><div class="row" style="margin-top:10px;justify-content:flex-end"><button class="btn sm" id="tclose">Kapat</button><button class="btn pri sm" id="tload">Kodu yükle</button></div>`);
+ m.querySelector('#tcopy').onclick=()=>{const t=m.querySelector('#tcode');t.select();try{navigator.clipboard.writeText(t.value)}catch(e){document.execCommand&&document.execCommand('copy')}toast('Kopyalandı')};
+ m.querySelector('#tclose').onclick=()=>m.remove();
+ m.querySelector('#tload').onclick=()=>{try{const o=JSON.parse(decodeURIComponent(escape(atob(m.querySelector('#tin').value.trim()))));if(!o||!o.ans)throw 0;adopt(o);save();m.remove();toast('İlerleme yüklendi');go(PAGE)}catch(e){toast('Kod okunamadı')}}}
+function resetAsk(){const m=modal(`<h3>İlerleme sıfırlansın mı?</h3><p class="mute">Çözdüğün sorular, yanlışlar ve deneme sonuçları ${ref?'tüm cihazlarda ':''}silinir. Bu geri alınamaz.</p><div class="row" style="justify-content:flex-end;margin-top:14px"><button class="btn sm" id="rn">Vazgeç</button><button class="btn sm danger" id="ry">Sıfırla</button></div>`);
+ m.querySelector('#rn').onclick=()=>m.remove();m.querySelector('#ry').onclick=()=>{const d=S.examDate;S=blank();S.examDate=d;save();m.remove();toast('Sıfırlandı');go('home')}}
 
-// ---------- efektler ----------
-const fx=$('#fx'),fctx=fx.getContext('2d');let parts=[],fxRun=false;
-function confetti(x,y){if(reduced())return;const dpr=window.devicePixelRatio||1;fx.width=innerWidth*dpr;fx.height=innerHeight*dpr;fctx.setTransform(dpr,0,0,dpr,0,0);
- const cs=getComputedStyle(document.documentElement);const cols=[cs.getPropertyValue('--ok').trim(),cs.getPropertyValue('--accent').trim(),cs.getPropertyValue('--gold').trim()];
- for(let i=0;i<34;i++){const a=-Math.PI/2+(Math.random()-.5)*Math.PI*1.1,v=4+Math.random()*5;parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,r:2+Math.random()*3,c:cols[i%3],life:1,rot:Math.random()*6,sq:Math.random()<.5})}
- if(!fxRun){fxRun=true;requestAnimationFrame(tick)}}
-function tick(){fctx.clearRect(0,0,fx.width,fx.height);parts=parts.filter(p=>p.life>0);
- parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.vx*=.985;p.life-=.018;p.rot+=.15;fctx.globalAlpha=Math.max(0,p.life);fctx.fillStyle=p.c;
-  if(p.sq){fctx.save();fctx.translate(p.x,p.y);fctx.rotate(p.rot);fctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);fctx.restore()}else{fctx.beginPath();fctx.arc(p.x,p.y,p.r*.8,0,7);fctx.fill()}});
- fctx.globalAlpha=1;if(parts.length)requestAnimationFrame(tick);else{fxRun=false;fctx.clearRect(0,0,fx.width,fx.height)}}
-function floatXp(el,n){if(!n)return;const r=el.getBoundingClientRect();const f=document.createElement('div');f.className='xpfloat';f.textContent='+'+n+' XP';f.style.left=(r.right-40)+'px';f.style.top=(r.top+r.height/2-10)+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),1000)}
-
-// ---------- oturum ----------
-let R=null;
-function start(list,meta){if(!list.length)return;R={list,i:0,ok:0,xp:0,meta,ans:null,joker:meta.kind==='boss'&&!!S.joker[monday(today())],skipped:0};scrollTo(0,0);ask()}
-function ask(){
- const q=R.list[R.i],n=R.list.length,cursed=!!S.cursed[q.id];
- topbar(R.i/n*100);
- const order=shuffle(q.o.map((t,k)=>k));
- app.innerHTML=`<div class="qhead"><button class="icon-btn" id="quit" aria-label="Turu bitir"><i data-lucide="x"></i></button>
-   <span class="tag">${esc(CN[q.c])}</span><span class="sp"></span><span class="pill"><b>${R.i+1}</b>/${n}</span></div>
- <section class="card glass qcard enter">
-  <div class="row" style="margin:0 0 12px;gap:6px">${cursed?'<span class="chip curse"><i data-lucide="skull"></i>Lanetli kart</span>':''}${q.x>1?`<span class="chip hot"><i data-lucide="flame"></i>Sınavlarda ${q.x} kez çıktı</span>`:q.x===1?'<span class="chip hot"><i data-lucide="flame"></i>Sınavda çıktı</span>':''}</div>
+// ===================== TEST ÇÖZ =====================
+let QZ=null;const QF={c:'all',m:'mix'};
+const MODES=[['mix','Karışık'],['new','Çözülmemiş'],['hot','Çıkmış sorular'],['wrong','Yanlışlarım'],['star','Yıldızlı']];
+function pool(c,m){let p=Q.filter(q=>c==='all'||q.c===c);
+ if(m==='new')p=p.filter(q=>!S.ans[q.id]);if(m==='hot')p=p.filter(q=>q.x>0);if(m==='wrong')p=p.filter(q=>S.wrong[q.id]);if(m==='star')p=p.filter(q=>S.star[q.id]);
+ return p}
+function pickSet(c,m){const p=pool(c,m);
+ if(m==='mix'){// önce hiç görülmeyenler ve yanlışlar, sonra en az görülenler
+  return shuffle(p).sort((a,b)=>w(a)-w(b)).slice(0,20)}
+ return shuffle(p).slice(0,20);
+ function w(q){const s=S.ans[q.id];return (S.wrong[q.id]?0:s?2+Math.min(s.n,5):1)+Math.random()*1.5-(q.x?0.4:0)}}
+function quizPage(o={}){if(o.c)QF.c=o.c;if(o.m)QF.m=o.m;startQuiz()}
+function startQuiz(){const set=pickSet(QF.c,QF.m);QZ={set,i:0,ans:{},done:false};renderQuiz()}
+function quizHead(){return `<div class="row" style="justify-content:space-between"><div><h2>Test çöz</h2><p class="mute" style="margin:4px 0 0">20 soruluk turlar; her cevap otomatik kaydedilir.</p></div>
+ <div class="row"><button class="btn sm" id="qsh"><i data-lucide="shuffle"></i>Yeni tur</button></div></div>
+ <div class="filters" style="margin-top:14px">${[['all','Tümü']].concat(Object.keys(CN).map(c=>[c,CS[c]])).map(([k,t])=>`<button class="fb ${QF.c===k?'on':''}" data-qc="${k}">${t}</button>`).join('')}</div>
+ <div class="filters" style="margin-top:8px">${MODES.map(([k,t])=>`<button class="fb ${QF.m===k?'on':''}" data-qm="${k}">${t}<span class="n">${pool(QF.c,k).length}</span></button>`).join('')}</div>`}
+function bindQuizHead(){document.querySelectorAll('[data-qc]').forEach(b=>b.onclick=()=>{QF.c=b.dataset.qc;startQuiz()});
+ document.querySelectorAll('[data-qm]').forEach(b=>b.onclick=()=>{QF.m=b.dataset.qm;startQuiz()});$('#qsh').onclick=startQuiz}
+function renderQuiz(){
+ if(!QZ.set.length){app.innerHTML=`<div class="page qwrap">${quizHead()}<div class="card glass empty" style="margin-top:16px"><span class="ci" style="background:var(--okbg);color:var(--ok)"><i data-lucide="party-popper"></i></span><h3>Bu filtrede soru yok</h3><p class="mute">${QF.m==='wrong'?'Yanlış listen boş, harika!':QF.m==='star'?'Yıldızladığın soru yok. Soru kartındaki yıldıza bas.':QF.m==='new'?'Bu dersin tüm sorularını gördün.':'Başka bir filtre seç.'}</p></div></div>`;icons();bindQuizHead();return}
+ if(QZ.done)return quizSummary();
+ const q=QZ.set[QZ.i],n=QZ.set.length,a=QZ.ans[q.id];
+ if(!q._ord)q._ord=shuffle(q.o.map((t,k)=>k));
+ app.innerHTML=`<div class="page qwrap">${quizHead()}
+ <div class="row" style="justify-content:space-between;margin-top:18px;font-size:13px;font-weight:700"><span class="mute">${MODES.find(m=>m[0]===QF.m)[1]}</span><span>${QZ.i+1} / ${n}</span></div>
+ <div class="prog" style="margin-top:8px"><i style="width:${(Object.keys(QZ.ans).length)/n*100}%"></i></div>
+ <section class="card glass qcard enter c-${q.c}">
+  <div class="row" style="justify-content:space-between"><div class="row" style="gap:6px"><span class="tag">${CS[q.c]}</span>${q.x?`<span class="tag hot"><i data-lucide="flame"></i>Sınavda ${q.x>1?q.x+' kez ':''}çıktı</span>`:''}${S.wrong[q.id]?'<span class="tag bad"><i data-lucide="rotate-ccw"></i>Yanlışlarımda</span>':''}</div>
+  <button class="ib star ${S.star[q.id]?'on':''}" id="star" aria-label="Yıldızla"><i data-lucide="star"></i></button></div>
   <p class="q">${esc(q.q)}</p>
-  <div id="opts">${order.map((k,j)=>`<button class="opt" data-k="${k}"><b>${'ABCDE'[j]}</b><span>${esc(q.o[k])}</span></button>`).join('')}</div>
-  <div id="exp"></div>
-  <div class="after" id="after"></div>
- </section>`;
- icons();
- $('#quit').onclick=home;
- document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.k,b));
- if(R.joker){$('#after').innerHTML='<button class="ghost" id="jk" style="width:100%"><i data-lucide="sparkles"></i>Joker kullan (pas geç)</button>';icons();$('#jk').onclick=()=>{R.joker=false;S.joker[monday(today())]=false;R.skipped++;save();next()}}
+  <div>${q._ord.map((k,j)=>{let cl='';if(a!==undefined){cl=k===q.a?'ok':k===a?'bad':'dim'}return `<button class="opt ${cl}" data-k="${k}" ${a!==undefined?'disabled':''}><b>${'ABCDE'[j]}</b><span>${esc(q.o[k])}</span></button>`}).join('')}</div>
+  <div id="fbx">${a!==undefined?fbHtml(q,a):''}</div>
+  <div class="qnav"><button class="btn" id="qprev" ${QZ.i===0?'disabled':''}><i data-lucide="arrow-left"></i>Önceki</button><button class="btn ${a!==undefined?'pri':''}" id="qnext">${QZ.i===n-1?'Bitir':'Sonraki'}<i data-lucide="arrow-right"></i></button></div>
+ </section></div>`;
+ icons();bindQuizHead();
+ document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>quizAnswer(+b.dataset.k,b));
+ $('#qprev').onclick=()=>{QZ.i--;renderQuiz()};$('#qnext').onclick=quizNext;
+ $('#star').onclick=e=>{if(S.star[q.id])delete S.star[q.id];else S.star[q.id]=1;save();e.currentTarget.classList.toggle('on')};
 }
-function answer(k,btn){
- if(R.ans!==null)return;const q=R.list[R.i],t=today(),ok=k===q.a;R.ans=k;
+function fbHtml(q,a){const ok=a===q.a;return `<div class="fbx ${ok?'ok':'bad'}"><h4><i data-lucide="${ok?'circle-check':'circle-x'}"></i>${ok?'Doğru!':'Yanlış'}</h4><p>${ok?'':`Doğru cevap: <b>${esc(q.o[q.a])}</b>${q.e?'<br>':''}`}${esc(q.e||'')}</p></div>`}
+function quizAnswer(k,btn){const q=QZ.set[QZ.i];if(QZ.ans[q.id]!==undefined)return;QZ.ans[q.id]=k;const ok=k===q.a;
  document.querySelectorAll('.opt').forEach(b=>{const j=+b.dataset.k;b.disabled=true;if(j===q.a)b.classList.add('ok');else if(j===k)b.classList.add('bad');else b.classList.add('dim')});
- const s=S.seen[q.id]||(S.seen[q.id]={n:0,c:0,last:''});s.n++;if(ok)s.c++;
- const cu=S.cursed[q.id];let gain=0;
- if(ok){if(cu){if(cu.lastOk&&cu.lastOk!==t){delete S.cursed[q.id];gain=15}else{cu.lastOk=t;gain=5}}else gain=10}
- else{S.cursed[q.id]={since:cu?cu.since:t,lastOk:''}}
- s.last=t;S.xp+=gain;R.xp+=gain;if(ok)R.ok++;save();
- topbar((R.i+1)/R.list.length*100);
- const a=$('#after');
- if(ok){const r=btn.getBoundingClientRect();confetti(r.left+r.width/2,r.top+r.height/2);floatXp(btn,gain);
-  if(q.e){$('#exp').innerHTML=`<div class="explain"><b><i data-lucide="lightbulb"></i>Not</b>${esc(q.e)}</div>`;a.innerHTML='<button class="cta" id="nx" style="margin-top:4px">Devam<i data-lucide="arrow-right"></i></button>';icons();$('#nx').onclick=next}
-  else setTimeout(()=>{if(R&&R.ans===k&&R.list[R.i]===q)next()},900)}
- else{if(navigator.vibrate){try{navigator.vibrate(40)}catch(e){}}
-  $('#exp').innerHTML=`<div class="explain"><b><i data-lucide="check"></i>Doğru cevap: ${esc(q.o[q.a])}</b>${q.e?esc(q.e):''}</div>`;
-  a.innerHTML='<button class="cta" id="nx" style="margin-top:4px">Devam<i data-lucide="arrow-right"></i></button>';icons();$('#nx').onclick=next;$('#nx').focus({preventScroll:true})}
+ record(q,ok);save();renderNav();
+ $('#fbx').innerHTML=fbHtml(q,k);$('#qnext').classList.add('pri');$('.prog i').style.width=Object.keys(QZ.ans).length/QZ.set.length*100+'%';icons();
+ if(ok){const r=btn.getBoundingClientRect();confetti(r.left+r.width/2,r.top+r.height/2)}else if(navigator.vibrate){try{navigator.vibrate(35)}catch(e){}}
 }
-function next(){if(!R)return;R.ans=null;R.i++;if(R.i<R.list.length){ask();const c=app.querySelector('.qcard');if(c&&c.getBoundingClientRect().top<60)scrollTo({top:0,behavior:reduced()?'auto':'smooth'})}else finish()}
-function finish(){
- const t=today(),m=R.meta,n=R.list.length-R.skipped,pct=n?Math.round(R.ok/n*100):0;let extra='';
- if(m.kind==='daily'){S.days[t]={done:true,ok:R.ok,n};if(weekDone(t)>=6&&S.joker[monday(t)]===undefined)S.joker[monday(t)]=true}
- if(m.kind==='chest')S.chest[monday(t)]=true;
- if(m.kind==='boss'){const b=S.boss[m.ri]||{won:false,best:0};b.best=Math.max(b.best,pct);if(pct>=70&&!b.won){b.won=true;S.xp+=100;R.xp+=100;extra='Boss yenildi.'}else if(pct<70)extra='%70 gerekli; boss tekrar bekliyor.';S.boss[m.ri]=b}
- save();push();topbar(100);
- const cur=Object.keys(S.cursed).length;
- app.innerHTML=`<section class="card glass qcard enter" style="text-align:center;padding:32px 20px">
-  <div class="eyebrow" style="justify-content:center"><i data-lucide="${m.kind==='boss'?'swords':'flag'}"></i>${m.kind==='boss'?esc(REG[m.ri].boss):'Tur bitti'}</div>
-  <div class="res">${R.ok}<small> / ${n}</small></div>
-  <p class="lead" style="margin:0">+${R.xp} XP · ${cur} lanetli kart${extra?' · '+esc(extra):''}</p>
-  <button class="cta" id="home"><i data-lucide="map"></i>Haritaya dön</button></section>`;
- icons();
- if(pct>=70){setTimeout(()=>confetti(innerWidth/2,innerHeight*.4),150)}
- $('#home').onclick=home;R=null}
-document.addEventListener('keydown',e=>{if(!R)return;const q=R.list[R.i];const btns=[...document.querySelectorAll('.opt')];
- const k='12345'.indexOf(e.key)>=0?'12345'.indexOf(e.key):'abcde'.indexOf((e.key||'').toLowerCase());
- if(R.ans===null&&k>=0&&k<btns.length){btns[k].click()}else if(R.ans!==null&&(e.key==='Enter'||e.key===' ')){e.preventDefault();if($('#nx'))next()}});
+function quizNext(){if(QZ.i<QZ.set.length-1){QZ.i++;renderQuiz();const c=$('.qcard');if(c&&c.getBoundingClientRect().top<70)scrollTo({top:0,behavior:reduced()?'auto':'smooth'})}else{QZ.done=true;renderQuiz()}}
+function quizSummary(){const ids=Object.keys(QZ.ans),ok=ids.filter(id=>QZ.ans[id]===BY[id].a).length,bad=ids.length-ok,rate=ids.length?Math.round(ok/ids.length*100):0;
+ app.innerHTML=`<div class="page qwrap">${quizHead()}<section class="card glass qcard enter" style="text-align:center;padding:34px 22px">
+ <span class="pill">Tur tamamlandı</span><div class="big" style="margin:16px 0 6px">%${rate}</div><p class="mute" style="margin:0 0 20px">${ids.length} sorudan ${ok} doğru</p>
+ <div class="grid g3" style="max-width:480px;margin:0 auto 22px"><div class="card stat" style="background:var(--okbg);box-shadow:none"><div class="k" style="justify-content:center">Doğru</div><div class="v" style="color:var(--ok)">${ok}</div></div><div class="card stat" style="background:var(--badbg);box-shadow:none"><div class="k" style="justify-content:center">Yanlış</div><div class="v" style="color:var(--bad)">${bad}</div></div><div class="card stat" style="background:var(--panel2);box-shadow:none"><div class="k" style="justify-content:center">Boş</div><div class="v">${QZ.set.length-ids.length}</div></div></div>
+ <div class="row" style="justify-content:center"><button class="btn pri" id="sa"><i data-lucide="rotate-cw"></i>Yeni tur</button>${bad?'<button class="btn" data-go="wrong"><i data-lucide="circle-x"></i>Yanlışlarıma git</button>':''}</div></section></div>`;
+ icons();bindQuizHead();$('#sa').onclick=startQuiz;if(rate>=70)setTimeout(()=>confetti(innerWidth/2,innerHeight*.35),150)}
 
-// ---------- açılış ----------
+// ===================== SINAV =====================
+let EX=null,EXT=null;const EXS=[['HH',20,30],['MIY',20,30],['LOJ',20,30],['ALL',60,90]];let exScope='ALL';
+function stopTimer(){clearInterval(EXT);EXT=null}
+function examPage(){if(EX&&EX.running)return examRun();EX=null;
+ app.innerHTML=`<div class="page" style="max-width:900px;margin:0 auto"><h2>Sınav simülasyonu</h2><p class="mute" style="margin:4px 0 18px">AUZEF formatında süreli deneme. Cevaplar sınav bitince görünür; yanlışların listene eklenir.</p>
+ <div class="grid g2">${EXS.map(([c,n,m])=>`<button class="scope ${exScope===c?'on':''} ${c!=='ALL'?'c-'+c:''}" data-sc="${c}"><span class="ci" style="${c==='ALL'?'background:rgba(99,102,241,.15);color:var(--indigo)':''}"><i data-lucide="${c==='ALL'?'layers':CI[c]}"></i></span><span><b style="display:block">${c==='ALL'?'Karma deneme (3 ders)':CN[c]}</b><span class="mute" style="font-size:13px">${n} soru · ${m} dakika</span></span></button>`).join('')}</div>
+ <div class="card glass" style="margin-top:16px"><div class="row" style="justify-content:space-between"><div class="mute" style="font-size:13.5px;max-width:520px">Sorular ağırlıklı olarak geçmiş sınavlarda çıkanlardan seçilir; her ders dengeli dağıtılır. Süre bitince sınav otomatik tamamlanır.</div><button class="btn pri" id="exgo"><i data-lucide="play"></i>Sınavı başlat</button></div></div>
+ ${S.exams.length?`<div class="sec-h"><h3>Son denemeler</h3></div><div class="grid" style="gap:8px">${S.exams.slice(-6).reverse().map(e=>`<div class="rv row" style="justify-content:space-between;margin:0"><span><b>${e.scope==='ALL'?'Karma deneme':CN[e.scope]}</b> <span class="mute" style="font-size:13px">· ${new Date(e.at).toLocaleDateString('tr-TR')}</span></span><span><b>${e.score}</b> puan <span class="mute" style="font-size:13px">(${e.ok}D ${e.wrong}Y ${e.blank}B)</span></span></div>`).join('')}</div>`:''}
+ </div>`;
+ icons();document.querySelectorAll('[data-sc]').forEach(b=>b.onclick=()=>{exScope=b.dataset.sc;examPage()});$('#exgo').onclick=examStart}
+function examPick(c,n){const p=Q.filter(q=>q.c===c);const hot=shuffle(p.filter(q=>q.x>0)),rest=shuffle(p.filter(q=>!q.x));const k=Math.min(hot.length,Math.round(n*.65));return shuffle(hot.slice(0,k).concat(rest.slice(0,n-k)))}
+function examStart(){const sc=EXS.find(s=>s[0]===exScope);let set=exScope==='ALL'?['HH','MIY','LOJ'].flatMap(c=>examPick(c,20)):examPick(exScope,sc[1]);
+ set=set.map(q=>({q,ord:shuffle(q.o.map((t,k)=>k))}));
+ EX={scope:exScope,set,i:0,ans:{},flag:{},running:true,end:Date.now()+sc[2]*60000,start:Date.now(),dur:sc[2]*60};examRun()}
+function examRun(){const it=EX.set[EX.i],q=it.q,n=EX.set.length,a=EX.ans[EX.i],answered=Object.keys(EX.ans).length;
+ app.innerHTML=`<div class="page"><div class="exam-g">
+ <section class="card glass c-${q.c}">
+  <div class="row" style="justify-content:space-between"><div class="row" style="gap:6px"><span class="tag" style="background:var(--panel2);color:var(--ink)">Soru ${EX.i+1} / ${n}</span><span class="tag">${CS[q.c]}</span></div>
+  <button class="btn sm ${EX.flag[EX.i]?'star on':''}" id="exf"><i data-lucide="flag"></i>${EX.flag[EX.i]?'İşaretli':'İşaretle'}</button></div>
+  <p class="q">${esc(q.q)}</p>
+  <div>${it.ord.map((k,j)=>`<button class="opt ${a===k?'sel':''}" data-k="${k}"><b>${'ABCDE'[j]}</b><span>${esc(q.o[k])}</span></button>`).join('')}</div>
+  <div class="qnav"><button class="btn" id="exp" ${EX.i===0?'disabled':''}><i data-lucide="arrow-left"></i>Önceki</button><button class="btn" id="exc" ${a===undefined?'disabled':''}><i data-lucide="eraser"></i>Temizle</button><button class="btn pri" id="exn">${EX.i===n-1?'Son soru':'Sonraki'}<i data-lucide="arrow-right"></i></button></div>
+ </section>
+ <aside class="card glass" style="position:sticky;top:90px">
+  <div class="row" style="justify-content:space-between"><span class="mute" style="font-size:12.5px;font-weight:700">Kalan süre</span><span class="timer" id="tm">--:--</span></div>
+  <div class="row" style="justify-content:space-between;margin-top:10px;font-size:13px;font-weight:700"><span>${answered} cevaplandı</span><span class="mute">${n-answered} boş</span></div>
+  <div class="pal">${EX.set.map((x,j)=>`<button data-j="${j}" class="${EX.ans[j]!==undefined?'ans':''} ${j===EX.i?'cur':''} ${EX.flag[j]?'flag':''}">${j+1}</button>`).join('')}</div>
+  <div class="legend"><span><i style="background:rgba(99,102,241,.4)"></i>Cevaplı</span><span><i style="background:var(--gold)"></i>İşaretli</span></div>
+  <button class="btn pri" id="exend" style="width:100%;margin-top:14px"><i data-lucide="flag-triangle-right"></i>Sınavı bitir</button>
+ </aside></div></div>`;
+ icons();
+ document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{EX.ans[EX.i]=+b.dataset.k;examRun()});
+ document.querySelectorAll('.pal button').forEach(b=>b.onclick=()=>{EX.i=+b.dataset.j;examRun()});
+ $('#exp').onclick=()=>{EX.i--;examRun()};$('#exn').onclick=()=>{if(EX.i<n-1){EX.i++;examRun()}};
+ $('#exc').onclick=()=>{delete EX.ans[EX.i];examRun()};$('#exf').onclick=()=>{EX.flag[EX.i]=!EX.flag[EX.i];examRun()};
+ $('#exend').onclick=()=>{const b=n-answered;const m=modal(`<h3>Sınav bitirilsin mi?</h3><p class="mute">${b?b+' boş sorun var. ':''}Bitirdikten sonra cevapları değiştiremezsin.</p><div class="row" style="justify-content:flex-end;margin-top:14px"><button class="btn sm" id="en">Devam et</button><button class="btn pri sm" id="ey">Bitir</button></div>`);m.querySelector('#en').onclick=()=>m.remove();m.querySelector('#ey').onclick=()=>{m.remove();examFinish()}};
+ if(!EXT)EXT=setInterval(examTick,1000);examTick()}
+function examTick(){if(!EX||!EX.running){stopTimer();return}const s=Math.max(0,Math.round((EX.end-Date.now())/1000));const t=$('#tm');if(t){t.textContent=pad(Math.floor(s/60))+':'+pad(s%60);t.classList.toggle('low',s<300)}if(s<=0){examFinish();toast('Süre doldu')}}
+function examFinish(){stopTimer();EX.running=false;let ok=0,wr=0,bl=0;const by={};
+ EX.set.forEach((it,j)=>{const a=EX.ans[j],c=it.q.c;by[c]=by[c]||{ok:0,n:0};by[c].n++;if(a===undefined){bl++;return}const g=a===it.q.a;if(g){ok++;by[c].ok++}else wr++;record(it.q,g)});
+ const score=Math.round(ok/EX.set.length*100),sec=Math.round((Date.now()-EX.start)/1000);
+ S.exams.push({at:Date.now(),scope:EX.scope,score,ok,wrong:wr,blank:bl,sec});if(S.exams.length>40)S.exams=S.exams.slice(-40);save();renderNav();
+ app.innerHTML=`<div class="page" style="max-width:900px;margin:0 auto">
+ <section class="card glass" style="text-align:center;padding:30px 22px"><span class="pill">${EX.scope==='ALL'?'Karma deneme':CN[EX.scope]} sonucu</span>
+  <div class="big" style="margin:14px 0 4px">${score}</div><p class="mute" style="margin:0 0 18px">100 üzerinden puan · ${pad(Math.floor(sec/60))}:${pad(sec%60)} sürdü</p>
+  <div class="grid g3" style="max-width:480px;margin:0 auto"><div class="card stat" style="background:var(--okbg);box-shadow:none"><div class="k" style="justify-content:center">Doğru</div><div class="v" style="color:var(--ok)">${ok}</div></div><div class="card stat" style="background:var(--badbg);box-shadow:none"><div class="k" style="justify-content:center">Yanlış</div><div class="v" style="color:var(--bad)">${wr}</div></div><div class="card stat" style="background:var(--panel2);box-shadow:none"><div class="k" style="justify-content:center">Boş</div><div class="v">${bl}</div></div></div>
+  ${Object.keys(by).length>1?`<div class="grid g3" style="margin-top:16px">${Object.keys(by).map(c=>`<div class="card c-${c}" style="background:var(--panel2);box-shadow:none;padding:14px;text-align:left"><span class="tag">${CS[c]}</span><div style="font:800 22px var(--display);margin-top:8px">${by[c].ok}/${by[c].n}</div><div class="bar" style="margin-top:8px"><i style="width:${by[c].ok/by[c].n*100}%"></i></div></div>`).join('')}</div>`:''}
+  <div class="row" style="justify-content:center;margin-top:20px"><button class="btn pri" id="exnew"><i data-lucide="rotate-cw"></i>Yeni sınav</button>${wr?'<button class="btn" data-go="wrong"><i data-lucide="circle-x"></i>Yanlışlarıma git</button>':''}</div>
+ </section>
+ <div class="sec-h"><h3>Cevap anahtarı ve açıklamalar</h3></div>
+ ${EX.set.map((it,j)=>{const a=EX.ans[j],q=it.q,g=a===q.a;return `<div class="rv"><div class="row" style="gap:6px;margin-bottom:6px"><span class="tag ${a===undefined?'':g?'':'bad'}" style="${a===undefined?'':g?'background:var(--okbg);color:var(--ok)':''}">${j+1}. ${a===undefined?'Boş':g?'Doğru':'Yanlış'}</span><span class="mute" style="font-size:12px">${CS[q.c]}</span></div><div style="font-weight:600">${esc(q.q)}</div><div class="a">${a!==undefined&&!g?`<span class="y">Senin cevabın: ${esc(q.o[a])}</span><br>`:''}<span class="c">Doğru: ${esc(q.o[q.a])}</span>${q.e?`<div class="mute" style="margin-top:4px;font-size:13.5px">${esc(q.e)}</div>`:''}</div></div>`}).join('')}
+ </div>`;icons();scrollTo({top:0});$('#exnew').onclick=()=>{EX=null;examPage()};if(score>=70)setTimeout(()=>confetti(innerWidth/2,innerHeight*.35),150)}
+
+// ===================== KONU ÖZETLERİ =====================
+let NF={c:'all',s:''};
+function notesPage(){
+ const list=NOTES.filter(n=>(NF.c==='all'||n.c===NF.c)&&(!NF.s||(n.title+n.tag+n.pts.join(' ')).toLocaleLowerCase('tr').includes(NF.s.toLocaleLowerCase('tr'))));
+ const topics={};Q.forEach(q=>{if(NF.c!=='all'&&q.c!==NF.c)return;const k=q.c+'|'+q.t;topics[k]=(topics[k]||0)+1});
+ app.innerHTML=`<div class="page"><div class="row" style="justify-content:space-between"><div><h2>Konu özetleri</h2><p class="mute" style="margin:4px 0 0">Sınavda en çok sorulan bilgilerin hap özetleri.</p></div>
+ <label class="search"><i data-lucide="search"></i><input id="ns" placeholder="Özetlerde ara…" value="${esc(NF.s)}"></label></div>
+ <div class="filters" style="margin:14px 0 16px">${[['all','Tümü']].concat(Object.keys(CN).map(c=>[c,CS[c]])).map(([k,t])=>`<button class="fb ${NF.c===k?'on':''}" data-nc="${k}">${t}</button>`).join('')}</div>
+ <div class="grid g2">${list.map(n=>`<article class="card glass note c-${n.c}"><div class="row" style="gap:6px"><span class="tag">${CS[n.c]}</span><span class="tag" style="background:var(--panel2);color:var(--mute)">${esc(n.tag)}</span></div><h3>${n.title}</h3><ul>${n.pts.map(p=>`<li>${p}</li>`).join('')}</ul></article>`).join('')||'<p class="mute">Aramana uyan özet yok.</p>'}</div>
+ <div class="sec-h"><h3>Konulara göre soru dağılımı</h3></div>
+ <div class="grid g2" style="gap:8px">${Object.entries(topics).sort((a,b)=>b[1]-a[1]).map(([k,v])=>{const [c,t]=k.split('|');return `<div class="rv row c-${c}" style="justify-content:space-between;margin:0"><span><span class="tag" style="margin-right:8px">${c==='MIY'?'MİY':c}</span>${esc(t)}</span><b>${v}</b></div>`}).join('')}</div></div>`;
+ icons();const inp=$('#ns');inp.oninput=e=>{NF.s=e.target.value;const p=e.target.selectionStart;notesPage();const n=$('#ns');n.focus();n.setSelectionRange(p,p)};
+ document.querySelectorAll('[data-nc]').forEach(b=>b.onclick=()=>{NF.c=b.dataset.nc;notesPage()})}
+
+// ===================== BİLGİ KARTLARI =====================
+let FC={c:'all',deck:[],i:0};
+function cardsPage(){FC.deck=shuffle(Q.filter(q=>(FC.c==='all'||q.c===FC.c)&&!S.fc[q.id]&&q.o[q.a].length<160)).sort((a,b)=>(b.x>0)-(a.x>0)).slice(0,60);FC.i=0;renderCard()}
+function renderCard(){const known=Object.keys(S.fc).filter(id=>BY[id]&&(FC.c==='all'||BY[id].c===FC.c)).length;const q=FC.deck[FC.i];
+ app.innerHTML=`<div class="page" style="max-width:820px;margin:0 auto"><div class="row" style="justify-content:space-between"><div><h2>Bilgi kartları</h2><p class="mute" style="margin:4px 0 0">Karta dokun, cevabı gör. Bildiklerin desteden çıkar.</p></div><span class="chip"><i data-lucide="brain"></i>${known} biliniyor</span></div>
+ <div class="filters" style="margin:14px 0 0">${[['all','Tümü']].concat(Object.keys(CN).map(c=>[c,CS[c]])).map(([k,t])=>`<button class="fb ${FC.c===k?'on':''}" data-fc="${k}">${t}</button>`).join('')}</div>
+ ${q?`<div class="row mute" style="justify-content:space-between;margin-top:16px;font-size:13px;font-weight:700"><span>Kart ${FC.i+1} / ${FC.deck.length}</span><span>Boşluk: çevir · ← tekrar · → biliyorum</span></div>
+ <div class="flip c-${q.c}" id="flip"><div class="flip-in"><div class="face front glass"><span class="tag" style="align-self:flex-start">${CS[q.c]}</span><p class="q">${esc(q.q.replace(/aşağıdakilerden hangisi(dir)?\??/i,'nedir?'))}</p><span class="mute" style="font-size:13px"><i data-lucide="hand"></i> Cevap için dokun</span></div>
+ <div class="face back glass"><span class="tag" style="align-self:flex-start;background:var(--okbg);color:var(--ok)">Cevap</span><div class="fc-ans">${esc(q.o[q.a])}</div>${q.e?`<p class="mute" style="margin:0;font-size:14px">${esc(q.e)}</p>`:''}</div></div></div>
+ <div class="qnav" style="max-width:720px;margin:16px auto 0"><button class="btn" id="fagain"><i data-lucide="rotate-ccw"></i>Tekrar et</button><button class="btn pri" id="fknow"><i data-lucide="check"></i>Biliyorum</button></div>`
+ :`<div class="card glass empty" style="margin-top:16px"><span class="ci" style="background:var(--okbg);color:var(--ok)"><i data-lucide="party-popper"></i></span><h3>Deste bitti</h3><p class="mute">Bu desteyi tamamladın.</p><div class="row" style="justify-content:center"><button class="btn pri" id="fre"><i data-lucide="shuffle"></i>Yeni deste</button>${known?'<button class="btn" id="fclr"><i data-lucide="rotate-ccw"></i>Bilinenleri geri al</button>':''}</div></div>`}</div>`;
+ icons();document.querySelectorAll('[data-fc]').forEach(b=>b.onclick=()=>{FC.c=b.dataset.fc;cardsPage()});
+ if(q){$('#flip').onclick=()=>$('#flip').classList.toggle('on');$('#fknow').onclick=()=>{S.fc[q.id]=1;save();FC.i++;renderCard()};$('#fagain').onclick=()=>{FC.deck.push(FC.deck.splice(FC.i,1)[0]);renderCard()}}
+ else{$('#fre').onclick=cardsPage;const c=$('#fclr');if(c)c.onclick=()=>{Object.keys(S.fc).forEach(id=>{if(BY[id]&&(FC.c==='all'||BY[id].c===FC.c))delete S.fc[id]});save();cardsPage()}}}
+
+// ===================== YANLIŞLARIM =====================
+let WF='all';
+function wrongPage(){const ids=Object.keys(S.wrong).filter(id=>BY[id]&&(WF==='all'||BY[id].c===WF)).sort((a,b)=>S.wrong[b].since.localeCompare(S.wrong[a].since));
+ app.innerHTML=`<div class="page" style="max-width:900px;margin:0 auto"><div class="row" style="justify-content:space-between"><div><h2>Yanlışlarım</h2><p class="mute" style="margin:4px 0 0">Yanlış yaptığın sorular burada birikir; iki kez doğru yapınca listeden çıkar.</p></div>
+ <button class="btn pri" id="wgo" ${ids.length?'':'disabled'}><i data-lucide="play"></i>Yanlışları çöz (${Math.min(ids.length,20)})</button></div>
+ <div class="filters" style="margin:14px 0 16px">${[['all','Tümü']].concat(Object.keys(CN).map(c=>[c,CS[c]])).map(([k,t])=>`<button class="fb ${WF===k?'on':''}" data-wf="${k}">${t}<span class="n">${wrongCount(k==='all'?null:k)}</span></button>`).join('')}</div>
+ ${ids.length?`<div class="grid" style="gap:10px">${ids.map(id=>{const q=BY[id],w=S.wrong[id];return `<div class="mrow c-${q.c}"><div class="body"><div class="row" style="gap:6px;margin-bottom:6px"><span class="tag">${CS[q.c]}</span>${w.ok?`<span class="tag" style="background:var(--okbg);color:var(--ok)">1/2 doğru</span>`:''}</div><div class="qt">${esc(q.q)}</div><div class="ans">✓ ${esc(q.o[q.a])}</div>${q.e?`<details><summary>Açıklama</summary>${esc(q.e)}</details>`:''}</div><button class="ib" data-rm="${id}" aria-label="Listeden çıkar" title="Listeden çıkar"><i data-lucide="x"></i></button></div>`}).join('')}</div>`
+ :`<div class="card glass empty"><span class="ci" style="background:var(--okbg);color:var(--ok)"><i data-lucide="sparkles"></i></span><h3>Yanlış listen boş</h3><p class="mute">Test çözdükçe yanlış yaptığın sorular burada toplanır.</p><button class="btn pri" data-go="quiz"><i data-lucide="play"></i>Test çöz</button></div>`}</div>`;
+ icons();document.querySelectorAll('[data-wf]').forEach(b=>b.onclick=()=>{WF=b.dataset.wf;wrongPage()});
+ document.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{delete S.wrong[b.dataset.rm];save();renderNav();wrongPage()});
+ const g=$('#wgo');if(g)g.onclick=()=>{QF.c=WF;QF.m='wrong';go('quiz')}}
+
+// ===================== EFEKT =====================
+const fx=$('#fx'),fctx=fx.getContext('2d');let parts=[],fxRun=false;
+function confetti(x,y){if(reduced())return;const dpr=devicePixelRatio||1;fx.width=innerWidth*dpr;fx.height=innerHeight*dpr;fctx.setTransform(dpr,0,0,dpr,0,0);
+ const cols=['#34D399','#38BDF8','#818CF8','#FBBF24'];
+ for(let i=0;i<34;i++){const a=-Math.PI/2+(Math.random()-.5)*Math.PI*1.1,v=4+Math.random()*5;parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,r:2+Math.random()*3,c:cols[i%4],life:1,rot:Math.random()*6})}
+ if(!fxRun){fxRun=true;requestAnimationFrame(ft)}}
+function ft(){fctx.clearRect(0,0,fx.width,fx.height);parts=parts.filter(p=>p.life>0);parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.vx*=.985;p.life-=.018;p.rot+=.15;fctx.globalAlpha=Math.max(0,p.life);fctx.fillStyle=p.c;fctx.save();fctx.translate(p.x,p.y);fctx.rotate(p.rot);fctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);fctx.restore()});fctx.globalAlpha=1;if(parts.length)requestAnimationFrame(ft);else fxRun=false}
+
+// ===================== KLAVYE =====================
+document.addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;
+ if(PAGE==='quiz'&&QZ&&!QZ.done){const btn=[...document.querySelectorAll('.opt')];const k='12345'.indexOf(e.key)>=0?'12345'.indexOf(e.key):'abcde'.indexOf((e.key||'').toLowerCase());
+  if(k>=0&&k<btn.length&&!btn[k].disabled)btn[k].click();else if(e.key==='ArrowRight'||e.key==='Enter'){const n=$('#qnext');if(n)n.click()}else if(e.key==='ArrowLeft'){const p=$('#qprev');if(p&&!p.disabled)p.click()}}
+ else if(PAGE==='cards'){if(e.key===' '){e.preventDefault();const f=$('#flip');if(f)f.classList.toggle('on')}else if(e.key==='ArrowRight'){const b=$('#fknow');if(b)b.click()}else if(e.key==='ArrowLeft'){const b=$('#fagain');if(b)b.click()}}
+ else if(PAGE==='exam'&&EX&&EX.running){const btn=[...document.querySelectorAll('.opt')];const k='12345'.indexOf(e.key);if(k>=0&&k<btn.length)btn[k].click();else if(e.key==='ArrowRight'){$('#exn').click()}else if(e.key==='ArrowLeft'){const p=$('#exp');if(p&&!p.disabled)p.click()}}});
+
+// ===================== AÇILIŞ =====================
+function refreshView(){renderNav();if(PAGE==='home')home();else if(PAGE==='wrong')wrongPage()}
 async function boot(){
- S=load();topbar(null);
- try{const r=await fetch('questions.json');Q=await r.json()}catch(e){app.innerHTML='<p class="lead">Sorular yüklenemedi. Sayfayı yenile.</p>';return}
- Q.forEach(q=>BY[q.id]=q);
- // artık bulunmayan soruların lanetini kaldır
- Object.keys(S.cursed).forEach(id=>{if(!BY[id])delete S.cursed[id]});
- home();
+ S=loadLocal();renderNav();
+ try{const r=await fetch('questions.json');Q=await r.json()}catch(e){app.innerHTML='<p class="mute">Sorular yüklenemedi. Sayfayı yenile.</p>';return}
+ Q.forEach(q=>BY[q.id]=q);Object.keys(S.wrong).forEach(id=>{if(!BY[id])delete S.wrong[id]});
+ go('home');
  try{
   const cl=window.claude;if(!cl||!cl.use)return;
   const [d,u]=await Promise.all([cl.use('db'),cl.use('user')]);if(!d||!u)return;
   const id=await u.id();if(!id)return;db=d;uid=id;
-  const snap=await db.collection('data/users/'+uid).doc('progress').get();
-  if(snap.exists){const rem=JSON.parse(snap.data().state||'{}');
-   if((rem.xp||0)>=S.xp||!Object.keys(S.seen).length){S=Object.assign(blank(),rem);Object.keys(S.cursed).forEach(id=>{if(!BY[id])delete S.cursed[id]});try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){};if(!R)home()}
-   else{dirty=true;push()}}
-  else if(S.xp>0){dirty=true;push()}
+  const pref=db.collection('data/users/'+uid).doc('portal');
+  // eski Final Seferi kaydını bir kez taşı
+  const snap=await pref.get();
+  if(snap.exists){const v=snap.data();const rem=JSON.parse(v.state||'{}');if((v.at||0)>=S.at||!Object.keys(S.ans).length){adopt(rem)}else{dirty=true}}
+  else{const old=await db.collection('data/users/'+uid).doc('progress').get();
+   if(old.exists&&!Object.keys(S.ans).length){try{const o=JSON.parse(old.data().state||'{}');Object.entries(o.seen||{}).forEach(([k,v])=>{S.ans[k]={n:v.n||0,c:v.c||0,last:v.last||'',ok:(v.c||0)>0}});Object.entries(o.cursed||{}).forEach(([k,v])=>{S.wrong[k]={since:v.since||today(),ok:0}})}catch(e){}}
+   dirty=true}
+  ref=pref;syncChip();if(dirty){S.at=Date.now();push()}
+  if(!QZ&&!(EX&&EX.running))refreshView();
+  // diğer cihazdan gelen değişiklikleri canlı al
+  ref.onSnapshot(sn=>{if(!sn.exists)return;const v=sn.data();if(v.dev===DEV||(v.at||0)<=S.at)return;
+   adopt(JSON.parse(v.state||'{}'));syncChip();if(!(PAGE==='quiz'&&QZ&&!QZ.done)&&!(EX&&EX.running)&&PAGE!=='cards')refreshView();else renderNav()},()=>{});
  }catch(e){}
 }
 boot();
-if('serviceWorker' in navigator && !/claude/.test(location.hostname)){
- window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})});
-}
+if('serviceWorker' in navigator && !/claude/.test(location.hostname)){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}
 }
 </script>
 </body>
