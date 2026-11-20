@@ -14,7 +14,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@1.57.0/dist/umd/lucide.min.js"></script>
 <style>
 :root{
   --bg:#F4F6FB;--bg2:#FFFFFF;--panel:rgba(255,255,255,.82);--panel2:#F1F4F9;--ink:#0F172A;--ink2:#334155;--mute:#64748B;--faint:#94A3B8;
@@ -35,12 +34,16 @@
 *{box-sizing:border-box;min-width:0}
 html{background:var(--bg)}
 body{margin:0;min-height:100dvh;background:var(--bg);color:var(--ink);font:400 15px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
-body::before{content:"";position:fixed;inset:-20% -10% auto auto;width:520px;height:520px;border-radius:50%;background:rgba(14,165,233,.10);filter:blur(90px);pointer-events:none;z-index:0}
-body::after{content:"";position:fixed;inset:auto auto -20% -10%;width:520px;height:520px;border-radius:50%;background:rgba(99,102,241,.10);filter:blur(90px);pointer-events:none;z-index:0}
+body{background-image:radial-gradient(600px 400px at 100% 0,rgba(14,165,233,.09),transparent 70%),radial-gradient(600px 400px at 0 100%,rgba(99,102,241,.09),transparent 70%);background-attachment:fixed}
 button,input{font:inherit;color:inherit}
 button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 svg.lucide{width:18px;height:18px;stroke-width:2;flex:none}
-.glass{background:var(--panel);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line)}
+.glass{background:var(--panel);border:1px solid var(--line)}
+:root{--panel:rgba(255,255,255,.94)}:root[data-theme="dark"]{--panel:rgba(17,24,39,.94)}
+@media (hover:hover) and (min-width:1001px){header.glass{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}:root{--hp:.8}}
+header.glass{background:var(--bg2)}
+@media (hover:hover) and (min-width:1001px){header.glass{background:var(--panel)}}
+.bt{white-space:nowrap}
 :focus-visible{outline:2px solid var(--sky);outline-offset:2px}
 .hide{display:none!important}
 
@@ -204,6 +207,21 @@ h3{font:700 17px/1.3 var(--display);margin:0}
 textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--line2);background:var(--bg2);padding:10px;font:12px/1.4 ui-monospace,Menlo,monospace;color:var(--ink);resize:vertical}
 #fx{position:fixed;inset:0;pointer-events:none;z-index:70}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:80;padding:10px 16px;border-radius:12px;background:var(--ink);color:var(--bg);font-weight:700;font-size:13.5px;box-shadow:var(--shadow);animation:fadeIn .25s ease both}
+/* mikro animasyonlar */
+.xpf{position:fixed;z-index:75;pointer-events:none;padding:5px 10px;border-radius:10px;background:var(--ok);color:#fff;font:800 13px var(--display);box-shadow:0 6px 18px rgba(16,185,129,.35);animation:xpUp 1s var(--ease) forwards;will-change:transform,opacity}
+@keyframes xpUp{0%{opacity:0;transform:translate(-50%,6px) scale(.8)}20%{opacity:1;transform:translate(-50%,-6px) scale(1.05)}100%{opacity:0;transform:translate(-50%,-52px) scale(1)}}
+.bump{animation:bump .45s var(--ease)}
+@keyframes bump{40%{transform:scale(1.18)}}
+.chip.xp{color:var(--ok);background:var(--okbg);border-color:rgba(16,185,129,.28)}
+.slot-in{animation:slideIn .38s var(--ease) both}
+@keyframes slideIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.slot-back{animation:slideBack .38s var(--ease) both}
+@keyframes slideBack{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+.nl:active,.fb:active,.chip:active,.pal button:active,.scope:active{transform:scale(.95)}
+.nl,.fb,.pal button{transition:transform .15s var(--ease),background .2s,color .2s}
+.card.stat{transition:transform .2s var(--ease)}
+@media (hover:hover){.card.cc:hover{transform:translateY(-3px)}.card.cc{transition:transform .25s var(--ease)}}
+@media (max-width:760px){:root{--shadow:0 1px 2px rgba(15,23,42,.06),0 6px 16px rgba(15,23,42,.06)}:root[data-theme="dark"]{--shadow:0 1px 2px rgba(0,0,0,.3)}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -215,6 +233,7 @@ textarea{width:100%;min-height:90px;border-radius:12px;border:1px solid var(--li
     <nav class="nav" id="nav"></nav>
     <div class="sp"></div>
     <span class="chip sync" id="sync" title="İlerleme durumu"><i data-lucide="cloud-off"></i><span class="lbl">Bu cihazda</span></span>
+    <span class="chip xp" title="Puan"><i data-lucide="zap"></i><span id="xp">0</span></span>
     <span class="chip streak" title="Kesintisiz doğru serisi"><i data-lucide="flame"></i><span id="streak">0</span></span>
     <button class="ib" id="theme" aria-label="Tema değiştir"><i data-lucide="sun"></i></button>
   </div>
@@ -298,10 +317,11 @@ const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const pad=n=>String(n).padStart(2,'0');
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())};
-const icons=()=>{try{window.lucide&&lucide.createIcons()}catch(e){}};
+const IC={"arrow-left":"<path d=\"m12 19-7-7 7-7\"/><path d=\"M19 12H5\"/>","arrow-right":"<path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/>","badge":"<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\"/>","book-open":"<path d=\"M12 5v16\"/><path d=\"M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z\"/>","brain":"<path d=\"M12 18V5\"/><path d=\"M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4\"/><path d=\"M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5\"/><path d=\"M17.997 5.125a4 4 0 0 1 2.526 5.77\"/><path d=\"M18 18a4 4 0 0 0 2-7.464\"/><path d=\"M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517\"/><path d=\"M6 18a4 4 0 0 1-2-7.464\"/><path d=\"M6.003 5.125a4 4 0 0 0-2.526 5.77\"/>","calendar":"<path d=\"M8 2v3\"/><path d=\"M16 2v3\"/><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 9h18\"/>","check":"<path d=\"M20 6 9 17l-5-5\"/>","check-check":"<path d=\"M18 6 7 17l-5-5\"/><path d=\"m22 10-7.5 7.5L13 16\"/>","circle-check":"<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"m16 9-5.5 5.5L8 12\"/>","circle-x":"<circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"m15 9-6 6\"/><path d=\"m9 9 6 6\"/>","cloud":"<path d=\"M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z\"/>","cloud-off":"<path d=\"M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057\"/><path d=\"M18.796 18.81A4.5 4.5 0 0 1 17.5 19H9A7 7 0 0 1 5.79 5.78\"/><path d=\"m2 2 20 20\"/>","copy":"<rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/>","dot":"<circle cx=\"12\" cy=\"12\" r=\"1\"/>","eraser":"<path d=\"M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21\"/><path d=\"m5.082 11.09 8.828 8.828\"/>","flag":"<path d=\"M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528\"/>","flag-triangle-right":"<path d=\"M6 22V2.8a.8.8 0 0 1 1.17-.71l11.38 5.69a.8.8 0 0 1 0 1.44L6 15.5\"/>","flame":"<path d=\"M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4\"/>","grid":"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M3 9h18\"/><path d=\"M3 15h18\"/><path d=\"M9 3v18\"/><path d=\"M15 3v18\"/>","hand":"<path d=\"M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2\"/><path d=\"M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2\"/><path d=\"M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8\"/><path d=\"M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15\"/>","hard-drive":"<path d=\"M10 16h.01\"/><path d=\"M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z\"/><path d=\"M21.946 12.013H2.054\"/><path d=\"M6 16h.01\"/>","home":"<path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"/><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/>","house":"<path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"/><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/>","layers":"<path d=\"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z\"/><path d=\"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12\"/><path d=\"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17\"/>","list-checks":"<path d=\"M13 5h8\"/><path d=\"M13 12h8\"/><path d=\"M13 19h8\"/><path d=\"m3 17 2 2 4-4\"/><path d=\"m3 7 2 2 4-4\"/>","moon":"<path d=\"M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401\"/>","package":"<path d=\"M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z\"/><path d=\"M12 22V12\"/><polyline points=\"3.29 7 12 12 20.71 7\"/><path d=\"m7.5 4.27 9 5.15\"/>","party-popper":"<path d=\"M5.8 11.3 2 22l10.7-3.79\"/><path d=\"M4 3h.01\"/><path d=\"M22 8h.01\"/><path d=\"M15 2h.01\"/><path d=\"M22 20h.01\"/><path d=\"m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10\"/><path d=\"m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17\"/><path d=\"m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7\"/><path d=\"M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z\"/>","pill":"<path d=\"m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z\"/><path d=\"m8.5 8.5 7 7\"/>","plane":"<path d=\"M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z\"/>","play":"<path d=\"M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z\"/>","refresh-cw":"<path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8\"/><path d=\"M21 3v5h-5\"/><path d=\"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16\"/><path d=\"M8 16H3v5\"/>","rotate-ccw":"<path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"/><path d=\"M3 3v5h5\"/>","rotate-cw":"<path d=\"M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8\"/><path d=\"M21 3v5h-5\"/>","scale":"<path d=\"M12 3v18\"/><path d=\"m19 8 3 8a5 5 0 0 1-6 0zV7\"/><path d=\"M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1\"/><path d=\"m5 8 3 8a5 5 0 0 1-6 0zV7\"/><path d=\"M7 21h10\"/>","search":"<path d=\"m21 21-4.34-4.34\"/><circle cx=\"11\" cy=\"11\" r=\"8\"/>","share-2":"<circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><line x1=\"8.59\" x2=\"15.42\" y1=\"13.51\" y2=\"17.49\"/><line x1=\"15.41\" x2=\"8.59\" y1=\"6.51\" y2=\"10.49\"/>","shuffle":"<path d=\"m18 14 4 4-4 4\"/><path d=\"m18 2 4 4-4 4\"/><path d=\"M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-8.6a4 4 0 0 1 3.3-1.7H22\"/><path d=\"M2 6h1.972a4 4 0 0 1 3.6 2.2\"/><path d=\"M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45\"/>","sparkles":"<path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\"/><path d=\"M20 2v4\"/><path d=\"M22 4h-4\"/><circle cx=\"4\" cy=\"20\" r=\"2\"/>","star":"<path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\"/>","sun":"<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m6.34 17.66-1.41 1.41\"/><path d=\"m19.07 4.93-1.41 1.41\"/>","tag":"<path d=\"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z\"/><circle cx=\"7.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\"/>","target":"<circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"6\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/>","timer":"<line x1=\"10\" x2=\"14\" y1=\"2\" y2=\"2\"/><line x1=\"12\" x2=\"15\" y1=\"14\" y2=\"11\"/><circle cx=\"12\" cy=\"14\" r=\"8\"/>","user":"<path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/>","users":"<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><path d=\"M16 3.128a4 4 0 0 1 0 7.744\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/>","x":"<path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/>","zap":"<path d=\"M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z\"/>","trophy":"<path d=\"M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2\"/><path d=\"M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2\"/><path d=\"M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3\"/><path d=\"M4 22h16\"/><path d=\"M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z\"/><path d=\"M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3\"/>","plus":"<path d=\"M5 12h14\"/><path d=\"M12 5v14\"/>"};
+const icons=(root=document)=>{root.querySelectorAll('i[data-lucide]').forEach(el=>{const d=IC[el.getAttribute('data-lucide')];if(!d){el.remove();return}el.outerHTML='<svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+'</svg>'})};
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 const LSK='shuiAkademi.v1', DEV=Math.random().toString(36).slice(2,10);
-const blank=()=>({v:1,at:0,ans:{},wrong:{},star:{},fc:{},exams:[],streak:0,best:0,examDate:'2026-12-26',daily:{}});
+const blank=()=>({v:1,at:0,xp:0,ans:{},wrong:{},star:{},fc:{},exams:[],streak:0,best:0,examDate:'2026-12-26',daily:{}});
 let Q=[],BY={},S=blank(),db=null,uid=null,ref=null,pushT=null,saving=false,dirty=false,synced=false;
 const copy=o=>JSON.parse(JSON.stringify(o));
 function loadLocal(){
@@ -334,20 +354,25 @@ const solvedIds=c=>Object.keys(S.ans).filter(id=>BY[id]&&(!c||BY[id].c===c));
 function courseStat(c){const ids=solvedIds(c);let n=0,k=0;ids.forEach(id=>{n+=S.ans[id].n;k+=S.ans[id].c});
  const tot=Q.filter(q=>!c||q.c===c).length;return {solved:ids.length,tot,acc:n?Math.round(k/n*100):0,n,k}}
 const wrongCount=c=>Object.keys(S.wrong).filter(id=>BY[id]&&(!c||BY[id].c===c)).length;
-function record(q,ok){
+function record(q,ok,xp=10){
+ if(ok)S.xp=(S.xp||0)+xp;
  const s=S.ans[q.id]||(S.ans[q.id]={n:0,c:0,last:'',ok:false});s.n++;if(ok)s.c++;s.last=today();s.ok=ok;
  const w=S.wrong[q.id];
  if(ok){if(w){w.ok=(w.ok||0)+1;if(w.ok>=2)delete S.wrong[q.id]}S.streak++;S.best=Math.max(S.best,S.streak)}
  else{S.wrong[q.id]={since:w?w.since:today(),ok:0};S.streak=0}
  S.daily[today()]=(S.daily[today()]||0)+1;
 }
+function badges(){const w=wrongCount();document.querySelectorAll('.nl[data-go=wrong] .badge').forEach(b=>b.textContent=w);setNum('#streak',S.streak);setNum('#xp',S.xp||0)}
+function setNum(sel,v){const e=$(sel);if(!e)return;if(e.textContent!==String(v)){const up=+e.textContent<v;e.textContent=v;if(up){const c=e.parentElement;c.classList.remove('bump');void c.offsetWidth;c.classList.add('bump')}}}
+function floatXp(el,n){if(!n||reduced())return;const r=el.getBoundingClientRect();const f=document.createElement('div');f.className='xpf';f.textContent='+'+n+' XP';f.style.left=Math.min(innerWidth-50,r.right-50)+'px';f.style.top=(r.top+r.height/2-14)+'px';document.body.appendChild(f);setTimeout(()=>f.remove(),1000)}
+function countUp(root){if(reduced())return;root.querySelectorAll('[data-count]').forEach(el=>{const to=+el.dataset.count,t0=performance.now();if(!to)return;const step=t=>{const k=Math.min(1,(t-t0)/700);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};el.textContent='0';requestAnimationFrame(step)})}
 function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
 
 // ===================== NAV =====================
 const PAGES=[['home','Ana Sayfa','house'],['quiz','Test Çöz','list-checks'],['exam','Sınav Simülasyonu','timer'],['notes','Konu Özetleri','book-open'],['cards','Bilgi Kartları','layers'],['wrong','Yanlışlarım','circle-x']];
 let PAGE='home';
 function renderNav(){const w=wrongCount();const h=PAGES.map(([k,t,ic])=>`<button class="nl ${PAGE===k?'on':''}" data-go="${k}"><i data-lucide="${ic}"></i>${t}${k==='wrong'?` <span class="badge">${w}</span>`:''}</button>`).join('');
- $('#nav').innerHTML=h;$('#mnav').innerHTML=h;$('#streak').textContent=S.streak;icons();
+ $('#nav').innerHTML=h;$('#mnav').innerHTML=h;setNum('#streak',S.streak);setNum('#xp',S.xp||0);icons($('header'));
  const on=$('#mnav .nl.on');if(on)on.scrollIntoView({block:'nearest',inline:'center'})}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){e.preventDefault();go(b.dataset.go,b.dataset)}});
 function go(p,opts={}){
@@ -373,10 +398,10 @@ function home(){
   </div>
  </div></section>
  <div class="grid g4" style="margin-top:16px">
-  <div class="card glass stat"><div class="k"><i data-lucide="check-check"></i>Çözülen soru</div><div class="v">${st.solved}<span class="mute" style="font-size:16px"> / ${st.tot}</span></div><div class="s">Bugün ${td} cevap</div></div>
-  <div class="card glass stat"><div class="k"><i data-lucide="target"></i>Başarı oranı</div><div class="v">%${st.acc}</div><div class="s">${st.k} doğru / ${st.n} cevap</div></div>
+  <div class="card glass stat"><div class="k"><i data-lucide="check-check"></i>Çözülen soru</div><div class="v"><span data-count="${st.solved}">${st.solved}</span><span class="mute" style="font-size:16px"> / ${st.tot}</span></div><div class="s">Bugün ${td} cevap</div></div>
+  <div class="card glass stat"><div class="k"><i data-lucide="target"></i>Başarı oranı</div><div class="v">%<span data-count="${st.acc}">${st.acc}</span></div><div class="s">${st.k} doğru / ${st.n} cevap</div></div>
   <div class="card glass stat"><div class="k"><i data-lucide="circle-x"></i>Yanlışlarım</div><div class="v">${w}</div><div class="s">2 kez doğru yapınca silinir</div></div>
-  <div class="card glass stat"><div class="k"><i data-lucide="flame"></i>En iyi seri</div><div class="v">${S.best}</div><div class="s">Şu an ${S.streak} doğru üst üste</div></div>
+  <div class="card glass stat"><div class="k"><i data-lucide="flame"></i>En iyi seri</div><div class="v"><span data-count="${S.best}">${S.best}</span></div><div class="s">Şu an ${S.streak} doğru üst üste</div></div>
  </div>
  <div class="sec-h"><div><h2>Dersler</h2><p class="mute" style="margin:4px 0 0">Bir ders seç, kaldığın yerden devam et.</p></div></div>
  <div class="grid g3">${Object.keys(CN).map(c=>{const s=courseStat(c),p=Math.round(s.solved/s.tot*100);return `
@@ -392,7 +417,7 @@ function home(){
   <div class="row"><button class="btn sm" id="bexp"><i data-lucide="share-2"></i>İlerlemeyi aktar</button><button class="btn sm danger" id="breset"><i data-lucide="rotate-ccw"></i>Sıfırla</button></div>
  </div></div>
  </div>`;
- icons();requestAnimationFrame(()=>document.querySelectorAll('.bar i[data-w]').forEach(b=>b.style.width=b.dataset.w+'%'));
+ icons(app);countUp(app);requestAnimationFrame(()=>document.querySelectorAll('.bar i[data-w]').forEach(b=>b.style.width=b.dataset.w+'%'));
  $('#edate').onchange=e=>{if(e.target.value){S.examDate=e.target.value;save();tick()}};
  $('#bexp').onclick=transfer;$('#breset').onclick=resetAsk;
  clearInterval(cdT);tick();cdT=setInterval(()=>{if(PAGE==='home')tick();else clearInterval(cdT)},30000);
@@ -431,41 +456,48 @@ function quizHead(){return `<div class="row" style="justify-content:space-betwee
  <div class="filters" style="margin-top:8px">${MODES.map(([k,t])=>`<button class="fb ${QF.m===k?'on':''}" data-qm="${k}">${t}<span class="n">${pool(QF.c,k).length}</span></button>`).join('')}</div>`}
 function bindQuizHead(){document.querySelectorAll('[data-qc]').forEach(b=>b.onclick=()=>{QF.c=b.dataset.qc;startQuiz()});
  document.querySelectorAll('[data-qm]').forEach(b=>b.onclick=()=>{QF.m=b.dataset.qm;startQuiz()});$('#qsh').onclick=startQuiz}
-function renderQuiz(){
- if(!QZ.set.length){app.innerHTML=`<div class="page qwrap">${quizHead()}<div class="card glass empty" style="margin-top:16px"><span class="ci" style="background:var(--okbg);color:var(--ok)"><i data-lucide="party-popper"></i></span><h3>Bu filtrede soru yok</h3><p class="mute">${QF.m==='wrong'?'Yanlış listen boş, harika!':QF.m==='star'?'Yıldızladığın soru yok. Soru kartındaki yıldıza bas.':QF.m==='new'?'Bu dersin tüm sorularını gördün.':'Başka bir filtre seç.'}</p></div></div>`;icons();bindQuizHead();return}
+function emptyQuiz(){app.innerHTML=`<div class="page qwrap">${quizHead()}<div class="card glass empty" style="margin-top:16px"><span class="ci" style="background:var(--okbg);color:var(--ok)"><i data-lucide="party-popper"></i></span><h3>Bu filtrede soru yok</h3><p class="mute">${QF.m==='wrong'?'Yanlış listen boş, harika!':QF.m==='star'?'Yıldızladığın soru yok. Soru kartındaki yıldıza bas.':QF.m==='new'?'Bu dersin tüm sorularını gördün.':'Başka bir filtre seç.'}</p></div></div>`;icons(app);bindQuizHead()}
+function renderQuiz(dir){
+ if(!QZ.set.length)return emptyQuiz();
  if(QZ.done)return quizSummary();
+ // kabuk (filtreler + ilerleme) bir kez çizilir; soru değişince sadece kart değişir
+ if(!$('#qslot')||QZ.shell!==QZ){QZ.shell=QZ;
+  app.innerHTML=`<div class="page qwrap">${quizHead()}
+  <div class="row" style="justify-content:space-between;margin-top:18px;font-size:13px;font-weight:700"><span class="mute">${MODES.find(m=>m[0]===QF.m)[1]}</span><span id="qcnt"></span></div>
+  <div class="prog" style="margin-top:8px"><i id="qprog" style="width:0"></i></div><div id="qslot"></div></div>`;
+  icons(app);bindQuizHead()}
  const q=QZ.set[QZ.i],n=QZ.set.length,a=QZ.ans[q.id];
  if(!q._ord)q._ord=shuffle(q.o.map((t,k)=>k));
- app.innerHTML=`<div class="page qwrap">${quizHead()}
- <div class="row" style="justify-content:space-between;margin-top:18px;font-size:13px;font-weight:700"><span class="mute">${MODES.find(m=>m[0]===QF.m)[1]}</span><span>${QZ.i+1} / ${n}</span></div>
- <div class="prog" style="margin-top:8px"><i style="width:${(Object.keys(QZ.ans).length)/n*100}%"></i></div>
- <section class="card glass qcard enter c-${q.c}">
+ $('#qcnt').textContent=(QZ.i+1)+' / '+n;
+ requestAnimationFrame(()=>{$('#qprog').style.width=Object.keys(QZ.ans).length/n*100+'%'});
+ const slot=$('#qslot');
+ slot.innerHTML=`<section class="card glass qcard ${dir===-1?'slot-back':'slot-in'} c-${q.c}">
   <div class="row" style="justify-content:space-between"><div class="row" style="gap:6px"><span class="tag">${CS[q.c]}</span>${q.x?`<span class="tag hot"><i data-lucide="flame"></i>Sınavda ${q.x>1?q.x+' kez ':''}çıktı</span>`:''}${S.wrong[q.id]?'<span class="tag bad"><i data-lucide="rotate-ccw"></i>Yanlışlarımda</span>':''}</div>
   <button class="ib star ${S.star[q.id]?'on':''}" id="star" aria-label="Yıldızla"><i data-lucide="star"></i></button></div>
   <p class="q">${esc(q.q)}</p>
-  <div>${q._ord.map((k,j)=>{let cl='';if(a!==undefined){cl=k===q.a?'ok':k===a?'bad':'dim'}return `<button class="opt ${cl}" data-k="${k}" ${a!==undefined?'disabled':''}><b>${'ABCDE'[j]}</b><span>${esc(q.o[k])}</span></button>`}).join('')}</div>
+  <div>${q._ord.map((k,j)=>{let cl='';if(a!==undefined){cl=k===q.a?'ok':k===a?'bad':'dim'}return `<button class="opt ${cl}" data-k="${k}" ${a!==undefined?'disabled':''} style="${a===undefined&&!reduced()?`animation:fadeIn .35s var(--ease) ${60+j*45}ms both`:''}"><b>${'ABCDE'[j]}</b><span>${esc(q.o[k])}</span></button>`}).join('')}</div>
   <div id="fbx">${a!==undefined?fbHtml(q,a):''}</div>
   <div class="qnav"><button class="btn" id="qprev" ${QZ.i===0?'disabled':''}><i data-lucide="arrow-left"></i>Önceki</button><button class="btn ${a!==undefined?'pri':''}" id="qnext">${QZ.i===n-1?'Bitir':'Sonraki'}<i data-lucide="arrow-right"></i></button></div>
- </section></div>`;
- icons();bindQuizHead();
- document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>quizAnswer(+b.dataset.k,b));
- $('#qprev').onclick=()=>{QZ.i--;renderQuiz()};$('#qnext').onclick=quizNext;
- $('#star').onclick=e=>{if(S.star[q.id])delete S.star[q.id];else S.star[q.id]=1;save();e.currentTarget.classList.toggle('on')};
+ </section>`;
+ icons(slot);
+ slot.querySelectorAll('.opt').forEach(b=>b.onclick=()=>quizAnswer(+b.dataset.k,b));
+ $('#qprev').onclick=()=>{QZ.i--;renderQuiz(-1)};$('#qnext').onclick=quizNext;
+ $('#star').onclick=e=>{const b=e.currentTarget;if(S.star[q.id])delete S.star[q.id];else S.star[q.id]=1;save();b.classList.toggle('on');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')};
 }
 function fbHtml(q,a){const ok=a===q.a;return `<div class="fbx ${ok?'ok':'bad'}"><h4><i data-lucide="${ok?'circle-check':'circle-x'}"></i>${ok?'Doğru!':'Yanlış'}</h4><p>${ok?'':`Doğru cevap: <b>${esc(q.o[q.a])}</b>${q.e?'<br>':''}`}${esc(q.e||'')}</p></div>`}
 function quizAnswer(k,btn){const q=QZ.set[QZ.i];if(QZ.ans[q.id]!==undefined)return;QZ.ans[q.id]=k;const ok=k===q.a;
- document.querySelectorAll('.opt').forEach(b=>{const j=+b.dataset.k;b.disabled=true;if(j===q.a)b.classList.add('ok');else if(j===k)b.classList.add('bad');else b.classList.add('dim')});
- record(q,ok);save();renderNav();
- $('#fbx').innerHTML=fbHtml(q,k);$('#qnext').classList.add('pri');$('.prog i').style.width=Object.keys(QZ.ans).length/QZ.set.length*100+'%';icons();
- if(ok){const r=btn.getBoundingClientRect();confetti(r.left+r.width/2,r.top+r.height/2)}else if(navigator.vibrate){try{navigator.vibrate(35)}catch(e){}}
+ document.querySelectorAll('#qslot .opt').forEach(b=>{const j=+b.dataset.k;b.disabled=true;b.style.animation='';if(j===q.a)b.classList.add('ok');else if(j===k)b.classList.add('bad');else b.classList.add('dim')});
+ record(q,ok);save();badges();
+ const f=$('#fbx');f.innerHTML=fbHtml(q,k);icons(f);$('#qnext').classList.add('pri');$('#qprog').style.width=Object.keys(QZ.ans).length/QZ.set.length*100+'%';
+ if(ok){const r=btn.getBoundingClientRect();confetti(r.left+r.width/2,r.top+r.height/2);floatXp(btn,10)}else if(navigator.vibrate){try{navigator.vibrate(35)}catch(e){}}
 }
-function quizNext(){if(QZ.i<QZ.set.length-1){QZ.i++;renderQuiz();const c=$('.qcard');if(c&&c.getBoundingClientRect().top<70)scrollTo({top:0,behavior:reduced()?'auto':'smooth'})}else{QZ.done=true;renderQuiz()}}
+function quizNext(){if(QZ.i<QZ.set.length-1){QZ.i++;renderQuiz(1);const c=$('#qslot');if(c&&c.getBoundingClientRect().top<70)scrollTo({top:Math.max(0,c.getBoundingClientRect().top+scrollY-140),behavior:reduced()?'auto':'smooth'})}else{QZ.done=true;renderQuiz()}}
 function quizSummary(){const ids=Object.keys(QZ.ans),ok=ids.filter(id=>QZ.ans[id]===BY[id].a).length,bad=ids.length-ok,rate=ids.length?Math.round(ok/ids.length*100):0;
  app.innerHTML=`<div class="page qwrap">${quizHead()}<section class="card glass qcard enter" style="text-align:center;padding:34px 22px">
  <span class="pill">Tur tamamlandı</span><div class="big" style="margin:16px 0 6px">%${rate}</div><p class="mute" style="margin:0 0 20px">${ids.length} sorudan ${ok} doğru</p>
  <div class="grid g3" style="max-width:480px;margin:0 auto 22px"><div class="card stat" style="background:var(--okbg);box-shadow:none"><div class="k" style="justify-content:center">Doğru</div><div class="v" style="color:var(--ok)">${ok}</div></div><div class="card stat" style="background:var(--badbg);box-shadow:none"><div class="k" style="justify-content:center">Yanlış</div><div class="v" style="color:var(--bad)">${bad}</div></div><div class="card stat" style="background:var(--panel2);box-shadow:none"><div class="k" style="justify-content:center">Boş</div><div class="v">${QZ.set.length-ids.length}</div></div></div>
  <div class="row" style="justify-content:center"><button class="btn pri" id="sa"><i data-lucide="rotate-cw"></i>Yeni tur</button>${bad?'<button class="btn" data-go="wrong"><i data-lucide="circle-x"></i>Yanlışlarıma git</button>':''}</div></section></div>`;
- icons();bindQuizHead();$('#sa').onclick=startQuiz;if(rate>=70)setTimeout(()=>confetti(innerWidth/2,innerHeight*.35),150)}
+ icons(app);bindQuizHead();$('#sa').onclick=startQuiz;if(rate>=70)setTimeout(()=>confetti(innerWidth/2,innerHeight*.35),150)}
 
 // ===================== SINAV =====================
 let EX=null,EXT=null;const EXS=[['HH',20,30],['MIY',20,30],['LOJ',20,30],['ALL',60,90]];let exScope='ALL';
@@ -480,10 +512,10 @@ function examPage(){if(EX&&EX.running)return examRun();EX=null;
 function examPick(c,n){const p=Q.filter(q=>q.c===c);const hot=shuffle(p.filter(q=>q.x>0)),rest=shuffle(p.filter(q=>!q.x));const k=Math.min(hot.length,Math.round(n*.65));return shuffle(hot.slice(0,k).concat(rest.slice(0,n-k)))}
 function examStart(){const sc=EXS.find(s=>s[0]===exScope);let set=exScope==='ALL'?['HH','MIY','LOJ'].flatMap(c=>examPick(c,20)):examPick(exScope,sc[1]);
  set=set.map(q=>({q,ord:shuffle(q.o.map((t,k)=>k))}));
- EX={scope:exScope,set,i:0,ans:{},flag:{},running:true,end:Date.now()+sc[2]*60000,start:Date.now(),dur:sc[2]*60};examRun()}
+ EX={fresh:true,scope:exScope,set,i:0,ans:{},flag:{},running:true,end:Date.now()+sc[2]*60000,start:Date.now(),dur:sc[2]*60};examRun()}
 function examRun(){const it=EX.set[EX.i],q=it.q,n=EX.set.length,a=EX.ans[EX.i],answered=Object.keys(EX.ans).length;
- app.innerHTML=`<div class="page"><div class="exam-g">
- <section class="card glass c-${q.c}">
+ app.innerHTML=`<div class="${EX.fresh?'page':''}"><div class="exam-g">
+ <section class="card glass slot-in c-${q.c}">
   <div class="row" style="justify-content:space-between"><div class="row" style="gap:6px"><span class="tag" style="background:var(--panel2);color:var(--ink)">Soru ${EX.i+1} / ${n}</span><span class="tag">${CS[q.c]}</span></div>
   <button class="btn sm ${EX.flag[EX.i]?'star on':''}" id="exf"><i data-lucide="flag"></i>${EX.flag[EX.i]?'İşaretli':'İşaretle'}</button></div>
   <p class="q">${esc(q.q)}</p>
@@ -492,22 +524,22 @@ function examRun(){const it=EX.set[EX.i],q=it.q,n=EX.set.length,a=EX.ans[EX.i],a
  </section>
  <aside class="card glass" style="position:sticky;top:90px">
   <div class="row" style="justify-content:space-between"><span class="mute" style="font-size:12.5px;font-weight:700">Kalan süre</span><span class="timer" id="tm">--:--</span></div>
-  <div class="row" style="justify-content:space-between;margin-top:10px;font-size:13px;font-weight:700"><span>${answered} cevaplandı</span><span class="mute">${n-answered} boş</span></div>
+  <div class="row" style="justify-content:space-between;margin-top:10px;font-size:13px;font-weight:700"><span id="exa">${answered} cevaplandı</span><span class="mute" id="exb">${n-answered} boş</span></div>
   <div class="pal">${EX.set.map((x,j)=>`<button data-j="${j}" class="${EX.ans[j]!==undefined?'ans':''} ${j===EX.i?'cur':''} ${EX.flag[j]?'flag':''}">${j+1}</button>`).join('')}</div>
   <div class="legend"><span><i style="background:rgba(99,102,241,.4)"></i>Cevaplı</span><span><i style="background:var(--gold)"></i>İşaretli</span></div>
   <button class="btn pri" id="exend" style="width:100%;margin-top:14px"><i data-lucide="flag-triangle-right"></i>Sınavı bitir</button>
  </aside></div></div>`;
  icons();
- document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{EX.ans[EX.i]=+b.dataset.k;examRun()});
+ document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{EX.ans[EX.i]=+b.dataset.k;document.querySelectorAll('.opt').forEach(o=>o.classList.toggle('sel',o===b));const pb=document.querySelector(`.pal button[data-j="${EX.i}"]`);if(pb)pb.classList.add('ans');const an=Object.keys(EX.ans).length;$('#exa').textContent=an+' cevaplandı';$('#exb').textContent=(EX.set.length-an)+' boş';$('#exc').disabled=false});
  document.querySelectorAll('.pal button').forEach(b=>b.onclick=()=>{EX.i=+b.dataset.j;examRun()});
  $('#exp').onclick=()=>{EX.i--;examRun()};$('#exn').onclick=()=>{if(EX.i<n-1){EX.i++;examRun()}};
  $('#exc').onclick=()=>{delete EX.ans[EX.i];examRun()};$('#exf').onclick=()=>{EX.flag[EX.i]=!EX.flag[EX.i];examRun()};
  $('#exend').onclick=()=>{const b=n-answered;const m=modal(`<h3>Sınav bitirilsin mi?</h3><p class="mute">${b?b+' boş sorun var. ':''}Bitirdikten sonra cevapları değiştiremezsin.</p><div class="row" style="justify-content:flex-end;margin-top:14px"><button class="btn sm" id="en">Devam et</button><button class="btn pri sm" id="ey">Bitir</button></div>`);m.querySelector('#en').onclick=()=>m.remove();m.querySelector('#ey').onclick=()=>{m.remove();examFinish()}};
- if(!EXT)EXT=setInterval(examTick,1000);examTick()}
+ EX.fresh=false;if(!EXT)EXT=setInterval(examTick,1000);examTick()}
 function examTick(){if(!EX||!EX.running){stopTimer();return}const s=Math.max(0,Math.round((EX.end-Date.now())/1000));const t=$('#tm');if(t){t.textContent=pad(Math.floor(s/60))+':'+pad(s%60);t.classList.toggle('low',s<300)}if(s<=0){examFinish();toast('Süre doldu')}}
 function examFinish(){stopTimer();EX.running=false;let ok=0,wr=0,bl=0;const by={};
- EX.set.forEach((it,j)=>{const a=EX.ans[j],c=it.q.c;by[c]=by[c]||{ok:0,n:0};by[c].n++;if(a===undefined){bl++;return}const g=a===it.q.a;if(g){ok++;by[c].ok++}else wr++;record(it.q,g)});
- const score=Math.round(ok/EX.set.length*100),sec=Math.round((Date.now()-EX.start)/1000);
+ EX.set.forEach((it,j)=>{const a=EX.ans[j],c=it.q.c;by[c]=by[c]||{ok:0,n:0};by[c].n++;if(a===undefined){bl++;return}const g=a===it.q.a;if(g){ok++;by[c].ok++}else wr++;record(it.q,g,5)});
+ const score=Math.round(ok/EX.set.length*100);if(score>=70)S.xp=(S.xp||0)+50;const sec=Math.round((Date.now()-EX.start)/1000);
  S.exams.push({at:Date.now(),scope:EX.scope,score,ok,wrong:wr,blank:bl,sec});if(S.exams.length>40)S.exams=S.exams.slice(-40);save();renderNav();
  app.innerHTML=`<div class="page" style="max-width:900px;margin:0 auto">
  <section class="card glass" style="text-align:center;padding:30px 22px"><span class="pill">${EX.scope==='ALL'?'Karma deneme':CN[EX.scope]} sonucu</span>
@@ -563,9 +595,9 @@ function wrongPage(){const ids=Object.keys(S.wrong).filter(id=>BY[id]&&(WF==='al
 
 // ===================== EFEKT =====================
 const fx=$('#fx'),fctx=fx.getContext('2d');let parts=[],fxRun=false;
-function confetti(x,y){if(reduced())return;const dpr=devicePixelRatio||1;fx.width=innerWidth*dpr;fx.height=innerHeight*dpr;fctx.setTransform(dpr,0,0,dpr,0,0);
+function confetti(x,y){if(reduced())return;const dpr=Math.min(2,devicePixelRatio||1);if(fx.width!==Math.round(innerWidth*dpr)||fx.height!==Math.round(innerHeight*dpr)){fx.width=Math.round(innerWidth*dpr);fx.height=Math.round(innerHeight*dpr)}fctx.setTransform(dpr,0,0,dpr,0,0);
  const cols=['#34D399','#38BDF8','#818CF8','#FBBF24'];
- for(let i=0;i<34;i++){const a=-Math.PI/2+(Math.random()-.5)*Math.PI*1.1,v=4+Math.random()*5;parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,r:2+Math.random()*3,c:cols[i%4],life:1,rot:Math.random()*6})}
+ for(let i=0,N=innerWidth<700?22:34;i<N;i++){const a=-Math.PI/2+(Math.random()-.5)*Math.PI*1.1,v=4+Math.random()*5;parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,r:2+Math.random()*3,c:cols[i%4],life:1,rot:Math.random()*6})}
  if(!fxRun){fxRun=true;requestAnimationFrame(ft)}}
 function ft(){fctx.clearRect(0,0,fx.width,fx.height);parts=parts.filter(p=>p.life>0);parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.22;p.vx*=.985;p.life-=.018;p.rot+=.15;fctx.globalAlpha=Math.max(0,p.life);fctx.fillStyle=p.c;fctx.save();fctx.translate(p.x,p.y);fctx.rotate(p.rot);fctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);fctx.restore()});fctx.globalAlpha=1;if(parts.length)requestAnimationFrame(ft);else fxRun=false}
 
