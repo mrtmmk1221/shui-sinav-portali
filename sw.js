@@ -2,7 +2,7 @@
    Uygulama dosyaları önbellekten gelir; sorular.json önce internetten denenir,
    bağlantı yoksa son kaydedilen kopya kullanılır.
    Uygulama dosyalarını değiştirdiğinde SURUM değerini artır. */
-const SURUM = 'shui-v3';
+const SURUM = 'shui-v4';
 const DOSYALAR = ['./', 'index.html', 'style.css', 'app.js', 'sorular.json', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png',
   'gorseller/hh-trafik-3.webp', 'gorseller/hh-trafik-6.webp', 'gorseller/loj-depo-ayristirma.webp', 'gorseller/loj-depo-birlestirme.webp', 'gorseller/loj-depo-karisim.webp', 'gorseller/loj-montaj-tablo.webp', 'gorseller/loj-ts-tablo.webp'];
 
@@ -41,8 +41,10 @@ self.addEventListener('fetch', e => {
   // Ağ önce: sorular ve sayfanın kendisi (güncel kalsın), olmazsa önbellek
   const agOnce = req.mode === 'navigate' || req.url.endsWith('sorular.json') || req.url.endsWith('app.js') || req.url.endsWith('style.css');
   if (agOnce) {
+    // Tarayıcı önbelleğini atla: güncellemeler hemen gelsin
+    const taze = req.mode === 'navigate' ? new Request(req.url, { cache: 'no-cache', credentials: 'same-origin' }) : new Request(req, { cache: 'no-cache' });
     e.respondWith(
-      fetch(req)
+      fetch(taze)
         .then(res => { const kopya = res.clone(); caches.open(SURUM).then(c => c.put(req, kopya)); return res; })
         .catch(() => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match('index.html')))
     );
