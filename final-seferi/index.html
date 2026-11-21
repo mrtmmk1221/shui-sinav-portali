@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SHUİ Akademi</title>
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#0B1120">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="SHUİ Akademi">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
@@ -362,7 +363,7 @@ function adopt(rem){S=Object.assign(blank(),rem);Object.keys(S.wrong).forEach(id
 
 // ===================== TEMA =====================
 const TK='shuiAkademi.theme';
-function theme(t){document.documentElement.setAttribute('data-theme',t);$('#theme').innerHTML=`<i data-lucide="${t==='dark'?'sun':'moon'}"></i>`;icons()}
+function theme(t){document.documentElement.setAttribute('data-theme',t);let m=document.querySelector('meta[name=theme-color]');if(!m){m=document.createElement('meta');m.name='theme-color';document.head.appendChild(m)}m.content=t==='dark'?'#111827':'#FFFFFF';$('#theme').innerHTML=`<i data-lucide="${t==='dark'?'sun':'moon'}"></i>`;icons()}
 let TH='dark';try{TH=localStorage.getItem(TK)||'dark'}catch(e){}
 theme(TH);
 $('#theme').onclick=()=>{TH=TH==='dark'?'light':'dark';try{localStorage.setItem(TK,TH)}catch(e){}theme(TH)};
