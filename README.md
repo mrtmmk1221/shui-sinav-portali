@@ -25,6 +25,13 @@ soru-bankasi/
 
 Telefona ayrı bir uygulama olarak kurulabilir ve internetsiz çalışır.
 
+### Android uygulaması
+
+**İndir:** https://github.com/mrtmmk1221/shui-sinav-portali/releases/latest/download/SHUI-Akademi.apk
+
+`final-seferi/` her güncellendiğinde GitHub Actions uygulamayı `mobile/` klasöründeki Capacitor projesiyle otomatik derler ve Releases'e yeni APK koyar.
+
+
 ## Telefona uygulama olarak kurma
 
 - **Android (Chrome):** siteyi aç → üstteki **⬇ Uygulamayı yükle** butonuna bas (görünmüyorsa Chrome menüsü → *Ana ekrana ekle* / *Uygulamayı yükle*).

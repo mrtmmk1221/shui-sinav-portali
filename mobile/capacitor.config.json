@@ -1,0 +1,10 @@
+{
+  "appId": "com.mrtmmk.shuiakademi",
+  "appName": "SHUİ Akademi",
+  "webDir": "www",
+  "backgroundColor": "#FFFFFF",
+  "android": { "allowMixedContent": false },
+  "plugins": {
+    "StatusBar": { "overlaysWebView": false, "backgroundColor": "#FFFFFF", "style": "LIGHT" }
+  }
+}

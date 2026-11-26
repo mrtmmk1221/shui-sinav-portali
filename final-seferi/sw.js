@@ -1,5 +1,5 @@
 // SHUİ Akademi service worker: çevrimdışı çalışır, internet varken hep en yeni sürümü getirir.
-const V='fs-v10';
+const V='fs-v12';
 const CORE=['./','./index.html','./questions.json','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(CORE.map(u=>new Request(u,{cache:'reload'})))).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
